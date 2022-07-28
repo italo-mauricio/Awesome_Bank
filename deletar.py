@@ -1,0 +1,6 @@
+
+
+
+
+def deletar():
+    print("oi")
