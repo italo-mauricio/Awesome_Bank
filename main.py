@@ -1,4 +1,4 @@
-from cadastro import *
+from cadacliente import *
 import saque
 import deletar
 import relatorio
@@ -20,7 +20,7 @@ def menu():
         opcao = input("Escolha a sua opção: ")
 
         if opcao == "1":
-            cadastrobanco()
+            regcliente()
         elif opcao == "2":
             saque()
         elif opcao == "3":
@@ -34,7 +34,7 @@ def menu():
 
 
 menu()
-        
+    
 
 
 
