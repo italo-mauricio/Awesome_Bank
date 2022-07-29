@@ -1,4 +1,4 @@
-#Essa função serve para validar o CPF do cliente.
+import re #Essa função serve para validar o CPF do cliente.
 def cadastrocpf(cpf):
     # fLAVIUS, RETIRAMOS ESSA VALIDAÇÃO DA INTERNET, NÃO CONSEGUI ACHAR O LINK
     # NÃO CONSEGUIMOS DESENVOLVER O VALIDADOR DE CPF
@@ -92,6 +92,11 @@ def validnum(num): # Validação de números, para usar no programa principal
     else:
         return False
 
-           
+
+
+
+        
+
+            
                 
     

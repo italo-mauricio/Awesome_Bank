@@ -1,6 +1,7 @@
 from validacoes import *
 import pickle
 import os
+from time import sleep
 
 
 def regcliente():
@@ -83,50 +84,73 @@ def cadastrobanco():
     complemento = input("Informe um complemento (opcional): ")
     listaclientes.append(complemento)
     while True:
-        cpf = input('Informe um CPF válido: ')
+        cpf = input("Digite um CPF válido: ")
         if cadastrocpf(cpf):
             if cpf not in diciclientes:
-                diciclientes[cpf] = listaclientes
+                listaclientes.append(cpf)
+                break
+            else:
+                print('CPF já cadastrado!')
+        else:
+            print("CPF inválido!")
+    while True:
+        senha = input('Escolha um senha numérica de qualquer tamanho: ')
+        if validnum(senha):
+            if senha not in diciclientes:
+                diciclientes[senha] = listaclientes
                 print("Parabéns, agora você faz parte do time!")
                 gravclientes(diciclientes)
                 break
             else:
-                print("CPF já cadastrado!")
+                print("Senha já cadastrada!")
         else:
-            print("CPF inválido!")
+            print("Senha inválida!")
     input('Aperte alguma tecla para continuar!')
 
 
 def visucada():
     os.system("cls")
-    print("=="*30)
-    print(''' =======================================================
+    print("=="*50)
+    print(''' 
     | ---------------- Vamos visualizar os seus dados cadastrados! ----------------------- |
     | ------- Se você estiver cadastrado no sistema, poderá consultar seus dados! -------- |
     | ==================================================================================== |
-    
-    ''')
+            ''')
+    print("=="*50)
     while True:
-        cpf = ' '
-        cpf = input("Digite o seu CPF: ")
-        if cadastrocpf(cpf):
-            if cpf in diciclientes:
+        senha = ' '
+        senha = input("Digite o seu CPF: ")
+        if validnum(senha):
+            if senha in diciclientes:
                 print("Usuário encontrado!")
-                print(diciclientes[cpf])
+                print(diciclientes[senha])
                 break
             else:
                 print("Usuário não encontrado!")
                 continuar = ' '
                 continuar = str(input('Deseja continuar [S/N]: ')).strip().upper()
-                if continuar == "S":
+                if continuar == "S".upper():
                     visucada()
-                elif continuar == "N":
+                elif continuar == "N".upper():
+                    print('Saindo...')
+                    sleep(2)
                     break
                 else:
                     print("Opção inválida!")
         else:
             print("CPF inválido!")
 
+
+def altedado():
+    print("=="*50)
+    print(''' 
+    | -------------------  Vamos alterar os seus dados cadastrados! ----------------------- |
+    | ------- Se você estiver cadastrado no sistema, poderá alterar os seus dados! -------- |
+    | ===================================================================================== |
+            ''')
+    print("=="*50)
+    while True:
+        senha = input("Digite a senha cadastrado no sistema")
         
 
      
