@@ -6,6 +6,7 @@ import relatorio
 
 #=========================== Simulador de Caixa Eletrônico ===============================#
 def menu():
+    os.system("cls")
     while True:
         opcao = ' '
         print(''' =======================================

@@ -5,9 +5,11 @@ from time import sleep
 
 
 def regcliente():
+    os.system("cls")
     while True:
             print("=="*39)
-            print('''| ----------- Bem vindos ao menu cadastro! ------------------- |
+            
+            print('''    | ------------- Bem vindos ao menu cadastro! ------------------- |
     | ------------- Cadastrar novos clientes!          [1] --------- |
     | ------------- Visualizar dados dos clientes!     [2] --------- |
     | ------------- Alterar dados dos clientes!        [3] --------- |
@@ -15,6 +17,7 @@ def regcliente():
     | ------------- Voltar ao menu principal           [5] --------- |
     | ============================================================== |
             ''')
+            print("=="*39)
             cliente = ' '
             cliente = input("Escolha uma das opções: ")
 
@@ -25,7 +28,7 @@ def regcliente():
             elif cliente == "3":
                 altedado()
             elif cliente == "4":
-                print("oi")
+                delusu()
             elif cliente == "5":
                 break
             else:
@@ -57,12 +60,13 @@ diciclientes = listclient()
 def cadastrobanco():
     os.system("cls")
     listaclientes = []
-    print("=="*30)
-    print('''==================================================================
-    ==== Bem vindos ao cadastro de clientes na nossa agência de Caicó - RN ====
-    ========== Vamos lhe pedir alguns dados, será um processo rápido ==========
-    ===========================================================================
-    ''')
+    print("=="*50)
+    print(''' 
+    | ---------------------  Bem vindos ao cadastro de clientes! -------------------------- |
+    | ------- Se você ainda não estiver cadastrado, vamos fazer o seu cadastro! ----------- |
+    | ===================================================================================== |
+            ''')
+    print("=="*50)
     while True:
         nome = input('Digite o seu nome: ')
         if validstring(nome):
@@ -211,7 +215,24 @@ def delusu():
     | ===================================================================================== |
             ''')
     print("=="*50)
-
+    while True:
+        print("Vamos deletar o seu usuário!")
+        cliente = input("Digite a senha cadastrada: ")
+        if cliente not in diciclientes:
+            print("Usuário não encontrado!")
+            continuar = input("Deseja continuar: [S/N] ")
+            if continuar == 'S':
+                delusu()
+            elif continuar == 'N':
+                regcliente()
+            else:
+                print('Opção inválida!')
+        else:
+            print("Usuário encontrado!")
+            del diciclientes[cliente]
+            print("Usuário deletado com sucesso!")
+            gravclientes(diciclientes)
+            break
 
                 
            
