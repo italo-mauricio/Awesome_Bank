@@ -154,7 +154,7 @@ def altedado():
         if validnum(senha):
             print("Usuário encontrado no sistema!")
             alterar = ' '
-            alterar = input("Qual dado você quer alterar do seu cadastro: ")
+            alterar = input("Qual dado você quer alterar do seu cadastro: ").upper().strip()
             if alterar == "nome":
                 novo_nome = input("Digite seu novo nome: ")
                 diciclientes[senha][0] = novo_nome
@@ -166,11 +166,44 @@ def altedado():
                 if validemail(novo_email):
                     diciclientes[senha][1] = novo_email
                     print("Email alterado com sucesso!")
+                    gravclientes(diciclientes)
                     break
                 else:
                     print("Email inválido!")
             if alterar == "endereco":
                 novo_endereco = input("Digite seu novo endereço: ")
+                diciclientes[senha][2] = novo_endereco
+                print("Endereço atualizado com sucesso!")
+                gravclientes(diciclientes)
+                break
+            if alterar == "opicional":
+                novo_opcional = input("Digite seu novo endereço opcional: ")
+                diciclientes[senha][3] = novo_opcional
+                print("Endereço opcional atualizado com sucesso!")
+                gravclientes(diciclientes)
+                break
+            if alterar == "cpf":
+                novo_cpf = input("Digite seu novo CPF: ")
+                if cadastrocpf(novo_cpf):
+                    diciclientes[senha][4] = novo_cpf
+                    print("CPF atualizado com sucesso!")
+                    gravclientes(diciclientes)
+                    break
+                else:
+                    print("CPF inválido!")
+            if alterar == "senha":
+                nova_senha = input("Digite sua nova senha: ")
+                if validnum(nova_senha):
+                    diciclientes[senha] = nova_senha
+                    print('Senha atualizada com sucesso!')
+                    gravclientes(diciclientes)
+                    break
+                else:
+                    print("Senha inválida!")
+            else:
+                print("Opção inválida!")
+
+                
            
 
         
