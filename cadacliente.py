@@ -7,15 +7,13 @@ from time import sleep
 def regcliente():
     while True:
             print("=="*39)
-            print('''=======================================
-            ============ Menu Cadastro =====================
-            ========= Cadastro cliente         [1] ===========
-            ========= Visualizar seus dados!   [2] ===========
-            ========= Alterar seus dados!      [3] ===========
-            ========= Deletar seus dados!      [4] ===========
-            ========= Voltar ao menu principal [5] ===========
-            ================================================
-
+            print('''| ----------- Bem vindos ao menu cadastro! ------------------- |
+    | ------------- Cadastrar novos clientes!          [1] --------- |
+    | ------------- Visualizar dados dos clientes!     [2] --------- |
+    | ------------- Alterar dados dos clientes!        [3] --------- |
+    | ------------- Deletar dados dos clientes!        [4] --------- |
+    | ------------- Voltar ao menu principal           [5] --------- |
+    | ============================================================== |
             ''')
             cliente = ' '
             cliente = input("Escolha uma das opções: ")
@@ -142,6 +140,7 @@ def visucada():
 
 
 def altedado():
+    os.system("cls")
     print("=="*50)
     print(''' 
     | -------------------  Vamos alterar os seus dados cadastrados! ----------------------- |
@@ -150,18 +149,18 @@ def altedado():
             ''')
     print("=="*50)
     while True:
-        senha = input("Digite a senha cadastrado no sistema")
+        senha = input("Digite a senha cadastrado no sistema: ")
         if validnum(senha):
             print("Usuário encontrado no sistema!")
             alterar = ' '
             alterar = input("Qual dado você quer alterar do seu cadastro: ").upper().strip()
-            if alterar == "nome":
+            if alterar == "nome".strip().upper():
                 novo_nome = input("Digite seu novo nome: ")
                 diciclientes[senha][0] = novo_nome
                 print('Nome alterado com sucesso!')
                 gravclientes(diciclientes)
                 break
-            if alterar == "email":
+            if alterar == "email".strip().upper():
                 novo_email = input("Digite seu novo email: ")
                 if validemail(novo_email):
                     diciclientes[senha][1] = novo_email
@@ -170,19 +169,19 @@ def altedado():
                     break
                 else:
                     print("Email inválido!")
-            if alterar == "endereco":
+            if alterar == "endereco".strip().upper():
                 novo_endereco = input("Digite seu novo endereço: ")
                 diciclientes[senha][2] = novo_endereco
                 print("Endereço atualizado com sucesso!")
                 gravclientes(diciclientes)
                 break
-            if alterar == "opicional":
+            if alterar == "opicional".strip().upper():
                 novo_opcional = input("Digite seu novo endereço opcional: ")
                 diciclientes[senha][3] = novo_opcional
                 print("Endereço opcional atualizado com sucesso!")
                 gravclientes(diciclientes)
                 break
-            if alterar == "cpf":
+            if alterar == "cpf".strip().upper():
                 novo_cpf = input("Digite seu novo CPF: ")
                 if cadastrocpf(novo_cpf):
                     diciclientes[senha][4] = novo_cpf
@@ -191,7 +190,7 @@ def altedado():
                     break
                 else:
                     print("CPF inválido!")
-            if alterar == "senha":
+            if alterar == "senha".strip().upper():
                 nova_senha = input("Digite sua nova senha: ")
                 if validnum(nova_senha):
                     diciclientes[senha] = nova_senha
@@ -202,6 +201,17 @@ def altedado():
                     print("Senha inválida!")
             else:
                 print("Opção inválida!")
+
+def delusu():
+    os.system("cls")
+    print("=="*50)
+    print(''' 
+    | -------------------  Vamos deletar os seus dados cadastrados! ----------------------- |
+    | ------- Se você estiver cadastrado no sistema, poderá deletar os seus dados! -------- |
+    | ===================================================================================== |
+            ''')
+    print("=="*50)
+
 
                 
            
