@@ -25,7 +25,7 @@ def regcliente():
             elif cliente == "2":
                 visucada()
             elif cliente == "3":
-                print("oi")
+                altedado()
             elif cliente == "4":
                 print("oi")
             elif cliente == "5":
@@ -119,7 +119,7 @@ def visucada():
     print("=="*50)
     while True:
         senha = ' '
-        senha = input("Digite o seu CPF: ")
+        senha = input("Digite sua senha: ")
         if validnum(senha):
             if senha in diciclientes:
                 print("Usuário encontrado!")
@@ -151,6 +151,28 @@ def altedado():
     print("=="*50)
     while True:
         senha = input("Digite a senha cadastrado no sistema")
+        if validnum(senha):
+            print("Usuário encontrado no sistema!")
+            alterar = ' '
+            alterar = input("Qual dado você quer alterar do seu cadastro: ")
+            if alterar == "nome":
+                novo_nome = input("Digite seu novo nome: ")
+                diciclientes[senha][0] = novo_nome
+                print('Nome alterado com sucesso!')
+                gravclientes(diciclientes)
+                break
+            if alterar == "email":
+                novo_email = input("Digite seu novo email: ")
+                if validemail(novo_email):
+                    diciclientes[senha][1] = novo_email
+                    print("Email alterado com sucesso!")
+                    break
+                else:
+                    print("Email inválido!")
+            if alterar == "endereco":
+                novo_endereco = input("Digite seu novo endereço: ")
+           
+
         
 
      
