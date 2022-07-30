@@ -1,16 +1,59 @@
 from cadacliente import *
 
+
+
+def menusaque():
+    print("=="*39)
+            
+    print('''    | ------------- Bem vindos ao gerencimanto financeiro! ------------------- |
+    | ------------- Depositar!          [1] --------- |
+    | ------------- Saque!    [2] --------- |
+    | ------------- Alterar dados dos clientes!        [3] --------- |
+    | ------------- Deletar dados dos clientes!        [4] --------- |
+    | ------------- Voltar ao menu principal           [5] --------- |
+    | ============================================================== |
+            ''')
+    print("=="*39)
+    usuario = ' '
+    usuario = input("Escolha uma opção: ")
+    if usuario == "1":
+        deposibanco()
+    elif usuario == "2":
+        saquebanco()
+
 dici = diciclientes
 
 dicicaixa = {}
+
+
+
+
 def deposibanco():
-     print("=="*50)
+    print("=="*50)
     print(''' 
     | ---------------------  Bem vindos ao depósito! -------------------------- |
     | ------- Se você está cadastrado no nosso sistema, poderá realizar seu depósito! ----------- |
     | ===================================================================================== |
             ''')
     print("=="*50)
+    while True:
+        senha = input("Digite a senha já cadastrada em nosso sistema: ")
+        if senha not in dici:
+            print("Usuário não cadastrado!")
+            break
+        else:
+            print("Usuário encontrado!")
+            print(dici[senha])
+            cliente = input("Digite o quanto você quer depositar: ")
+            if validnum(cliente):
+                dicicaixa[senha] = cliente
+                print('Valor depositado com sucesso!')
+                print(diciclientes[cliente])
+                gravclientes(diciclientes)
+                break
+            else:
+                print("Valor inválido!")
+
 
 
 

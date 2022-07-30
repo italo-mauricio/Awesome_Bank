@@ -23,7 +23,7 @@ def menu():
         if opcao == "1":
             regcliente()
         elif opcao == "2":
-            saque.saquebanco()
+            saque.menusaque()
         elif opcao == "3":
             deletar()
         elif opcao == "4":
