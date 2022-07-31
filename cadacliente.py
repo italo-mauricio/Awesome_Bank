@@ -122,7 +122,7 @@ def visucada():
     print("=="*50)
     while True:
         senha = ' '
-        senha = input("Digite sua senha: ")
+        senha = input("Digite o seu CPF: ")
         if validnum(senha):
             if senha in diciclientes:
                 print("Usuário encontrado!")
@@ -156,56 +156,54 @@ def altedado():
     while True:
         senha = input("Digite a senha cadastrado no sistema: ")
         if validnum(senha):
-            print("Usuário encontrado no sistema!")
-            alterar = ' '
-            alterar = input("Qual dado você quer alterar do seu cadastro: ").upper().strip()
-            if alterar == "nome".strip().upper():
-                novo_nome = input("Digite seu novo nome: ").strip()
-                diciclientes[senha][0] = novo_nome
-                print('Nome alterado com sucesso!')
-                gravclientes(diciclientes)
-                break
-            if alterar == "email".strip().upper():
-                novo_email = input("Digite seu novo email: ").strip()
-                if validemail(novo_email):
-                    diciclientes[senha][1] = novo_email
-                    print("Email alterado com sucesso!")
-                    gravclientes(diciclientes)
-                    break
-                else:
-                    print("Email inválido!")
-            if alterar == "endereco".strip().upper():
-                novo_endereco = input("Digite seu novo endereço: ").strip()
-                diciclientes[senha][2] = novo_endereco
-                print("Endereço atualizado com sucesso!")
-                gravclientes(diciclientes)
-                break
-            if alterar == "opicional".strip().upper():
-                novo_opcional = input("Digite seu novo endereço opcional: ").strip()
-                diciclientes[senha][3] = novo_opcional
-                print("Endereço opcional atualizado com sucesso!")
-                gravclientes(diciclientes)
-                break
-            if alterar == "cpf".strip().upper():
-                novo_cpf = input("Digite seu novo CPF: ").strip()
-                if cadastrocpf(novo_cpf):
-                    diciclientes[senha][5] = novo_cpf
-                    print("CPF atualizado com sucesso!")
-                    gravclientes(diciclientes)
-                    break
-                else:
-                    print("CPF inválido!")
-            if alterar == "senha".strip().upper():
-                nova_senha = input("Digite sua nova senha: ").strip()
-                if validnum(nova_senha):
-                    diciclientes[senha] = nova_senha
-                    print('Senha atualizada com sucesso!')
-                    gravclientes(diciclientes)
-                    break
-                else:
-                    print("Senha inválida!")
+            if senha not in diciclientes:
+                print('Usuário não encontrado!')
+                return False
             else:
-                print("Opção inválida!")
+                print("Usuário encontrado no sistema!")
+                alterar = ' '
+                alterar = input("Qual dado você quer alterar do seu cadastro: ").upper().strip()
+                if alterar == "nome".strip().upper():
+                    novo_nome = input("Digite seu novo nome: ").strip()
+                    diciclientes[senha][0] = novo_nome
+                    print('Nome alterado com sucesso!')
+                    gravclientes(diciclientes)
+                    break
+                if alterar == "email".strip().upper():
+                    novo_email = input("Digite seu novo email: ").strip()
+                    if validemail(novo_email):
+                        diciclientes[senha][1] = novo_email
+                        print("Email alterado com sucesso!")
+                        gravclientes(diciclientes)
+                        break
+                    else:
+                        print("Email inválido!")
+                if alterar == "endereco".strip().upper():
+                    novo_endereco = input("Digite seu novo endereço: ").strip()
+                    diciclientes[senha][2] = novo_endereco
+                    print("Endereço atualizado com sucesso!")
+                    gravclientes(diciclientes)
+                    break
+                if alterar == "opicional".strip().upper():
+                    novo_opcional = input("Digite seu novo endereço opcional: ").strip()
+                    diciclientes[senha][3] = novo_opcional
+                    print("Endereço opcional atualizado com sucesso!")
+                    gravclientes(diciclientes)
+                    break
+            
+                if alterar == "senha".strip().upper():
+                    nova_senha = input("Digite sua nova senha: ").strip()
+                    if validnum(nova_senha):
+                        diciclientes[senha][5] = nova_senha
+                        print('Senha atualizada com sucesso!')
+                        gravclientes(diciclientes)
+                        break
+                    else:
+                        print("Senha inválida!")
+                else:
+                    print("Opção inválida!")
+        else:
+            print("Opção inválida!")
 
 def delusu():
     os.system("cls")
