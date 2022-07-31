@@ -118,3 +118,9 @@ def saldo():
 
 
 
+def vantagens():
+    while True:
+        print('''
+        
+        
+        '')
