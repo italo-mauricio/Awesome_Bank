@@ -44,26 +44,25 @@ def deposibanco():
     print("=="*50)
     while True:
         senha = input("Digite a senha já cadastrada em nosso sistema: ")
-        if senha.isnumeric():
-            if senha not in dici:
+        if senha not in dici:
                 print("Usuário não cadastrado!")
                 break
-            else:
-                print("Usuário encontrado!")
-                print(dici[senha])
-                cliente = int(input("Digite o quanto você quer depositar: "))
-                soma = dici[senha][4] + cliente
-                dici[senha][4] = soma
-                print('Valor depositado com sucesso!')
-                
-                print(f"Você depositou R${cliente:.2f} em sua conta!")
-                gravclientes(diciclientes)
-                break
+        else:
+            print("Usuário encontrado!")
+            print(dici[senha])
+            cliente = int(input("Digite o quanto você quer depositar: "))
+            soma = dici[senha][4]
+            soma1 = soma + cliente
+            dici[senha][4] = soma1
+            print('Valor depositado com sucesso!')
+            
+            print(f"Você depositou R${cliente} em sua conta!")
+            gravclientes(diciclientes)
+            break
         
             
-                
-        else:
-            print("Senha apenas numérica!")
+   
+
 
 
 
@@ -86,8 +85,9 @@ def saquebanco():
             print("Cliente encontrado!")
             print(dici[cadastro])
             valor = int(input('Qual o valor você quer sacar da sua conta: '))
-            sub = dici[cadastro][4] - valor
-            dici[cadastro][4] = sub
+            sub = dici[cadastro][4]
+            sub1 = sub - valor 
+            dici[cadastro][4] = sub1
             print('Valor sacado com sucesso!')
             print(f"Você sacou R${valor:.2f}")
             gravclientes(diciclientes)

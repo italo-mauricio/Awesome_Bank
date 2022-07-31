@@ -101,7 +101,7 @@ def cadastrobanco():
         cpf = input("Digite um CPF válido: ").strip()
         if cadastrocpf(cpf):
             if cpf not in diciclientes:
-                diciclientes[cpf] = [nome, email, endereco, complemento, valores,senha]
+                diciclientes[cpf] = [nome, email, endereco, complemento, valores, senha]
                 print("Parabéns, vem vindo ao time!")
                 gravclientes(diciclientes)
                 break
