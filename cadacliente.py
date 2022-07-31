@@ -71,49 +71,44 @@ def cadastrobanco():
     while True:
         nome = input('Digite o seu nome: ').strip()
         if validstring(nome):
-            listaclientes.append(nome)
+            
             break
         else:
             print("Nome inválido!")
     while True:
         email = input("Digite um email válido: ").strip()
         if validemail(email):
-            listaclientes.append(email)
+        
             break
         else:
             print('Email inválido!')
     endereco = input("Informe o seu endereço: ").strip()
-    listaclientes.append(endereco)
+
     complemento = input("Informe um complemento (opcional): ").strip()
-    listaclientes.append(complemento)
+    
     valores = input("Confirme se você deseja reservar valor na sua conta: ").strip()
-    listaclientes.append(valores)
-    while True:
-        cpf = input("Digite um CPF válido: ").strip()
-        if cadastrocpf(cpf):
-            if cpf not in diciclientes:
-                print("CPF cadastrado com sucesso!")
-                break
-            else:
-                for cpf in range(len(diciclientes)):
-                    print(len(cpf))
-                    print("cpf já cadastrado!")
-        
-        else:
-            print("CPF inválido!")
     while True:
         senha = ' '
         senha = input('Escolha um senha numérica de qualquer tamanho: ').strip()
         if validnum(senha):
             if senha not in diciclientes:
-                diciclientes[senha] = listaclientes
-                print("Parabéns, agora você faz parte do time!")
-                gravclientes(diciclientes)
                 break
             else:
                 print("Senha já cadastrada!")
         else:
             print("Senha inválida!")
+    while True:
+        cpf = input("Digite um CPF válido: ").strip()
+        if cadastrocpf(cpf):
+            if cpf not in diciclientes:
+                diciclientes[cpf] = [nome, email, endereco, complemento, valores,senha]
+                print("Parabéns, vem vindo ao time!")
+                gravclientes(diciclientes)
+                break
+        else:
+            print("CPF inválido!")
+    
+
     input('Aperte alguma tecla para continuar!')
 
 def visucada():

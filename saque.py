@@ -44,7 +44,7 @@ def deposibanco():
     print("=="*50)
     while True:
         senha = input("Digite a senha já cadastrada em nosso sistema: ")
-        if senha.isdigit():
+        if senha.isnumeric():
             if senha not in dici:
                 print("Usuário não cadastrado!")
                 break
