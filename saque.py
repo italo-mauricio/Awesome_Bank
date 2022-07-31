@@ -6,13 +6,13 @@ def menusaque():
     os.system("cls")
     print("=="*39)
             
-    print('''    | ------------- Bem vindos ao gerencimanto financeiro! ------------------- |
+    print('''    | ------------- Bem vindos ao financeiro -------- |
     | ------------- Depositar!          [1] --------- |
-    | ------------- Saque!    [2] --------- |
-    | ------------- Alterar dados dos clientes!        [3] --------- |
-    | ------------- Deletar dados dos clientes!        [4] --------- |
-    | ------------- Voltar ao menu principal           [5] --------- |
-    | ============================================================== |
+    | ------------- Saque!              [2] --------- |
+    | ------------- Vantagens!          [3] --------- |
+    | ------------- Visualizar saldo    [4] --------- |
+    | ------------- Back main menu      [5] --------- |
+    | =============================================== |
             ''')
     print("=="*39)
     usuario = ' '
@@ -24,7 +24,7 @@ def menusaque():
 
 dici = diciclientes
 
-dicicaixa = {}
+
 
 
 
@@ -48,7 +48,6 @@ def deposibanco():
             print("Usuário encontrado!")
             print(dici[senha])
             cliente = int(input("Digite o quanto você quer depositar: "))
-            
             soma = dici[senha][4] + cliente
             dici[senha][4] = soma
             print('Valor depositado com sucesso!')
@@ -77,23 +76,14 @@ def saquebanco():
             break
         else:
             print("Cliente encontrado!")
+            print(dici[cadastro])
             valor = int(input('Qual o valor você quer sacar da sua conta: '))
-            cedula = 50
-            total = valor
-            cedt = 0
-            while True:
-                if total >= cedula:
-                    total -= cedula
-                    cedt +=1
-                else:
-                    print(f'Total de {cedt} céduas de R${cedula}')
-                    if cedula == 50:
-                        cedula = 20
-                    elif cedula == 20:
-                        cedula = 10
-                    elif cedula == 10:
-                        cedula = 1
-                    cedt = 0
-                    if total == 0:
-                        break
+            sub = dici[cadastro][4] - valor
+            dici[cadastro][4] = sub
+            print('Valor sacado com sucesso!')
+            print(f"Você sacou R${valor:.2f}")
+            gravclientes(diciclientes)
+            break
+            
+
       
