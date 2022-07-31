@@ -3,6 +3,7 @@ from cadacliente import *
 
 
 def menusaque():
+    os.system("cls")
     print("=="*39)
             
     print('''    | ------------- Bem vindos ao gerencimanto financeiro! ------------------- |
@@ -29,6 +30,7 @@ dicicaixa = {}
 
 
 def deposibanco():
+    os.system("cls")
     print("=="*50)
     print(''' 
     | ---------------------  Bem vindos ao depósito! -------------------------- |
@@ -37,6 +39,7 @@ def deposibanco():
             ''')
     print("=="*50)
     while True:
+        cont = 0
         senha = input("Digite a senha já cadastrada em nosso sistema: ")
         if senha not in dici:
             print("Usuário não cadastrado!")
@@ -44,20 +47,22 @@ def deposibanco():
         else:
             print("Usuário encontrado!")
             print(dici[senha])
-            cliente = input("Digite o quanto você quer depositar: ")
-            if validnum(cliente):
-                dicicaixa[senha] = cliente
-                print('Valor depositado com sucesso!')
-                print(diciclientes[cliente])
-                gravclientes(diciclientes)
-                break
-            else:
-                print("Valor inválido!")
+            cliente = int(input("Digite o quanto você quer depositar: "))
+            
+            soma = dici[senha][4] + cliente
+            dici[senha][4] = soma
+            print('Valor depositado com sucesso!')
+            
+            print(f"Você depositou R${cliente:.2f} em sua conta!")
+            gravclientes(diciclientes)
+            break
+        
 
 
 
 
 def saquebanco():
+    os.system("cls")
     print("=="*50)
     print(''' 
     | ---------------------  Bem vindos ao saque! -------------------------- |

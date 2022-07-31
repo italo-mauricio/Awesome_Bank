@@ -8,7 +8,7 @@ def regcliente():
     os.system("cls")
     while True:
             print("=="*39)
-            
+
             print('''    | ------------- Bem vindos ao menu cadastro! ------------------- |
     | ------------- Cadastrar novos clientes!          [1] --------- |
     | ------------- Visualizar dados dos clientes!     [2] --------- |
@@ -68,25 +68,27 @@ def cadastrobanco():
             ''')
     print("=="*50)
     while True:
-        nome = input('Digite o seu nome: ')
+        nome = input('Digite o seu nome: ').strip()
         if validstring(nome):
             listaclientes.append(nome)
             break
         else:
             print("Nome inválido!")
     while True:
-        email = input("Digite um email válido: ")
+        email = input("Digite um email válido: ").strip()
         if validemail(email):
             listaclientes.append(email)
             break
         else:
             print('Email inválido!')
-    endereco = input("Informe o seu endereço: ")
+    endereco = input("Informe o seu endereço: ").strip()
     listaclientes.append(endereco)
-    complemento = input("Informe um complemento (opcional): ")
+    complemento = input("Informe um complemento (opcional): ").strip()
     listaclientes.append(complemento)
+    valores = input("Confirme se você deseja reservar valor na sua conta: ").strip()
+    listaclientes.append(valores)
     while True:
-        cpf = input("Digite um CPF válido: ")
+        cpf = input("Digite um CPF válido: ").strip()
         if cadastrocpf(cpf):
             if cpf not in diciclientes:
                 listaclientes.append(cpf)
@@ -96,7 +98,8 @@ def cadastrobanco():
         else:
             print("CPF inválido!")
     while True:
-        senha = input('Escolha um senha numérica de qualquer tamanho: ')
+        senha = ' '
+        senha = input('Escolha um senha numérica de qualquer tamanho: ').strip()
         if validnum(senha):
             if senha not in diciclientes:
                 diciclientes[senha] = listaclientes
@@ -159,13 +162,13 @@ def altedado():
             alterar = ' '
             alterar = input("Qual dado você quer alterar do seu cadastro: ").upper().strip()
             if alterar == "nome".strip().upper():
-                novo_nome = input("Digite seu novo nome: ")
+                novo_nome = input("Digite seu novo nome: ").strip()
                 diciclientes[senha][0] = novo_nome
                 print('Nome alterado com sucesso!')
                 gravclientes(diciclientes)
                 break
             if alterar == "email".strip().upper():
-                novo_email = input("Digite seu novo email: ")
+                novo_email = input("Digite seu novo email: ").strip()
                 if validemail(novo_email):
                     diciclientes[senha][1] = novo_email
                     print("Email alterado com sucesso!")
@@ -174,28 +177,28 @@ def altedado():
                 else:
                     print("Email inválido!")
             if alterar == "endereco".strip().upper():
-                novo_endereco = input("Digite seu novo endereço: ")
+                novo_endereco = input("Digite seu novo endereço: ").strip()
                 diciclientes[senha][2] = novo_endereco
                 print("Endereço atualizado com sucesso!")
                 gravclientes(diciclientes)
                 break
             if alterar == "opicional".strip().upper():
-                novo_opcional = input("Digite seu novo endereço opcional: ")
+                novo_opcional = input("Digite seu novo endereço opcional: ").strip()
                 diciclientes[senha][3] = novo_opcional
                 print("Endereço opcional atualizado com sucesso!")
                 gravclientes(diciclientes)
                 break
             if alterar == "cpf".strip().upper():
-                novo_cpf = input("Digite seu novo CPF: ")
+                novo_cpf = input("Digite seu novo CPF: ").strip()
                 if cadastrocpf(novo_cpf):
-                    diciclientes[senha][4] = novo_cpf
+                    diciclientes[senha][5] = novo_cpf
                     print("CPF atualizado com sucesso!")
                     gravclientes(diciclientes)
                     break
                 else:
                     print("CPF inválido!")
             if alterar == "senha".strip().upper():
-                nova_senha = input("Digite sua nova senha: ")
+                nova_senha = input("Digite sua nova senha: ").strip()
                 if validnum(nova_senha):
                     diciclientes[senha] = nova_senha
                     print('Senha atualizada com sucesso!')
