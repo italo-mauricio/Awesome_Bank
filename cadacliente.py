@@ -1,3 +1,4 @@
+
 from validacoes import *
 import pickle
 import os
@@ -91,10 +92,13 @@ def cadastrobanco():
         cpf = input("Digite um CPF válido: ").strip()
         if cadastrocpf(cpf):
             if cpf not in diciclientes:
-                listaclientes.append(cpf)
+                print("CPF cadastrado com sucesso!")
                 break
             else:
-                print('CPF já cadastrado!')
+                for cpf in range(len(diciclientes)):
+                    print(len(cpf))
+                    print("cpf já cadastrado!")
+        
         else:
             print("CPF inválido!")
     while True:
@@ -111,7 +115,6 @@ def cadastrobanco():
         else:
             print("Senha inválida!")
     input('Aperte alguma tecla para continuar!')
-
 
 def visucada():
     os.system("cls")

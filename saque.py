@@ -21,6 +21,10 @@ def menusaque():
         deposibanco()
     elif usuario == "2":
         saquebanco()
+    elif usuario == "3":
+        pass
+    elif usuario == "4":
+        saldo()
 
 dici = diciclientes
 
@@ -39,23 +43,27 @@ def deposibanco():
             ''')
     print("=="*50)
     while True:
-        cont = 0
         senha = input("Digite a senha já cadastrada em nosso sistema: ")
-        if senha not in dici:
-            print("Usuário não cadastrado!")
-            break
-        else:
-            print("Usuário encontrado!")
-            print(dici[senha])
-            cliente = int(input("Digite o quanto você quer depositar: "))
-            soma = dici[senha][4] + cliente
-            dici[senha][4] = soma
-            print('Valor depositado com sucesso!')
-            
-            print(f"Você depositou R${cliente:.2f} em sua conta!")
-            gravclientes(diciclientes)
-            break
+        if senha.isdigit():
+            if senha not in dici:
+                print("Usuário não cadastrado!")
+                break
+            else:
+                print("Usuário encontrado!")
+                print(dici[senha])
+                cliente = int(input("Digite o quanto você quer depositar: "))
+                soma = dici[senha][4] + cliente
+                dici[senha][4] = soma
+                print('Valor depositado com sucesso!')
+                
+                print(f"Você depositou R${cliente:.2f} em sua conta!")
+                gravclientes(diciclientes)
+                break
         
+            
+                
+        else:
+            print("Senha apenas numérica!")
 
 
 
@@ -87,3 +95,26 @@ def saquebanco():
             
 
       
+def saldo():
+    os.system("cls")
+    print("=="*50)
+    print(''' 
+    | ---------------------  Bem vindos às vantagens! -------------------------- |
+    | ------- Se você está cadastrado no nosso sistema, poderá ver suas vantagens! ----------- |
+    | ===================================================================================== |
+            ''')
+    print("=="*50)
+    while True:
+        senha = input("Digite a senha de acesso: ")
+        if senha not in dici:
+            print('Usuário não encontrado!')
+            break
+        else:
+            print("Usuário encontrado!")
+            nome = dici[senha][0]
+            saldo = dici[senha][4]
+            print(f"Nome do usuário: {nome}")
+            print(f"seu saldo é de R${saldo}")
+
+
+
