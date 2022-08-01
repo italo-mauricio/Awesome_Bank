@@ -6,7 +6,9 @@ def menusaque():
     os.system("cls")
     print("=="*39)
             
-    print('''    | ------------- Bem vindos ao financeiro -------- |
+    print('''    
+    
+    | ------------- Bem vindos ao financeiro -------- |
     | ------------- Depositar!          [1] --------- |
     | ------------- Saque!              [2] --------- |
     | ------------- Vantagens!          [3] --------- |
@@ -22,7 +24,7 @@ def menusaque():
     elif usuario == "2":
         saquebanco()
     elif usuario == "3":
-        pass
+        vantagens()
     elif usuario == "4":
         saldo()
 
@@ -120,7 +122,18 @@ def saldo():
 
 def vantagens():
     while True:
-        print('''
-        
-        
-        '')
+        print(''' 
+        |======================================================================================|
+        |----------------------- Bem vindos às vantagens do BB --------------------------------|
+        |--------------------------------------------------------------------------------------|
+        |------- 1 - Nós temos as melhores taxas anuais para para empréstimos -----------------|
+        |------- 2 - Nós temos as melhores facilidades para você financiar a sua casa, --------|
+        |o seu carro, ou qualquer tipo de imóvel! ---------------------------------------------|
+        |------- 3 - Temos as melhores linhas de crédito para micro e pequeno empreendedor ----|
+        |------- 4 - Somente aqui no Banco do Brasil você consegue ter uma home broker, -------|
+        |totalmente personalizada para você que quer começar os seus investimentos! -----------|
+        |------- 5 - Então o que está esperando? venha logo fazer parte da família BB! --------|
+        |======================================================================================|
+        ''')
+        input("Aperte qualquer tecla para sair: ")
+        break
