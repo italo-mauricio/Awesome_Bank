@@ -18,7 +18,7 @@ def menusaque(): # De começo criei essa função para trazer o menu de opções
     | ---------- Visualizar saldo     [4] ------------ |
     | ---------- Back main menu       [5] ------------ |
     | ================================================ |
-            ''')
+         ''')
     print("=="*39)
     usuario = ' '
     usuario = input("Escolha uma opção: ") # aqui eu peço para o usuário escolher algumas das opções!
@@ -33,14 +33,17 @@ def menusaque(): # De começo criei essa função para trazer o menu de opções
     else: # Caso ele digite qualquer outra coisa, irá aparecer uma mensagem de opção inválida.
         print('Opção inválida!')
 
-dici = diciclientes
+dici = diciclientes # Criei essa variável para somente facilitar o manuseio do dicionário que está em outro módulo.
 
 
 
 
+# ---------------------------------------------- Funções do módulo -------------------------------------------------- #
+
+# =================================================================================================================== #
 
 
-def deposibanco():
+def deposibanco(): # Função para o depósito bancário!
     os.system("cls")
     print("=="*50)
     print(''' 
@@ -50,31 +53,28 @@ def deposibanco():
             ''')
     print("=="*50)
     while True:
-        senha = input("Digite a senha já cadastrada em nosso sistema: ")
-        if senha not in dici:
+        senha = input("Digite o CPF já cadastrado em nosso sistema: ") # Peço para o cliente digitar o CPF já cadastrado no sistema!
+        if senha not in dici: # Faço a verificação se ele consta ou não no sistema.
                 print("Usuário não cadastrado!")
-                break
+                break 
         else:
-            print("Usuário encontrado!")
+            print("Usuário encontrado!") # Se o usuário for encontrado, ele exibe o usuário vinculado ao CPF.
             print(dici[senha])
-            cliente = int(input("Digite o quanto você quer depositar: "))
-            soma = dici[senha][4]
-            soma1 = soma + cliente
-            dici[senha][4] = soma1
+            cliente = int(input("Digite o quanto você quer depositar: ")) # Peço para o cliente digitar o quanto ele quer depositar em sua conta.
+            soma = dici[senha][4] # Criei essa variável para facilitar o cáuculo com o dicionário
+            soma1 = soma + cliente # Aqui ele soma com o valor que o cliente quiser;
+            dici[senha][4] = soma1 # E adiciona o valor ao dicionário.
             print('Valor depositado com sucesso!')
-            
-            print(f"Você depositou R${cliente} em sua conta!")
-            gravclientes(diciclientes)
+            print(f"Você depositou R${cliente} em sua conta!") # Mostro na tela quanto foi depositado.
+            gravclientes(diciclientes) # Salvo no dicionário
             break
         
             
-   
+
+# =================================================================================================================== #
 
 
-
-
-
-def saquebanco():
+def saquebanco(): # Função para o saque em conta.
     os.system("cls")
     print("=="*50)
     print(''' 
