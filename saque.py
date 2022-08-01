@@ -1,3 +1,4 @@
+from asyncore import socket_map
 from cadacliente import *
 
 # ----------------------------------------- Bem vindos às funções financeiras ------------------------------------------#
@@ -35,7 +36,7 @@ def menusaque(): # De começo criei essa função para trazer o menu de opções
 
 dici = diciclientes # Criei essa variável para somente facilitar o manuseio do dicionário que está em outro módulo.
 
-
+dici2 = []
 
 
 # ---------------------------------------------- Funções do módulo -------------------------------------------------- #
@@ -59,14 +60,20 @@ def deposibanco(): # Função para o depósito bancário!
                 break 
         else:
             print("Usuário encontrado!") # Se o usuário for encontrado, ele exibe o usuário vinculado ao CPF.
-            print(dici[senha])
-            cliente = int(input("Digite o quanto você quer depositar: ")) # Peço para o cliente digitar o quanto ele quer depositar em sua conta.
-            soma = dici[senha][4] # Criei essa variável para facilitar o cáuculo com o dicionário
-            soma1 = soma + cliente # Aqui ele soma com o valor que o cliente quiser;
-            dici[senha][4] = soma1 # E adiciona o valor ao dicionário.
+            print(dici[senha][0])
+            for i in dici[senha][4]:
+                print(f"Você tem na sua conta o saldo de R${i}")
+            for i in range(len(dici[senha])):
+                i = dici[senha][4]
+
+              
+            cliente = int(input("Digite o quanto você quer depositar: "))
+            soma = i % cliente
+            soma1 = soma + cliente
+            dici[senha][4] = soma1
             print('Valor depositado com sucesso!')
             print(f"Você depositou R${cliente} em sua conta!") # Mostro na tela quanto foi depositado.
-            gravclientes(diciclientes) # Salvo no dicionário
+            gravclientes(dici) # Salvo no dicionário
             break
         
             
@@ -84,21 +91,24 @@ def saquebanco(): # Função para o saque em conta.
             ''')
     print("=="*50)
     while True:
-        cadastro = input("Digite a sua senha: ")
-        if cadastro not in dici:
+        cadastro = input("Digite o seu CPF: ") # Peço para o cliente inserir o CPF já cadastrado na conta.
+        if cadastro not in dici: # Faço a verificação se ele realmente está cadastrado
             print("Usuário não encontrado!")
             break
         else:
-            print("Cliente encontrado!")
+            print("Cliente encontrado!") # Se sim, exibo o cliente.
             print(dici[cadastro])
             valor = int(input('Qual o valor você quer sacar da sua conta: '))
-            sub = dici[cadastro][4]
-            sub1 = sub - valor 
-            dici[cadastro][4] = sub1
-            print('Valor sacado com sucesso!')
-            print(f"Você sacou R${valor:.2f}")
-            gravclientes(diciclientes)
-            break
+            if valor > 0: # Peço para ele adicionar o valor desejado para o saque
+                sub = dici[cadastro][4]
+                sub1 = sub - valor 
+                dici[cadastro][4] = sub1
+                print('Valor resgatado com sucesso!')
+                print(f"Você sacou R${valor:.2f}")
+                gravclientes(diciclientes)
+                break
+            else:
+                print("Você não tem saldo suficiente!")
             
 
       
@@ -122,6 +132,7 @@ def saldo():
             saldo = dici[senha][4]
             print(f"Nome do usuário: {nome}")
             print(f"seu saldo é de R${saldo}")
+            break
 
 
 

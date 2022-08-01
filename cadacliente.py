@@ -60,7 +60,7 @@ diciclientes = listclient()
 
 def cadastrobanco():
     os.system("cls")
-    listaclientes = []
+ 
     print("=="*50)
     print(''' 
     | ---------------------  Bem vindos ao cadastro de clientes! -------------------------- |
@@ -86,7 +86,8 @@ def cadastrobanco():
 
     complemento = input("Informe um complemento (opcional): ").strip()
     
-    valores = input("Confirme se você deseja reservar valor na sua conta: ").strip()
+    valores = input("Confirme se você deseja reservar valor na sua conta: ")
+    
     while True:
         senha = ' '
         senha = input('Escolha um senha numérica de qualquer tamanho: ').strip()
@@ -98,6 +99,7 @@ def cadastrobanco():
         else:
             print("Senha inválida!")
     while True:
+
         cpf = input("Digite um CPF válido: ").strip()
         if cadastrocpf(cpf):
             if cpf not in diciclientes:
