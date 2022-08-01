@@ -1,32 +1,37 @@
 from cadacliente import *
 
+# ----------------------------------------- Bem vindos às funções financeiras ------------------------------------------#
+# Nesta parte estão as funções de depósito em conta já cadastrada, saque, as vantagens de ser cliente BB, e o seu saldo!
+# Explicarei passo a passo como eu pensei o cóigo por completo
 
 
-def menusaque():
+def menusaque(): # De começo criei essa função para trazer o menu de opções
     os.system("cls")
     print("=="*39)
-            
-    print('''    
-    
-    | ------------- Bem vindos ao financeiro -------- |
-    | ------------- Depositar!          [1] --------- |
-    | ------------- Saque!              [2] --------- |
-    | ------------- Vantagens!          [3] --------- |
-    | ------------- Visualizar saldo    [4] --------- |
-    | ------------- Back main menu      [5] --------- |
-    | =============================================== |
+            # Neste menu estão linkadas todas as funções deste módulo
+    print(''' 
+    | ================================================ |
+    | ---------- Bem vindos ao financeiro ------------ |
+    | ---------- Depositar!           [1] ------------ |
+    | ---------- Saque!               [2] ------------ |
+    | ---------- Vantagens!           [3] ------------ |
+    | ---------- Visualizar saldo     [4] ------------ |
+    | ---------- Back main menu       [5] ------------ |
+    | ================================================ |
             ''')
     print("=="*39)
     usuario = ' '
-    usuario = input("Escolha uma opção: ")
-    if usuario == "1":
+    usuario = input("Escolha uma opção: ") # aqui eu peço para o usuário escolher algumas das opções!
+    if usuario == "1": # Se ele digitar 1, ele vai direto para a função de depósito bancário.
         deposibanco()
-    elif usuario == "2":
+    elif usuario == "2": # Se ele digitar 2, ele irá direto para a função de saque bancário.
         saquebanco()
-    elif usuario == "3":
+    elif usuario == "3": # Se ele digitar 3, vai aparecer na tela dele a função de vantagens.
         vantagens()
-    elif usuario == "4":
+    elif usuario == "4": # se ele digitar 4, vai poder acessar o saldo em sua conta.
         saldo()
+    else: # Caso ele digite qualquer outra coisa, irá aparecer uma mensagem de opção inválida.
+        print('Opção inválida!')
 
 dici = diciclientes
 
