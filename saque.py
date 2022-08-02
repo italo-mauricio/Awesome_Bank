@@ -36,7 +36,7 @@ def menusaque(): # De começo criei essa função para trazer o menu de opções
 
 dici = diciclientes # Criei essa variável para somente facilitar o manuseio do dicionário que está em outro módulo.
 
-dici2 = []
+dici2 = {}
 
 
 # ---------------------------------------------- Funções do módulo -------------------------------------------------- #
@@ -54,6 +54,7 @@ def deposibanco(): # Função para o depósito bancário!
             ''')
     print("=="*50)
     while True:
+        
         senha = input("Digite o CPF já cadastrado em nosso sistema: ") # Peço para o cliente digitar o CPF já cadastrado no sistema!
         if senha not in dici: # Faço a verificação se ele consta ou não no sistema.
                 print("Usuário não cadastrado!")
@@ -61,18 +62,14 @@ def deposibanco(): # Função para o depósito bancário!
         else:
             print("Usuário encontrado!") # Se o usuário for encontrado, ele exibe o usuário vinculado ao CPF.
             print(dici[senha][0])
-            for i in dici[senha][4]:
-                print(f"Você tem na sua conta o saldo de R${i}")
-            for i in range(len(dici[senha])):
-                i = dici[senha][4]
-
-              
-            cliente = int(input("Digite o quanto você quer depositar: "))
-            soma = i % cliente
-            soma1 = soma + cliente
-            dici[senha][4] = soma1
+            
+            valor = float(input("Digite o quanto você quer depositar: "))
+        
+        
+            dici[senha][4] += valor
+            print("valor novo " + str(dici[senha][4])) # AQUI ESTÁ O PROBLEMA FLAVIUS
             print('Valor depositado com sucesso!')
-            print(f"Você depositou R${cliente} em sua conta!") # Mostro na tela quanto foi depositado.
+            print(f"Você depositou R${valor} em sua conta!") # Mostro na tela quanto foi depositado.
             gravclientes(dici) # Salvo no dicionário
             break
         
