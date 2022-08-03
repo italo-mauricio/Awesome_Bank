@@ -14,8 +14,7 @@ def regcliente():
     | ------------- Cadastrar novos clientes!          [1] --------- |
     | ------------- Visualizar dados dos clientes!     [2] --------- |
     | ------------- Alterar dados dos clientes!        [3] --------- |
-    | ------------- Deletar dados dos clientes!        [4] --------- |
-    | ------------- Voltar ao menu principal           [5] --------- |
+    | ------------- Voltar ao menu principal           [4] --------- |
     | ============================================================== |
             ''')
             print("=="*39)
@@ -29,8 +28,6 @@ def regcliente():
             elif cliente == "3":
                 altedado()
             elif cliente == "4":
-                delusu()
-            elif cliente == "5":
                 break
             else:
                 print('Opção inválida!')            
@@ -213,36 +210,7 @@ def altedado(): # Função para alterar os dados.
 # ------------------------------------------------------------------------------------------------------- #
 
 
-def delusu(): # Função para deletar usuário
-    os.system("cls")
-    print("=="*50)
-    print(''' 
-    | -------------------  Vamos deletar os seus dados cadastrados! ----------------------- |
-    | ------- Se você estiver cadastrado no sistema, poderá deletar os seus dados! -------- |
-    | ===================================================================================== |
-            ''')
-    print("=="*50)
-    while True:
-        print("Vamos deletar o seu usuário!")
-        cpf = input("Digite o CPF cadastrada: ") # Peço o CPF cadastrado no sistema
-        if cadastrocpf(cpf): # Faço a validação
-            if cpf not in diciclientes: # Verifico se o mesmo se encontra no dicionário.
-                print("Usuário não encontrado!")
-                continuar = input("Deseja continuar: [S/N] ").strip().upper()
-                if continuar == 'S'.upper():
-                    delusu()
-                elif continuar == 'N'.upper():
-                    regcliente()
-                else:
-                    print('Opção inválida!')
-            else:
-                print("Usuário encontrado!")
-                del diciclientes[cpf]
-                print("Usuário deletado com sucesso!")
-                gravclientes(diciclientes)
-                break
-        else:
-            print('CPF inválido! ')
+
 
                 
            

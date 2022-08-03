@@ -1,7 +1,7 @@
 from cadacliente import *
 import saque
 import deletar
-import relatorio
+import dele
 
 
 #=========================== Simulador de Caixa Eletrônico ===============================#
@@ -27,7 +27,7 @@ def menu():
         elif opcao == "2":
             saque.menusaque()
         elif opcao == "3":
-            deletar()
+            dele.delusu()
         elif opcao == "4":
             print("Obrigado pela preferência!")
             break
