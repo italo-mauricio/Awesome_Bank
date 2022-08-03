@@ -61,11 +61,10 @@ def deposibanco(): # Função para o depósito bancário!
                 break 
         else:
             print("Usuário encontrado!") # Se o usuário for encontrado, ele exibe o usuário vinculado ao CPF.
-            print(dici[senha][0])
-            
-            valor = float(input("Digite o quanto você quer depositar: "))
-            dici[senha][4] += valor
-            print("valor novo " + str(dici[senha][4])) # AQUI ESTÁ O PROBLEMA FLAVIUS
+            print(dici[senha][0]) # Mando printar a posição nome do cliente
+            valor = float(input("Digite o quanto você quer depositar: ")) # Peço a quantia que ele quer depositar!
+            dici[senha][4] += valor # Faço a soma
+            print("valor novo " + str(dici[senha][4])) # Coloco o novo valor no dicionário
             print('Valor depositado com sucesso!')
             print(f"Você depositou R${valor} em sua conta!") # Mostro na tela quanto foi depositado.
             gravclientes(dici) # Salvo no dicionário
@@ -86,16 +85,16 @@ def saquebanco(): # Função para o saque em conta.
             ''')
     print("=="*50)
     while True:
-        cpf = input("Digite o seu CPF: ") # Peço para o cliente inserir o CPF já cadastrado na conta.
+        cpf = input("Digite o CPF já cadastrado em nosso sistema: ") # Peço para o cliente inserir o CPF já cadastrado na conta.
         if cpf not in dici: # Faço a verificação se ele realmente está cadastrado
             print("Usuário não encontrado!")
             break
         else:
             print("Cliente encontrado!") # Se sim, exibo o cliente.
             print(dici[cpf][0])
-            valor = float(input('Qual o valor você quer sacar da sua conta: '))
-            if valor > 0: # Peço para ele adicionar o valor desejado para o saque
-                dici[cpf][4]-= valor
+            valor = float(input('Qual o valor você quer sacar da sua conta: ')) # Peço para ele adicionar o valor desejado para o saque
+            if valor > 0: 
+                dici[cpf][4]-= valor # Faço a subtração
                 print('Valor resgatado com sucesso!')
                 print("valor novo " + str(dici[cpf][4]))
                 print(f"Você sacou R${valor:.2f}")
@@ -105,32 +104,36 @@ def saquebanco(): # Função para o saque em conta.
                 print("Você não tem saldo suficiente!")
             
 
+# =================================================================================================================== #
+
       
-def saldo():
+def saldo(): # Função para ver o saldo
     os.system("cls")
     print("=="*50)
     print(''' 
-    | ---------------------  Bem vindos às vantagens! -------------------------- |
-    | ------- Se você está cadastrado no nosso sistema, poderá ver suas vantagens! ----------- |
-    | ===================================================================================== |
+    | ----------------------------- Bem vindos ao saldo! -------------------------------- |
+    | ------- Se você está cadastrado no nosso sistema, poderá ver o seu saldo! --------- |
+    | =================================================================================== |
             ''')
     print("=="*50)
     while True:
-        senha = input("Digite a senha de acesso: ")
+        senha = input("Digite o CPF cadastrado!: ") # Peço para o cliente digitar o CPF cadastrado
         if senha not in dici:
             print('Usuário não encontrado!')
             break
         else:
             print("Usuário encontrado!")
-            nome = dici[senha][0]
-            saldo = dici[senha][4]
+            nome = dici[senha][0] # Peço o nome
+            saldo = dici[senha][4] # Peço o saldo
             print(f"Nome do usuário: {nome}")
             print(f"seu saldo é de R${saldo}")
             break
 
 
+# =================================================================================================================== #
 
-def vantagens():
+
+def vantagens(): # Função extra somente de print 
     os.system("cls")
     while True:
         print(''' 
