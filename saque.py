@@ -48,9 +48,9 @@ def deposibanco(): # Função para o depósito bancário!
     os.system("cls")
     print("=="*50)
     print(''' 
-    | ---------------------  Bem vindos ao depósito! -------------------------- |
-    | ------- Se você está cadastrado no nosso sistema, poderá realizar seu depósito! ----------- |
-    | ===================================================================================== |
+    | ----------------------------- Bem vindos ao depósito! ----------------------------- |
+    | ----- Se você está cadastrado no nosso sistema, poderá realizar seu depósito! ----- |
+    | =================================================================================== |
             ''')
     print("=="*50)
     while True:
@@ -64,8 +64,6 @@ def deposibanco(): # Função para o depósito bancário!
             print(dici[senha][0])
             
             valor = float(input("Digite o quanto você quer depositar: "))
-        
-        
             dici[senha][4] += valor
             print("valor novo " + str(dici[senha][4])) # AQUI ESTÁ O PROBLEMA FLAVIUS
             print('Valor depositado com sucesso!')
@@ -82,25 +80,24 @@ def saquebanco(): # Função para o saque em conta.
     os.system("cls")
     print("=="*50)
     print(''' 
-    | ---------------------  Bem vindos ao saque! -------------------------- |
-    | ------- Se você está cadastrado no nosso sistema, poderá realizar seu saque! ----------- |
-    | ===================================================================================== |
+    | ----------------------------- Bem vindos ao saque! -------------------------------- |
+    | ------- Se você está cadastrado no nosso sistema, poderá realizar seu saque! ------ |
+    | =================================================================================== |
             ''')
     print("=="*50)
     while True:
-        cadastro = input("Digite o seu CPF: ") # Peço para o cliente inserir o CPF já cadastrado na conta.
-        if cadastro not in dici: # Faço a verificação se ele realmente está cadastrado
+        cpf = input("Digite o seu CPF: ") # Peço para o cliente inserir o CPF já cadastrado na conta.
+        if cpf not in dici: # Faço a verificação se ele realmente está cadastrado
             print("Usuário não encontrado!")
             break
         else:
             print("Cliente encontrado!") # Se sim, exibo o cliente.
-            print(dici[cadastro])
-            valor = int(input('Qual o valor você quer sacar da sua conta: '))
+            print(dici[cpf][0])
+            valor = float(input('Qual o valor você quer sacar da sua conta: '))
             if valor > 0: # Peço para ele adicionar o valor desejado para o saque
-                sub = dici[cadastro][4]
-                sub1 = sub - valor 
-                dici[cadastro][4] = sub1
+                dici[cpf][4]-= valor
                 print('Valor resgatado com sucesso!')
+                print("valor novo " + str(dici[cpf][4]))
                 print(f"Você sacou R${valor:.2f}")
                 gravclientes(diciclientes)
                 break
@@ -134,6 +131,7 @@ def saldo():
 
 
 def vantagens():
+    os.system("cls")
     while True:
         print(''' 
         |======================================================================================|

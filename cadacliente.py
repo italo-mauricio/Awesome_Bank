@@ -85,12 +85,9 @@ def cadastrobanco():
     endereco = input("Informe o seu endereço: ").strip()
 
     complemento = input("Informe um complemento (opcional): ").strip()
-    while True:
-        valores = input("Quanto você espera depositar em sua conta?: ")
-        if validnum(valores):
-            break
-        else:
-            print('Apenas números')
+
+    valores = float(input("Quanto você espera depositar em sua conta?: "))
+        
     
     while True:
         senha = ' '
