@@ -13,11 +13,12 @@ def menusaque(): # De começo criei essa função para trazer o menu de opções
     print(''' 
     | ================================================ |
     | ---------- Bem vindos ao financeiro ------------ |
-    | ---------- Depositar!           [1] ------------ |
-    | ---------- Saque!               [2] ------------ |
-    | ---------- Vantagens!           [3] ------------ |
+    | ---------- Depositar            [1] ------------ |
+    | ---------- Saque                [2] ------------ |
+    | ---------- Vantagens            [3] ------------ |
     | ---------- Visualizar saldo     [4] ------------ |
-    | ---------- Back main menu       [5] ------------ |
+    | ---------- Extrato              [5] ------------ |
+    | ---------- Back main menu       [6] ------------ |
     | ================================================ |
          ''')
     print("=="*39)
@@ -31,6 +32,8 @@ def menusaque(): # De começo criei essa função para trazer o menu de opções
         vantagens()
     elif usuario == "4": # se ele digitar 4, vai poder acessar o saldo em sua conta.
         saldo()
+    elif usuario == "5": # se ele digitar 5, vai poder acessar o extrato completo da sua conta.
+        extrato()
     else: # Caso ele digite qualquer outra coisa, irá aparecer uma mensagem de opção inválida.
         print('Opção inválida!')
 
@@ -151,3 +154,6 @@ def vantagens(): # Função extra somente de print
         ''')
         input("Aperte qualquer tecla para sair: ")
         break
+
+def extrato(): # Função para o extrato
+    os.system("cls")
