@@ -157,3 +157,22 @@ def vantagens(): # Função extra somente de print
 
 def extrato(): # Função para o extrato
     os.system("cls")
+    print("=="*50)
+    print(''' 
+    | ----------------------------- Bem vindos ao seu extrato! ------------------------------------- |
+    | ------- Se você está cadastrado no nosso sistema, poderá ver o seu extrato bancário! --------- |
+    | ============================================================================================== |
+            ''')
+    print("=="*50)
+    cpf = ' '
+    while True:
+        cpf = input("Digite o CPF cadastrado!: ")
+        if cadastrocpf(cpf):
+            if cpf not in dici2:
+                print("Usuário não encontrado!")
+                break
+            else:
+                print("Uusário encontrado!")
+                print(dici2[cpf][0])
+        else:
+            print("CPF não cadastrado!") 
