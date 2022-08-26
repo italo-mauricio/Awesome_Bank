@@ -185,15 +185,11 @@ def extrato(): # Função para o extrato
                 |   CPF: {dici2[cpf][6]}                                                                    |
                 |                                                                                           |
                 | ========================================================================================= |
-                | Olá {dici2[cpf][0]} você tem R${dici2[cpf][4]} em sua conta bancária!           |
+                | Olá {dici2[cpf][0]} você tem R${dici2[cpf][4]} em sua conta bancária!                     |
                 | -------> Sua conta está segura e você pode fazer qualquer tipo de movimentação ---------- |
-
-                
-                
-                
-                
-                
+                | ========================================================================================= |
                 ''')
+                input("Deseja continuar visualizando o seu extrato: [S/N]")
 
         else:
             print("CPF não cadastrado!") 
