@@ -1,6 +1,13 @@
 import requests
 import os
 
+
+
+
+
+
+
+
 def cotacao():
     os.system('cls')
     url = 'https://economia.awesomeapi.com.br/all/USD-BRL'
