@@ -1,7 +1,7 @@
 from cadacliente import *
 import saque
-import deletar
 import dele
+import cotação 
 
 
 #=========================== Simulador de Caixa Eletrônico ===============================#
@@ -13,12 +13,13 @@ def menu():
         |===================================================================|
         |------------------------ Banco Do Brasil --------------------------|
         |===================================================================|
-        |----- [Cadastrar clientes =   (1)]  [Saque em conta =   (2)] ----- |
-        |-----                                                        ------|
-        |----- [Deletar conta =        (3)]  [Soir do sistema =  (4)] ----- |    
-        |===================================================================|
+        | ---- [Cadastrar clientes =   (1)]  [Saque em conta =   (2)] ----- |
+        | ----                                                        ----- |
+        | ---- [Deletar conta =        (3)]  [Consultar Cotação =  (4)] --- |
+        | ------------------- [ Sair do Sistema = (5) --------------------- |    
+        | ================================================================= |
         | ---------------   Obrigado pela preferência!   ------------------ |
-        |===================================================================|
+        | ================================================================= |
         ''')
         opcao = input("Escolha a sua opção: ")
 
@@ -29,6 +30,8 @@ def menu():
         elif opcao == "3":
             dele.delusu()
         elif opcao == "4":
+            cotação.cotacao()
+        elif opcao == "5":
             print("Obrigado pela preferência!")
             break
         else:
