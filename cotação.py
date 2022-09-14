@@ -39,10 +39,6 @@ def menucot():
 
 
 
-
-
-
-
 def dolar():
     os.system('cls')
     url = 'https://economia.awesomeapi.com.br/all/USD-BRL'
