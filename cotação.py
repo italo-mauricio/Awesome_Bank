@@ -1,5 +1,37 @@
 import requests
 import os
+from main import *
+
+
+def menucot():
+    while True:
+        os.system('cls')
+        print(f'''
+        | =================== Menu Cotações ==================== |
+        | ------------------------------------------------------ |
+        | -                  Consultar Dólar    1              - |
+        | -                  Consultar Euro     2              - | 
+        | -                  Consultar Libra    3              - |
+        | -                  Consultar Bitcoin  4              - |
+        | -                  Voltar pro Menu    5              - |
+        | ------------------------------------------------------ |
+        | ====================================================== |
+        ''')
+
+        opcao = ' '
+        
+        if opcao == '1':
+            dolar()
+        elif opcao == '2':
+            break
+        elif opcao == '3':
+            break
+        elif opcao == '4':
+            break
+        elif opcao == '5':
+            menu()
+        else:
+            print("Opção inválida!")
 
 
 
@@ -8,7 +40,10 @@ import os
 
 
 
-def cotacao():
+
+
+
+def dolar():
     os.system('cls')
     url = 'https://economia.awesomeapi.com.br/all/USD-BRL'
 
