@@ -4,6 +4,7 @@ import pickle
 import os
 from time import sleep
 from random import randint
+from extrato import extratoconta
 
 
 def regcliente():
@@ -26,7 +27,7 @@ def regcliente():
             if cliente == "1":
                 cadastrobanco()
             elif cliente == "2":
-                visucada()
+                extratoconta()
             elif cliente == "3":
                 altedado()
             elif cliente == "4":
@@ -115,37 +116,6 @@ def cadastrobanco(): # Função de cadastramento
 # ------------------------------------------------------------------------------------------------------- #
 
 
-def visucada(): # Função de visualizar clientes cadastrados.
-    os.system("cls")
-    print("=="*50)
-    print(''' 
-    | ---------------- Vamos visualizar os seus dados cadastrados! ----------------------- |
-    | ------- Se você estiver cadastrado no sistema, poderá consultar seus dados! -------- |
-    | ==================================================================================== |
-            ''')
-    print("=="*50)
-    while True:
-        cpf = ' '
-        cpf = input("Digite o seu CPF: ") # Peço o cpf do cliente
-        if cadastrocpf(cpf):
-            if cpf in diciclientes: # Faço a verificação.
-                print("Usuário encontrado!")
-                print(diciclientes[cpf]) # Mostro o usuário na posição pedida.
-                break
-            else:
-                print("Usuário não encontrado!")
-                continuar = ' '
-                continuar = str(input('Deseja continuar [S/N]: ')).strip().upper() # Pergunto se ele quer continuar caso não for encontrado
-                if continuar == "S".upper():
-                    visucada()
-                elif continuar == "N".upper():
-                    print('Saindo...')
-                    sleep(2)
-                    break
-                else:
-                    print("Opção inválida!")
-        else:
-            print("CPF inválido!")
 
 
 # ------------------------------------------------------------------------------------------------------- #
@@ -215,7 +185,7 @@ def altedado(): # Função para alterar os dados.
 # ------------------------------------------------------------------------------------------------------- #
 
 
-class gerandid():
+class gerandid():  # gera uma ID para o cliente
     @staticmethod
     def gera_id():
         rand = randint(10000, 19999)
