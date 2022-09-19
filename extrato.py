@@ -22,7 +22,10 @@ def extratoconta(): # Função de visualizar clientes cadastrados.
             if cpf in diciclientes: # Faço a verificação.
                 print("Usuário encontrado!")
                 print(f'''
-                | ===========================                
+                | =========================== Extrato ======================== |
+                | ------------------------------------------------------------ |
+                | Nome: {diciclientes[cpf][0]}                                 |
+                | Email: {diciclientes[cpf][1]}                                |             
                       
                       
                       
