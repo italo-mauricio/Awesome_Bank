@@ -30,7 +30,7 @@ def menu():
         elif opcao == "3":
             dele.delusu()
         elif opcao == "4":
-            cotação.cotacao()
+            cotação()
         elif opcao == "5":
             print("Obrigado pela preferência!")
             break

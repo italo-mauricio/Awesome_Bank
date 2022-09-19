@@ -3,6 +3,7 @@ from validacoes import *
 import pickle
 import os
 from time import sleep
+from random import randint
 
 
 def regcliente():
@@ -10,7 +11,8 @@ def regcliente():
     while True:
             print("=="*39)
 
-            print('''    | ------------- Bem vindos ao menu cadastro! ------------------- |
+            print('''   
+    | ------------- Bem vindos ao menu cadastro! ------------------- |
     | ------------- Cadastrar novos clientes!          [1] --------- |
     | ------------- Visualizar dados dos clientes!     [2] --------- |
     | ------------- Alterar dados dos clientes!        [3] --------- |
@@ -54,7 +56,7 @@ def gravclientes(diciclientes):
     clientesb.close()
 
 
-diciclientes = listclient() # Dicionário com os dados dos clientes
+diciclientes = {} # Dicionário com os dados dos clientes
 
 
 # ------------------------------------------------------------------------------------------------------- #
@@ -94,11 +96,14 @@ def cadastrobanco(): # Função de cadastramento
                 print("Senha já cadastrada!")
         else:
             print("Senha inválida!")
+    id = gerandid.gera_id()                         
+    print(f"Sua ID é {id}")
+    
     while True:
         cpf = input("Digite um CPF válido: ").strip() # Peço um CPF + verificação.
         if cadastrocpf(cpf):
             if cpf not in diciclientes:
-                diciclientes[cpf] = [nome, email, endereco, complemento, valores, senha] # Adiciono as informações na chave CPF.
+                diciclientes[cpf] = [nome, email, endereco, complemento, valores, senha, id] # Adiciono as informações na chave CPF.
                 print("Parabéns, vem vindo ao time!")
                 gravclientes(diciclientes)
                 break
@@ -210,7 +215,11 @@ def altedado(): # Função para alterar os dados.
 # ------------------------------------------------------------------------------------------------------- #
 
 
-
+class gerandid():
+    @staticmethod
+    def gera_id():
+        rand = randint(10000, 19999)
+        return rand
 
                 
            
