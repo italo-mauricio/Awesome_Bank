@@ -1,7 +1,7 @@
 from cadacliente import *
 import saque
 import dele
-import cotação 
+from visumoeda import menucot
 
 
 #=========================== Simulador de Caixa Eletrônico ===============================#
@@ -30,7 +30,7 @@ def menu():
         elif opcao == "3":
             dele.delusu()
         elif opcao == "4":
-            cotação()
+            menucot()
         elif opcao == "5":
             print("Obrigado pela preferência!")
             break

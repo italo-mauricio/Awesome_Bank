@@ -194,7 +194,8 @@ def extratoconta(): # Função de visualizar clientes cadastrados.
         cpf = ' '
         cpf = input("Digite o seu CPF: ") # Peço o cpf do cliente
         if cadastrocpf(cpf):
-            if cpf in diciclientes: # Faço a verificação.
+            if cpf in diciclientes:
+                os.system("cls") # Faço a verificação.
                 print("Usuário encontrado!")
                 print(f'''
                 | =========================== Extrato ======================== |
