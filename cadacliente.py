@@ -4,7 +4,7 @@ import pickle
 import os
 from time import sleep
 from random import randint
-from extrato import extratoconta
+
 
 
 def regcliente():
@@ -15,7 +15,7 @@ def regcliente():
             print('''   
     | ------------- Bem vindos ao menu cadastro! ------------------- |
     | ------------- Cadastrar novos clientes!          [1] --------- |
-    | ------------- Visualizar dados dos clientes!     [2] --------- |
+    | ------------- Extrato!                           [2] --------- |
     | ------------- Alterar dados dos clientes!        [3] --------- |
     | ------------- Voltar ao menu principal           [4] --------- |
     | ============================================================== |
@@ -57,7 +57,7 @@ def gravclientes(diciclientes):
     clientesb.close()
 
 
-diciclientes = {} # Dicionário com os dados dos clientes
+diciclientes = listclient() # Dicionário com os dados dos clientes
 
 
 # ------------------------------------------------------------------------------------------------------- #
@@ -181,7 +181,52 @@ def altedado(): # Função para alterar os dados.
         else:
             print("Opção inválida!")
 
-
+def extratoconta(): # Função de visualizar clientes cadastrados.
+    os.system("cls")
+    print("=="*50)
+    print(''' 
+    | ---------------- Vamos visualizar os seus dados cadastrados! ----------------------- |
+    | ------- Se você estiver cadastrado no sistema, poderá consultar seus dados! -------- |
+    | ==================================================================================== |
+            ''')
+    print("=="*50)
+    while True:
+        cpf = ' '
+        cpf = input("Digite o seu CPF: ") # Peço o cpf do cliente
+        if cadastrocpf(cpf):
+            if cpf in diciclientes: # Faço a verificação.
+                print("Usuário encontrado!")
+                print(f'''
+                | =========================== Extrato ======================== |
+                | ------------------------------------------------------------ |
+                | Nome: {diciclientes[cpf][0]}                                    
+                | Email: {diciclientes[cpf][1]}                                              
+                | Endereço: {diciclientes[cpf][2]}                                 
+                | Complemento: {diciclientes[cpf][3]}                             
+                | Saldo: {diciclientes[cpf][4]}                                   
+                | Senha: {diciclientes[cpf][5]}                                     
+                | ID: {diciclientes[cpf][6]}                                       
+                |                                                              |
+                | ------------------------------------------------------------ |
+                | ============================================================ |      
+                      
+                ''')
+                conti = input('Press ENTER for continue...')
+                break
+            else:
+                print("Usuário não encontrado!")
+                continuar = ' '
+                continuar = str(input('Deseja continuar [S/N]: ')).strip().upper() # Pergunto se ele quer continuar caso não for encontrado
+                if continuar == "S".upper():
+                    extratoconta()
+                elif continuar == "N".upper():
+                    print('Saindo...')
+                    sleep(2)
+                    break
+                else:
+                    print("Opção inválida!")
+        else:
+            print("CPF inválido!")
 # ------------------------------------------------------------------------------------------------------- #
 
 
