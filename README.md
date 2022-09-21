@@ -58,7 +58,7 @@ Módulo cadastro de clientes (cadacliente.py) utiliza a biblioteca pickle:
 
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" title="Windows" alt="Windows" width="60" height="60"/>&nbsp;
     
-## :hammer_and_wrench: Linguagem usada:
+## Linguagem usada:
 
 * Descrição: Projeto desenvolvimento em Python, futuramente serão implementadas outras funcionalidades utilizando Django para web.
 
