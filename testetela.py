@@ -12,7 +12,7 @@ class Telabanco():
             [sg.Text('SaqueemConta'), sg.Input()],
             [sg.Text('DeletarConta'), sg.Input()],
             [sg.Text('Consultarcotação'), sg.Input()],
-            [sg.Button()]
+            [sg.Button('Enviar')]
             
             
         ]
