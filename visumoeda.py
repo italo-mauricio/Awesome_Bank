@@ -14,6 +14,8 @@ def dolar():
     if response.status_code == 200:
         dolar_value = response.json()['USD']['low']
         print(f'O valor do dólar é R${dolar_value}')
+        conti = input("Press START for continue...")
+        
     else:
         print("Erro ao buscar o valor do dólar")
         
