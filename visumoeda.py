@@ -12,9 +12,24 @@ def dolar():
 
 
     if response.status_code == 200:
-        dolar_value = response.json()['USD']['low']
-        print(f'O valor do dólar é R${dolar_value}')
-        conti = input("Press START for continue...")
+        dolar_value = float(response.json()['USD']['low'])
+        print(f'O valor do dólar é R${dolar_value:.2f}')
+        while True:
+            converte = input("Deseja converter sua moeda em Dólar: [Y/N] ").strip()
+            if converte == 'Y':
+                real = float(input("Digite quanto você quer converter em R$: "))
+                conv = real / dolar_value
+                print(f"Seus R${real} convertidos ficam USD$ {conv:.2f}")
+                conti = ("Press START for continue...")
+                 
+            elif converte == 'N':
+                print("Obrigado!")
+                break
+            
+            
+            else:
+                print("Escolha uma opção válida!")
+    
         
     else:
         print("Erro ao buscar o valor do dólar") 
@@ -29,16 +44,22 @@ def euro():
 
     if response.status_code == 200:
         euro_value = float(response.json()['EUR']['low'])
-        print(f'O valor do euro é R${euro_value}')
+        print(f'O valor do euro é R${euro_value:.2f}')
         while True:
-            converte = input("Deseja converter sua moeda em Euro: [Y/N] ")
+            converte = input("Deseja converter sua moeda em Euro: [Y/N] ").strip()
             if converte == 'Y':
                 real = float(input("Digite quanto você quer converter em R$: "))
-                conv = real * euro_value
-                print(f"Seus R${real} convertidos ficam EUR{conv:.2f}")  
-              
+                conv = real / euro_value
+                print(f"Seus R${real} convertidos ficam EUR{conv:.2f}")
+                conti = ("Press START for continue...")
+                 
             if converte == 'N':
+                print("Obrigado!")
                 break
+            
+            
+            else:
+                print("Escolha uma opção válida!")
                 
     else:
         print("Erro ao buscar o valor do euro")
