@@ -17,7 +17,39 @@ def dolar():
         conti = input("Press START for continue...")
         
     else:
-        print("Erro ao buscar o valor do dólar")
+        print("Erro ao buscar o valor do dólar") 
+         
+         
+def euro():
+    os.system('cls')
+    url = 'https://economia.awesomeapi.com.br/all/EUR-BRL'
+
+    response = requests.get(url)
+
+
+    if response.status_code == 200:
+        euro_value = response.json()['EUR']['low']
+        print(f'O valor do euro é R${euro_value}')
+        conti = input("Press START for continue...")
+        
+    else:
+        print("Erro ao buscar o valor do euro")
+    
+        
+def bitcoin():
+    os.system('cls')
+    url = 'https://economia.awesomeapi.com.br/all/BTC-BRL'
+
+    response = requests.get(url)
+
+
+    if response.status_code == 200:
+        bitcoin_value = response.json()['BTC']['low']
+        print(f'O valor do bitcoin é R${bitcoin_value}')
+        conti = input("Press START for continue...")
+        
+    else:
+        print("Erro ao buscar o valor do bitcoin")
         
         
         
@@ -42,11 +74,11 @@ def menucot():
         if opcao == '1':
             dolar()
         elif opcao == '2':
-            break
+            euro()
         elif opcao == '3':
             break
         elif opcao == '4':
-            break
+            bitcoin()
         elif opcao == '5':
             break
         else:
