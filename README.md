@@ -25,6 +25,8 @@
 
 ✅ Biblioteca Requests instalação:
 
+* Biblioteca utilizada na requisição API para a verificação da cotação das moedas.
+
 First Step:
 
       pip install requests
