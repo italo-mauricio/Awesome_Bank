@@ -42,5 +42,6 @@ menu()
     
 
 
-
+def __init__(self):
+    menu()
 

@@ -237,4 +237,5 @@ def menucot():
 
 
 
-
+def __init__(self):
+    menucot()
