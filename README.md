@@ -37,11 +37,12 @@ Second Step:
 
 Todos os módulos utilizam biblioteca Os:
 
-        import os
+       import os
+       
   
-Módulo cadastro de clientes utiliza a biblioteca Piclke:
-    
-        import piclke
+Módulo cadastro de clientes (cadacliente.py) utiliza a biblioteca pickle:
+       
+       import pickle
     
     
     
