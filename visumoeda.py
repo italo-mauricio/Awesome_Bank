@@ -52,6 +52,55 @@ def bitcoin():
         print("Erro ao buscar o valor do bitcoin")
         
         
+def franco():
+    os.system('cls')
+    url = 'https://economia.awesomeapi.com.br/all/CHF-BRL'
+
+    response = requests.get(url)
+
+
+    if response.status_code == 200:
+        franco_value = response.json()['CHF']['low']
+        print(f'O valor do franco suiço é R${franco_value}')
+        conti = input("Press START for continue...")
+        
+    else:
+        print("Erro ao buscar o valor do franco suiço")
+        
+        
+        
+def iene():
+    os.system('cls')
+    url = 'https://economia.awesomeapi.com.br/all/JPY-BRL'
+
+    response = requests.get(url)
+
+
+    if response.status_code == 200:
+        iene_value = response.json()['JPY']['low']
+        print(f'O valor do iene é R${iene_value}')
+        conti = input("Press START for continue...")
+        
+    else:
+        print("Erro ao buscar o valor do iene")
+        
+        
+def dolarcanadense():
+    os.system('cls')
+    url = 'https://economia.awesomeapi.com.br/all/CAD-BRL'
+
+    response = requests.get(url)
+
+
+    if response.status_code == 200:
+        cad_value = response.json()['CAD']['low']
+        print(f'O valor do dólar canadense é R${cad_value}')
+        conti = input("Press START for continue...")
+        
+    else:
+        print("Erro ao buscar o valor do dólar canadense")
+        
+        
         
         
 def menucot():
@@ -62,9 +111,11 @@ def menucot():
         | ------------------------------------------------------ |
         | -                  Consultar Dólar    1              - |
         | -                  Consultar Euro     2              - | 
-        | -                  Consultar Libra    3              - |
+        | -                  Consultar Franco   3              - |
         | -                  Consultar Bitcoin  4              - |
-        | -                  Voltar pro Menu    5              - |
+        | -                  Consultar Iene     5              - |
+        | -                  Consultar CAD      6              - |
+        | -                  Voltar pro Menu    7              - |
         | ------------------------------------------------------ |
         | ====================================================== |
         ''')
@@ -76,10 +127,12 @@ def menucot():
         elif opcao == '2':
             euro()
         elif opcao == '3':
-            break
+            franco()
         elif opcao == '4':
             bitcoin()
         elif opcao == '5':
+            iene()
+        elif opcao == '6':
             break
         else:
             print("Opção inválida!")
