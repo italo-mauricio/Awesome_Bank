@@ -6,13 +6,13 @@ import os
 
 def dolar():
     os.system('cls')
-    url = 'https://economia.awesomeapi.com.br/all/USD-BRL'
+    url = 'https://economia.awesomeapi.com.br/all/USD-BRL'  # Url para verificar em tempo real a cotação do Dólar
 
-    response = requests.get(url)
+    response = requests.get(url) # Comando .get para pegar essa URL e adicionar a biblioteca
 
 
     if response.status_code == 200:
-        dolar_value = float(response.json()['USD']['low'])
+        dolar_value = float(response.json()['USD']['low']) # Utilizando o float para o cálculo de conversão
         print(f'O valor do dólar é R${dolar_value:.2f}')
         while True:
             converte = input("Deseja converter sua moeda em Dólar: [Y/N] ").strip().lower()

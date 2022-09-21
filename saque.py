@@ -1,4 +1,3 @@
-from asyncore import socket_map
 from cadacliente import *
 
 # ----------------------------------------- Bem vindos às funções financeiras ------------------------------------------#
