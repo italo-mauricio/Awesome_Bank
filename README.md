@@ -48,11 +48,13 @@ Módulo cadastro de clientes (cadacliente.py) utiliza a biblioteca pickle:
     
 ## IDE de desenvolvimento:
 
+* Descrição: O projeto foi totalmente desenvolvido pelo Visual Studio, todas as suas funcionalidades foram testadas nele.
+
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original-wordmark.svg" title="vscode" alt="vscode" width="60" height="60"/>&nbsp;
 
 ## Sistema operacional de desenvolvimento:
 
-* Projeto inicialmente desenvolvido com Windows 10, porém suas funcionalidades funcionam no Linux, com um adendo, a biblioteca Os precisa de alteração de "cls" para "clear" para quem for utiliza-lo em Linux.
+* Descrição: Projeto inicialmente desenvolvido com Windows 10, porém suas funcionalidades funcionam no Linux, com um adendo, a biblioteca Os precisa de alteração de "cls" para "clear" para quem for utiliza-lo em Linux.
 
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" title="Windows" alt="Windows" width="60" height="60"/>&nbsp;
     
