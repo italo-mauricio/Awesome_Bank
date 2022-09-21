@@ -4,6 +4,7 @@ import pickle
 import os
 from time import sleep
 from random import randint
+import PySimpleGUI as sg
 
 
 
@@ -64,7 +65,8 @@ diciclientes = listclient() # Dicionário com os dados dos clientes
 
 def cadastrobanco(): # Função de cadastramento
     os.system("cls")
- 
+    tela = Telabanco()
+    tela.Iniciar()
     print("=="*50)
     print(''' 
     | ---------------------  Bem vindos ao cadastro de clientes! -------------------------- |
@@ -111,6 +113,27 @@ def cadastrobanco(): # Função de cadastramento
         else:
             print("CPF inválido!")
     input('Aperte alguma tecla para continuar!')
+class Telabanco():
+    def __init__(self):
+        layout = [
+            [sg.Text('Nome'), sg.Input()],
+            [sg.Text('Email'), sg.Input()],
+            [sg.Text('Endereço'), sg.Input()],
+            [sg.Text('Complemento'), sg.Input()],
+            [sg.Text('Valores'), sg.Input()],
+            [sg.Text('Senha'), sg.Input()],
+            [sg.Text('cpf'), sg.Input()],
+            [sg.Button('Enviar')]
+            
+            
+        ]
+        
+        janela = sg.Window("Dados do usuário").layout(layout)
+        self.button, self.values = janela.Read()
+        
+    def Iniciar(self):
+        print(self.values)
+        
 
 
 # ------------------------------------------------------------------------------------------------------- #
@@ -238,8 +261,10 @@ class gerandid():  # gera uma ID para o cliente
         return rand
 
                 
-           
 
-        
 
-     
+
+
+
+
+

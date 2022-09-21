@@ -8,7 +8,7 @@ import PySimpleGUI as sg
 class Telabanco():
     def __init__(self):
         layout = [
-            [sg.Text('CadastrarClientes'), sg.Input()],
+            [sg.Text('Cadastrar Clientes'), sg.Input()],
             [sg.Text('SaqueemConta'), sg.Input()],
             [sg.Text('DeletarConta'), sg.Input()],
             [sg.Text('Consultarcotação'), sg.Input()],
