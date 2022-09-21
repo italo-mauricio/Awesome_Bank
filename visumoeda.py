@@ -22,6 +22,7 @@ def dolar():
                 conv = real / dolar_value
                 print(f"Seus R${real} convertidos ficam USD$ {conv:.2f}")
                 conti = input(("Press START for continue..."))
+                break
                  
             elif converte == 'N'.lower():
                 print("Obrigado!")
