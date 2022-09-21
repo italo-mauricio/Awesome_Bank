@@ -3,6 +3,7 @@ import os
 
 
 
+# Cotação do Dólar Americano
 
 def dolar():
     os.system('cls')
@@ -34,6 +35,9 @@ def dolar():
          
                
          
+         
+# Cotação do Euro         
+         
 def euro():
     os.system('cls')
     url = 'https://economia.awesomeapi.com.br/all/EUR-BRL'
@@ -64,6 +68,9 @@ def euro():
     else:
         print("Erro ao buscar o valor do euro")
     
+    
+    
+# Cotação do Bitcoin    
         
 def bitcoin():
     os.system('cls')
@@ -95,6 +102,8 @@ def bitcoin():
     else:
         print("Erro ao buscar o valor do bitcoin")
         
+       
+# Cotação do Franco       
         
 def franco():
     os.system('cls')
@@ -126,7 +135,8 @@ def franco():
     else:
         print("Erro ao buscar o valor do franco suiço")
         
-        
+       
+# Cotação do Iene 
         
 def iene():
     os.system('cls')
@@ -160,7 +170,7 @@ def iene():
         
         
         
-        
+# Cotação do Dólar Canadense        
         
 def dolarcanadense():
     os.system('cls')
@@ -193,7 +203,7 @@ def dolarcanadense():
         print("Erro ao buscar o valor do dólar canadense")
         
         
-        
+# Menu principal        
         
 def menucot():
     while True:
