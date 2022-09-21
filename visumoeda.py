@@ -28,10 +28,18 @@ def euro():
 
 
     if response.status_code == 200:
-        euro_value = response.json()['EUR']['low']
+        euro_value = float(response.json()['EUR']['low'])
         print(f'O valor do euro é R${euro_value}')
-        conti = input("Press START for continue...")
-        
+        while True:
+            converte = input("Deseja converter sua moeda em Euro: [Y/N] ")
+            if converte == 'Y':
+                real = float(input("Digite quanto você quer converter em R$: "))
+                conv = real * euro_value
+                print(f"Seus R${real} convertidos ficam EUR{conv:.2f}")  
+              
+            if converte == 'N':
+                break
+                
     else:
         print("Erro ao buscar o valor do euro")
     
