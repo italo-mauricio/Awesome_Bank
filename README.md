@@ -12,6 +12,16 @@
 *  idade: 24 anos
 * Período: 2º
 
+
+## Features:
+
+- ✅ Cadastro de usuário
+- ✅ Extrato bancário
+- ✅ Cadastro de serviços
+- ✅ Conversor de Moedas
+- ✅ Opções de saque e depósito
+
+
 ## :hammer_and_wrench: Linguagem usada:
 <div>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" title="Python" alt="Python" width="60" height="60"/>&nbsp;
