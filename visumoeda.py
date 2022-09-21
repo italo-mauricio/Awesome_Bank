@@ -32,9 +32,7 @@ def dolar():
     else:
         print("Erro ao buscar o valor do dólar") 
          
-         
-         
-         
+               
          
 def euro():
     os.system('cls')
@@ -159,6 +157,9 @@ def iene():
         
     else:
         print("Erro ao buscar o valor do iene")
+        
+        
+        
         
         
 def dolarcanadense():
