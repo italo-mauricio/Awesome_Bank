@@ -21,7 +21,31 @@
 - ✅ Conversor de Moedas
 - ✅ Opções de saque e depósito
 
+## Bibliotecas Python utilizadas:
 
+✅ Biblioteca Requests instalação:
+
+First Step:
+
+      pip install requests
+      
+Second Step:
+
+      import requests
+    
+
+
+Todos os módulos utilizam biblioteca Os:
+
+        import os
+  
+Módulo cadastro de clientes utiliza a biblioteca Piclke:
+    
+        import piclke
+    
+    
+    
+    
 ## :hammer_and_wrench: Linguagem usada:
 <div>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" title="Python" alt="Python" width="60" height="60"/>&nbsp;
