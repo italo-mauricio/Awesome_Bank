@@ -5,6 +5,7 @@ import os
 from time import sleep
 from random import randint
 import PySimpleGUI as sg
+from getpass import getpass
 
 
 
@@ -89,7 +90,7 @@ def cadastrobanco(): # Função de cadastramento
     valores = float(input("Quanto você espera depositar em sua conta?: ")) # Local que será usado no módulo saque.
     while True:
         senha = ' '
-        senha = input('Escolha um senha numérica de qualquer tamanho: ').strip() # Peço uma senha de acesso
+        senha = getpass('Escolha um senha numérica de qualquer tamanho: ').strip() # Peço uma senha de acesso
         if validnum(senha):
             if senha not in diciclientes: # Vereifico se a mesma já consta no sistema
                 break
@@ -131,7 +132,7 @@ def altedado(): # Função para alterar os dados.
             ''')
     print("=="*50)
     while True:
-        cpf = input("Digite o cpf cadastrado no sistema: ") # Peço o CPF + veirificação
+        cpf = getpass("Digite o cpf cadastrado no sistema: ") # Peço o CPF + veirificação
         if cadastrocpf(cpf):
             if cpf not in diciclientes:
                 print('Usuário não encontrado!')
@@ -193,7 +194,7 @@ def extratoconta(): # Função de visualizar clientes cadastrados.
     print("=="*50)
     while True:
         cpf = ' '
-        cpf = input("Digite o seu CPF: ") # Peço o cpf do cliente
+        cpf = getpass("Digite o seu CPF: ") # Peço o cpf do cliente
         if cadastrocpf(cpf):
             if cpf in diciclientes:
                 os.system("cls") # Faço a verificação.
