@@ -1,4 +1,5 @@
 from cadacliente import *
+from getpass import getpass
 
 # ----------------------------------------- Bem vindos às funções financeiras ------------------------------------------#
 # Nesta parte estão as funções de depósito em conta já cadastrada, saque, as vantagens de ser cliente BB, e o seu saldo!
@@ -57,7 +58,7 @@ def deposibanco(): # Função para o depósito bancário!
     print("=="*50)
     while True:
         
-        senha = input("Digite o CPF já cadastrado em nosso sistema: ") # Peço para o cliente digitar o CPF já cadastrado no sistema!
+        senha = getpass("Digite o CPF já cadastrado em nosso sistema: ") # usando o getpass ele não mostra a senha que está sendo digitada
         if senha not in dici: # Faço a verificação se ele consta ou não no sistema.
                 print("Usuário não cadastrado!")
                 break 
@@ -87,7 +88,7 @@ def saquebanco(): # Função para o saque em conta.
             ''')
     print("=="*50)
     while True:
-        cpf = input("Digite o CPF já cadastrado em nosso sistema: ") # Peço para o cliente inserir o CPF já cadastrado na conta.
+        cpf = getpass("Digite o CPF já cadastrado em nosso sistema: ") # Peço para o cliente inserir o CPF já cadastrado na conta.
         if cpf not in dici: # Faço a verificação se ele realmente está cadastrado
             print("Usuário não encontrado!")
             break
@@ -119,7 +120,7 @@ def saldo(): # Função para ver o saldo
             ''')
     print("=="*50)
     while True:
-        senha = input("Digite o CPF cadastrado!: ") # Peço para o cliente digitar o CPF cadastrado
+        senha = getpass("Digite o CPF cadastrado!: ") # Peço para o cliente digitar o CPF cadastrado
         if senha not in dici:
             print('Usuário não encontrado!')
             break
@@ -165,7 +166,7 @@ def extrato(): # Função para o extrato
     print("=="*50)
     cpf = ' '
     while True:
-        cpf = input("Digite o CPF cadastrado!: ")
+        cpf = getpass("Digite o CPF cadastrado!: ")
         if cadastrocpf(cpf):
             if cpf not in dici2:
                 print("Usuário não encontrado!")
