@@ -14,7 +14,9 @@ from datetime import date
 def regcliente():
     os.system("cls")
     while True:
+        
             print("=="*39)
+            
 
             print('''   
     | ------------- Bem vindos ao menu cadastro! ------------------- |
@@ -33,7 +35,7 @@ def regcliente():
             elif cliente == "2":
                 extratoconta()
             elif cliente == "3":
-                altedado()
+                editadados()
             elif cliente == "4":
                 break
             else:
@@ -66,7 +68,10 @@ diciclientes = listclient() # Dicionário com os dados dos clientes
 
 # ------------------------------------------------------------------------------------------------------- #
 
-def cadastrobanco(): # Função de cadastramento
+def cadastrobanco():
+    hora_atual = datetime.now()
+    hora = hora_atual.strftime('%H:%M')
+    data = date.today()# Função de cadastramento
     os.system("cls")
     print("=="*50)
     print(''' 
@@ -107,13 +112,18 @@ def cadastrobanco(): # Função de cadastramento
         cpf = input("Digite um CPF válido: ").strip() # Peço um CPF + verificação.
         if cadastrocpf(cpf):
             if cpf not in diciclientes:
-                diciclientes[cpf] = [nome, email, endereco, complemento, valores, senha, id] # Adiciono as informações na chave CPF.
-                print("Parabéns, vem vindo ao time!")
+                diciclientes[cpf] = [nome, email, endereco, complemento, valores, senha, id]
+                print(f'''
+                      Bem vindo(a) {diciclientes[cpf][0]} ao time, estamos muito felizes em ver você por aqui!
+                      Você foi cadastrado no dia {data} e no horário {hora}
+                      ''')
+               
                 gravclientes(diciclientes)
                 break
         else:
             print("CPF inválido!")
     input('Aperte alguma tecla para continuar!')
+    os.system("cls")
     
 
 
@@ -124,7 +134,7 @@ def cadastrobanco(): # Função de cadastramento
 
 # ------------------------------------------------------------------------------------------------------- #
 
-def altedado(): # Função para alterar os dados.
+def editadados(): # Função para alterar os dados.
     os.system("cls")
     print("=="*50)
     print(''' 
@@ -134,11 +144,12 @@ def altedado(): # Função para alterar os dados.
             ''')
     print("=="*50)
     while True:
-        cpf = ("Digite o cpf cadastrado no sistema: ") # Peço o CPF + veirificação
+        cpf = input("Digite o cpf cadastrado no sistema: ")
+
         if cadastrocpf(cpf):
             if cpf not in diciclientes:
                 print('Usuário não encontrado!')
-                return False
+                break
             else:
                 print("Usuário encontrado no sistema!")
                 alterar = ' '
@@ -183,9 +194,14 @@ def altedado(): # Função para alterar os dados.
                 else:
                     print("Opção inválida!")
         else:
-            print("Opção inválida!")
+            print("CPF inválido!")
+        
+    
 
-def extratoconta(): # Função de visualizar clientes cadastrados.
+def extratoconta():
+    hora_atual = datetime.now()
+    hora = hora_atual.strftime('%H:%M')
+    data = date.today()# Função de visualizar clientes cadastrados.
     os.system("cls")
     print("=="*50)
     print(''' 
@@ -204,6 +220,8 @@ def extratoconta(): # Função de visualizar clientes cadastrados.
                 print(f'''
                 | =========================== Extrato ======================== |
                 | ------------------------------------------------------------ |
+                | Data da verificação: {data}
+                | Horário da verificação: {hora}
                 | Nome: {diciclientes[cpf][0]}                                    
                 | Email: {diciclientes[cpf][1]}                                              
                 | Endereço: {diciclientes[cpf][2]}                                 
@@ -217,6 +235,7 @@ def extratoconta(): # Função de visualizar clientes cadastrados.
                       
                 ''')
                 conti = input('Press ENTER for continue...')
+                os.system("cls")
                 break
             else:
                 print("Usuário não encontrado!")

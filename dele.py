@@ -8,7 +8,10 @@ from datetime import date
 
 # ============================= Função para deletar conta =========================== #
 
-def delusu(): # Função para deletar usuário
+def delusu():
+    hora_atual = datetime.now()
+    hora = hora_atual.strftime('%H:%M')
+    data = date.today()# Função para deletar usuário
     os.system("cls")
     print("=="*50)
     print(''' 
@@ -34,7 +37,12 @@ def delusu(): # Função para deletar usuário
                 print("Usuário encontrado!")
                 del diciclientes[cpf]
                 print("Usuário deletado com sucesso!")
+                print(f'''
+                    Usuário foi deletado dia: {data}
+                    Horário da exclusão: {hora_atual}
+                      ''')
                 gravclientes(diciclientes)
+                conti = input("Press ENTER for continue... ")
                 break
         else:
             print('CPF inválido! ')
