@@ -1,5 +1,7 @@
 from cadaclientes import *
 from getpass import getpass
+from datetime import datetime
+from datetime import date
 
 # ----------------------------------------- Bem vindos às funções financeiras ------------------------------------------#
 # Nesta parte estão as funções de depósito em conta já cadastrada, saque, as vantagens de ser cliente BB, e o seu saldo!

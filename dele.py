@@ -2,6 +2,8 @@
 from cadaclientes import *
 import os
 from validacoes import *
+from datetime import datetime
+from datetime import date
 
 
 # ============================= Função para deletar conta =========================== #
