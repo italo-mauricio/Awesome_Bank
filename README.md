@@ -122,11 +122,24 @@ Definição de CRUD: vem da junção das palavras (Create, Read, Update, Delete)
 - Método eficiente de processamento de dados ✅ 
 - Uso de clases ✅ 
 - Programa totalmente legível e escrito de forma coesa e limpa ✅ 
+- Programa totalmente modularizado ✅ 
+     
+ ## Conclusão:
+      
+- Esse projeto visa essencialmente o aprendizado de novos alunos da UFRN do curso de Sistemas de Informação ou de qualquer lugar do mundo na utilização de Python puro, o código serve para a elaboração de CRUDs com salvamento em arquivo binário, porem podem ser adicionadas várias outras funcionalidades ao código fonte.
 
 
 
+      
+      
+      
 
 
-
-
+## By
+      
+<p align="center">
+  <br />
+  Italo-Mauricio :man_technologist:
+  <br />
+</p> 
 
