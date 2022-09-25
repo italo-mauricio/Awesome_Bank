@@ -132,7 +132,7 @@ def altedado(): # Função para alterar os dados.
             ''')
     print("=="*50)
     while True:
-        cpf = getpass("Digite o cpf cadastrado no sistema: ") # Peço o CPF + veirificação
+        cpf = ("Digite o cpf cadastrado no sistema: ") # Peço o CPF + veirificação
         if cadastrocpf(cpf):
             if cpf not in diciclientes:
                 print('Usuário não encontrado!')

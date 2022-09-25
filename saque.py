@@ -1,4 +1,4 @@
-from cadacliente import *
+from cadaclientes import *
 from getpass import getpass
 
 # ----------------------------------------- Bem vindos às funções financeiras ------------------------------------------#

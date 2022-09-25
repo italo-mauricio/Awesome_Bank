@@ -1,7 +1,8 @@
-from cadacliente import *
+from cadaclientes import *
 import saque
 import dele
 from visumoeda import menucot
+
 
 
 #=========================== Simulador de Caixa Eletrônico ===============================#

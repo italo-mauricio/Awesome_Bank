@@ -1,5 +1,5 @@
 
-from cadacliente import *
+from cadaclientes import *
 import os
 from validacoes import *
 
