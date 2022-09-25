@@ -1,8 +1,8 @@
 
-<h1 align="center"> Simulador de Banco em Python </h1>
+<h1 align="center">Simulador de Banco em Python </h1>
 
 <p align="center">
-<img src="http://img.shields.io/static/v1?label=STATUS&message=%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
+<img src="https://media1.giphy.com/media/coxQHKASG60HrHtvkt/giphy.gif?cid=790b76114f808b9131dd7a0d9df3864154fa6d2feccf8f5a&rid=giphy.gif&ct=g" width="700" height="300"/>&nbsp;
 </p>
 
 
