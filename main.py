@@ -2,6 +2,8 @@ from cadaclientes import *
 import saque
 import dele
 from visumoeda import menucot
+from datetime import datetime
+from datetime import date
 
 
 
@@ -10,7 +12,12 @@ def menu():
     os.system("cls")
     while True:
         opcao = ' '
-        print(''' 
+        hora_atual = datetime.now()
+        hora = hora_atual.strftime('%H:%M')
+        data = date.today()
+        print(f''' 
+         Data: {data}
+         Hora: {hora}                                        
         |===================================================================|
         |------------------------ Banco Do Brasil --------------------------|
         |===================================================================|
