@@ -21,6 +21,36 @@
 - ✅ Conversor de Moedas
 - ✅ Opções de saque e depósito
 
+
+## Instalando o Python:
+
+* Para instalar o Python em sua máquina é bem simples.
+
+Usuários Windows:
+
+      https://www.python.org/downloads/
+      
+Usuários Linux:
+      
+* Step 1:
+      
+      $ sudo apt-get install python3
+    
+* Step 2:
+
+      $ sudo apt-get install python3-pip
+    
+ Outra forma:
+ 
+* Step 1:
+ 
+      $ sudo yum install python3
+     
+* Step 2:
+
+      $ yum -y install python3-pip
+      
+
 ## Bibliotecas Python utilizadas:
 
 ✅ Biblioteca Requests instalação:
