@@ -1,9 +1,27 @@
 from cadaclientes import *
 import os
 from time import sleep
+from validacoes import *
+
+def listemprestimo(): # Gravando em arquivos.dat
+    try:
+        empresti = open("emprestimos.dat", "rb")
+        emprestimobox = pickle.load(empresti)
+        empresti.close()
+    except:
+        empresti = open("emprestimos.dat", "wb")
+        empresti.close()
+    return emprestimobox
+
+def gravemprestimos(emprestimobox):
+    empresti = open("emprestimos.dat", "wb")
+    pickle.dump(emprestimobox, empresti)
+    empresti.close()
 
 
+dicitotal = diciclientes
 
+emprestimobox = {}
 
 def emprest():
     while True:
@@ -30,7 +48,7 @@ def emprest():
         opcao = input("Escolha uma opção: ")
         
         if opcao == '1':
-            pass
+            solicitar()
         elif opcao == '2':
             pass
         elif opcao == '3':
@@ -44,4 +62,52 @@ def emprest():
             
             
             
-            
+
+def solicitar():
+    os.system("cls")
+        
+    print(f'''
+    | ========================================================== |
+    |                 Enviar Dados para Análise                  |
+    |                                                            |
+    | ---------------------------------------------------------- |
+    
+                        ~ FICHA EXEMPLO ~ 
+    
+    Nome: seu nome
+    CPF: seu cpf
+    Email: seu melhor email
+    Endereço: seu endereço
+    ID: seu registro gerado automaticamente
+    Valor da solicitação: quanto você deseja
+    Data e Hora do registro: a data que foi realizado o pedido
+    
+    
+    
+                                            
+    
+    | ===================== Since 2022 ======================== |''')
+    
+    while True:
+        nome = input("Digite o seu nome: ")
+        if validstring(nome):
+            break
+        else:
+            print("Digite um nome válido")
+    while True:
+        cpf = input("Digite o seu CPF: ")
+        if cadastrocpf(cpf):
+            break
+        else:
+            print("Digite um CPF válido")
+    while True:
+        email = input("Digite o seu email: ")
+        if validemail(email):
+            break
+        else:
+            print("Digite um email válido!")
+        endereco 
+
+
+
+
