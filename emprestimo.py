@@ -143,7 +143,7 @@ def solicitarnaocliente():
             else:
                 print("Empréstimo já foi solicitado por este usuário!")
                 print("Tente outro cadastro!")
-                emprest()
+                
                 
         else:
             print("Digite um CPF válido")
