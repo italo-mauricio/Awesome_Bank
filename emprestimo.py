@@ -63,6 +63,9 @@ def solicitar():
             
 def solicitarcliente():
     os.system("cls")
+    hora_atual = datetime.now()
+    hora = hora_atual.strftime('%H:%M')
+    data = date.today()
     while True:
         print("Precisamos confirmar seu CPF!")
         cliente = input("Por favor, digite o seu CPF cadastrado: ")
@@ -76,22 +79,33 @@ def solicitarcliente():
                 |
                                     Bem vindo {diciclientes[cliente][0]}
                                     
-    
-                    
-                    
-                                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                    Seu atual saldo é de: {diciclientes[cliente][4]}
+                    Seu ID é: {diciclientes[cliente][6]}
+
                     
                     ''')
+                while True:
+                    emp = input("Quanto você deseja solicitar: ")
+                    if validnum(emp):
+                        print(f'''
+                        | ================= Extrato da Solicitação ==================== |
+                        |                                                               |
+                            Cliente {diciclientes[cliente][0]}
+                            ID da solicitação {diciclientes[cliente][6]}
+                            Valor do pedido {emp}
+                            Horário e data do pedido {hora} / {data}
+                            
+                              
+                              
+                              
+                              
+                        
+                        | Pedido realizado com sucesso!                                |
+                              
+                              ''')
+                        gravemprestimos(emprestimobox)
+                        conti = input("Aperte ENTER para continuar...")
+                        break
         else:
             print("Digite um CPF válido!")
             
