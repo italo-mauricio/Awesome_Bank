@@ -20,6 +20,7 @@
 - ✅ Cadastro de serviços
 - ✅ Conversor de Moedas
 - ✅ Opções de saque e depósito
+- ✅ Empréstimos
 
 
 ## Instalando o Python:
