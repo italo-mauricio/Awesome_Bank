@@ -25,10 +25,46 @@ dicitotal = diciclientes
 
 emprestimobox = listemprestimo()
 
-            
-            
+
 
 def solicitar():
+    while True:
+        os.system("cls")
+        print(f'''
+        | ==================== Área de Empréstimos ======================= |
+        | ---------------------------------------------------------------- |
+        |                                                                  |
+        |                     1 - Já sou cliente                           |
+        |                     2 - Não sou cliente                          |
+        |                     3 - Vantagens                                |
+        |                     4 - Voltar ao Menu                           |
+        |                                                                  |
+        |                                                                  |
+        |                                                                  |
+        | ======================= Since 2022 ============================= |
+                
+        ''')
+        
+        option = input("Escolha uma opção: ")
+        
+        if option == "1":
+            solicitarcliente()
+        elif option == "2":
+            solicitarnaocliente()
+        elif option == "3":
+            pass
+        elif option == "4":
+            emprest()
+        else:
+            print("Escolha uma opção válida!")
+    
+    
+    
+            
+def solicitarcliente():
+     pass           
+
+def solicitarnaocliente():
     os.system("cls")
     hora_atual = datetime.now()
     hora = hora_atual.strftime('%H:%M')
@@ -99,8 +135,6 @@ def solicitar():
                 Data e Hora do registro: {data} {hora}
                 
                 
-                
-                                                        
                 
                 | ===================== Since 2022 ======================== |''')
                 gravemprestimos(emprestimobox)
