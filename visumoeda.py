@@ -220,7 +220,7 @@ def menucot():
         | -                  Consultar Bitcoin  4              - |
         | -                  Consultar Iene     5              - |
         | -                  Consultar CAD      6              - |
-        | -                  Voltar pro Menu    7              - |
+        | -                  Voltar pro Menu    0              - |
         | ------------------------------------------------------ |
         | ====================================================== |
         ''')
@@ -239,7 +239,7 @@ def menucot():
             iene()
         elif opcao == '6':
             dolarcanadense()
-        elif opcao == '7':
+        elif opcao == '0':
             os.system("cls")
             break
         else:
