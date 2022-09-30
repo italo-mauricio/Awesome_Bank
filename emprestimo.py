@@ -62,8 +62,45 @@ def solicitar():
     
             
 def solicitarcliente():
-     pass           
-
+    os.system("cls")
+    while True:
+        print("Precisamos confirmar seu CPF!")
+        cliente = input("Por favor, digite o seu CPF cadastrado: ")
+        if cadastrocpf(cliente):
+            if cliente not in diciclientes:
+                print("Seu registro não foi encontrado!")
+                break
+            else:
+                print(f'''
+                ======================= Área do Cliente ==========================
+                |
+                                    Bem vindo {diciclientes[cliente][0]}
+                                    
+    
+                    
+                    
+                                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    ''')
+        else:
+            print("Digite um CPF válido!")
+            
+        
+    
+    
+    
+    
+    
 def solicitarnaocliente():
     os.system("cls")
     hora_atual = datetime.now()
