@@ -11,6 +11,7 @@ from datetime import date
 
 
 
+
 def regcliente():
     os.system("cls")
     while True:

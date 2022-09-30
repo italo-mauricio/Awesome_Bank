@@ -4,6 +4,7 @@ import dele
 from visumoeda import menucot
 from datetime import datetime
 from datetime import date
+from emprestimo import *
 
 
 
@@ -25,10 +26,11 @@ def menu():
         |                   Saque em conta:        2                         |
         |                   Deletar conta:         3                         |
         |                   Consultar Cotação:     4                         |
-        |                   Sair do Sistema:       5                         |    
+        |                   Empréstimos            5                         |
+        |                   Sair do Sistema:       6                         |    
         | ================================================================== |
         | ---------------   Obrigado pela preferência!   ------------------- |
-        | ================================================================== |
+        |                          Since 2022                                |
         ''')
         opcao = input("Escolha a sua opção: ")
 
@@ -41,6 +43,8 @@ def menu():
         elif opcao == "4":
             menucot()
         elif opcao == "5":
+            emprest()
+        elif opcao == "6":
             print("Obrigado pela preferência!")
             break
         else:

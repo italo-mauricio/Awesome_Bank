@@ -177,19 +177,19 @@ def extrato(): # Função para o extrato
                 print("Uusário encontrado!")
                 print(dici2[cpf][0][1][2][3])
                 print(f'''
-                | ========================================================================================= |
-                | ---------------------------------- Extrato Bancário ------------------------------------- |
-                |   Nome: {dici2[cpf][0]}                                                                   |
-                |   Email: {dici2[cpf][1]}                                                                  |
-                |   Endereço: {dici2[cpf][2]}                                                               |
-                |   Complemento: {dici2[cpf][3]}                                                            |
-                |   Saldo em conta: {dici2[cpf][4]}                                                         |
-                |   CPF: {dici2[cpf][6]}                                                                    |
-                |                                                                                           |
-                | ========================================================================================= |
-                | Olá {dici2[cpf][0]} você tem R${dici2[cpf][4]} em sua conta bancária!                     |
-                | -------> Sua conta está segura e você pode fazer qualquer tipo de movimentação ---------- |
-                | ========================================================================================= |
+                 ========================================================================================= 
+                 ---------------------------------- Extrato Bancário ------------------------------------- 
+                   Nome: {dici2[cpf][0]}                                                                   
+                   Email: {dici2[cpf][1]}                                                                  
+                   Endereço: {dici2[cpf][2]}                                                               
+                   Complemento: {dici2[cpf][3]}                                                            
+                   Saldo em conta: {dici2[cpf][4]}                                                         
+                   CPF: {dici2[cpf][6]}                                                                    
+                                                                                                          
+                 ========================================================================================= 
+                 Olá {dici2[cpf][0]} você tem R${dici2[cpf][4]} em sua conta bancária!                     
+                 -------> Sua conta está segura e você pode fazer qualquer tipo de movimentação ---------- 
+                 ========================================================================================= 
                 ''')
                 conti = input("Deseja continuar visualizando o seu extrato: [S/N]").strip().upper()
                 if conti == 'S'.upper():
