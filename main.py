@@ -30,7 +30,7 @@ def menu():
         |                   Sair do Sistema:       6                         |    
         | ================================================================== |
         | ---------------   Obrigado pela preferência!   ------------------- |
-        |                          Since 2022                                |
+        |                          since 2022                                |
         ''')
         opcao = input("Escolha a sua opção: ")
 

@@ -15,19 +15,15 @@ from datetime import date
 def regcliente():
     os.system("cls")
     while True:
-        
-            print("=="*39)
-            
-
             print('''   
-    | ------------- Bem vindos ao menu cadastro! ------------------- |
-    | ------------- Cadastrar novos clientes!          [1] --------- |
-    | ------------- Extrato!                           [2] --------- |
-    | ------------- Alterar dados dos clientes!        [3] --------- |
-    | ------------- Voltar ao menu principal           [4] --------- |
-    | ============================================================== |
+            | ==================================================================== |
+            | ------------------- Bem vindos ao menu cadastro! ------------------- |
+            |                Cadastrar novos clientes!          [1]                |
+            |                Extrato!                           [2]                |
+            |                Alterar dados dos clientes!        [3]                |
+            |                Voltar ao menu principal           [0]                |
+            | ==================================================================== |
             ''')
-            print("=="*39)
             cliente = ' '
             cliente = input("Escolha uma das opções: ")
 
@@ -37,10 +33,14 @@ def regcliente():
                 extratoconta()
             elif cliente == "3":
                 editadados()
-            elif cliente == "4":
+            elif cliente == "0":
+                os.system("cls")
                 break
+                
+            
             else:
-                print('Opção inválida!')            
+                print('Opção inválida!')
+                os.system("cls")            
 
 
 

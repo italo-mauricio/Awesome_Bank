@@ -9,35 +9,42 @@ from datetime import date
 
 
 def menusaque(): # De começo criei essa função para trazer o menu de opções
-    os.system("cls")
-    print("=="*39)
-            # Neste menu estão linkadas todas as funções deste módulo
-    print(''' 
-    | ================================================ |
-    | ---------- Bem vindos ao financeiro ------------ |
-    | ---------- Depositar            [1] ------------ |
-    | ---------- Saque                [2] ------------ |
-    | ---------- Vantagens            [3] ------------ |
-    | ---------- Visualizar saldo     [4] ------------ |
-    | ---------- Extrato              [5] ------------ |
-    | ---------- Back main menu       [6] ------------ |
-    | ================================================ |
-         ''')
-    print("=="*39)
-    usuario = ' '
-    usuario = input("Escolha uma opção: ") # aqui eu peço para o usuário escolher algumas das opções!
-    if usuario == "1": # Se ele digitar 1, ele vai direto para a função de depósito bancário.
-        deposibanco()
-    elif usuario == "2": # Se ele digitar 2, ele irá direto para a função de saque bancário.
-        saquebanco()
-    elif usuario == "3": # Se ele digitar 3, vai aparecer na tela dele a função de vantagens.
-        vantagens()
-    elif usuario == "4": # se ele digitar 4, vai poder acessar o saldo em sua conta.
-        saldo()
-    elif usuario == "5": # se ele digitar 5, vai poder acessar o extrato completo da sua conta.
-        extrato()
-    else: # Caso ele digite qualquer outra coisa, irá aparecer uma mensagem de opção inválida.
-        print('Opção inválida!')
+    while True:
+        os.system("cls")
+
+                # Neste menu estão linkadas todas as funções deste módulo
+        print(''' 
+        | ================================================== |
+        |              Bem vindos ao financeiro              |
+        | -------------------------------------------------- |
+        |                                                    |
+        |             Depositar            [1]               |
+        |             Saque                [2]               |
+        |             Vantagens            [3]               |
+        |             Visualizar saldo     [4]               |
+        |             Extrato              [5]               |
+        |             Back main menu       [0]               |
+        |                                                    |
+        | ================================================== |
+            ''')
+
+        usuario = ' '
+        usuario = input("Escolha uma opção: ") # aqui eu peço para o usuário escolher algumas das opções!
+        if usuario == "1": 
+            deposibanco()
+        elif usuario == "2":
+            saquebanco()
+        elif usuario == "3": 
+            vantagens()
+        elif usuario == "4": 
+            saldo()
+        elif usuario == "5": 
+            extrato()
+        elif usuario == "0":
+            os.system("cls")
+            break
+        else: 
+            print('Opção inválida!')
 
 dici = diciclientes # Criei essa variável para somente facilitar o manuseio do dicionário que está em outro módulo.
 

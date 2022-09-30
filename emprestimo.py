@@ -96,10 +96,6 @@ def solicitarcliente():
                             Horário e data do pedido {hora} / {data}
                             
                               
-                              
-                              
-                              
-                        
                         | Pedido realizado com sucesso!                                |
                               
                               ''')
@@ -225,9 +221,10 @@ def emprest():
                         data {data} / hora {hora}                   
 
                         1 - Solicitar Empréstimo
-                        2 - Verificar as nossas taxas 
-                        3 - Politicas da mpresa
-                        4 - Voltar ao Menu Principal
+                        2 - Verificar situação do pedido
+                        3 - Verificar as nossas taxas 
+                        4 - Politicas da mpresa
+                        0 - Voltar ao Menu Principal
                         
             
             
@@ -245,6 +242,8 @@ def emprest():
         elif opcao == '3':
             pass
         elif opcao == '4':
+            pass
+        elif opcao == '0':
             print("Saindo...")
             sleep(1)
             os.system("cls")
