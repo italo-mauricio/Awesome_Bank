@@ -3,6 +3,8 @@ import os
 from time import sleep
 from validacoes import *
 
+
+
 def listemprestimo(): # Gravando em arquivos.dat
     try:
         empresti = open("emprestimos.dat", "rb")
@@ -21,51 +23,17 @@ def gravemprestimos(emprestimobox):
 
 dicitotal = diciclientes
 
-emprestimobox = {}
+emprestimobox = listemprestimo()
 
-def emprest():
-    while True:
-        os.system("cls")
-        hora_atual = datetime.now()
-        hora = hora_atual.strftime('%H:%M')
-        data = date.today()
-        print(f'''
-        ========================================================
-                        data {data} / hora {hora}                   
-
-                        1 - Solicitar Empréstimo
-                        2 - Verificar as nossas taxas 
-                        3 - Politicas da mpresa
-                        4 - Voltar ao Menu Principal
-                        
-            
-            
-            
-        =================== Since 2022 ========================
-        
-        ''')
-        
-        opcao = input("Escolha uma opção: ")
-        
-        if opcao == '1':
-            solicitar()
-        elif opcao == '2':
-            pass
-        elif opcao == '3':
-            pass
-        elif opcao == '4':
-            print("Saindo...")
-            sleep(2)
-            break
-        else:
-            print("Escolha uma opção válida")
-            
             
             
 
 def solicitar():
     os.system("cls")
-        
+    hora_atual = datetime.now()
+    hora = hora_atual.strftime('%H:%M')
+    data = date.today()
+    
     print(f'''
     | ========================================================== |
     |                 Enviar Dados para Análise                  |
@@ -95,19 +63,107 @@ def solicitar():
         else:
             print("Digite um nome válido")
     while True:
-        cpf = input("Digite o seu CPF: ")
-        if cadastrocpf(cpf):
-            break
-        else:
-            print("Digite um CPF válido")
-    while True:
         email = input("Digite o seu email: ")
         if validemail(email):
             break
         else:
             print("Digite um email válido!")
-        endereco 
+    endereco = input("Digite seu endereço: ")
+    id = gerandid.gera_id()                         
+    print(f"Sua ID é {id}")
+    while True:
+        valor = input("Quanto você deseja solicitar: ")
+        if validnum(valor):
+            break
+        else:
+            print("Digite um número!")
+    while True:
+        cpf = input("Digite o seu CPF: ")
+        if cadastrocpf(cpf):
+            if cpf not in emprestimobox:
+                emprestimobox[cpf] = [nome, email, endereco, id]
+                print(f'''
+                | ========================================================== |
+                |                 Enviar Dados para Análise                  |
+                |                                                            |
+                | ---------------------------------------------------------- |
+                
+                            Solicitação Realizada com Sucesso!
+                
+                Nome: {nome}
+                CPF: {cpf}
+                Email: {email}
+                Endereço: {endereco}
+                ID: {id}
+                Valor da solicitação: {valor}
+                Data e Hora do registro: {data} {hora}
+                
+                
+                
+                                                        
+                
+                | ===================== Since 2022 ======================== |''')
+                gravemprestimos(emprestimobox)
+                conti = input("Aperte ENTER para continuar...")
+                emprest()
+            else:
+                print("Empréstimo já foi solicitado por este usuário!")
+                print("Tente outro cadastro!")
+                emprest()
+                
+        else:
+            print("Digite um CPF válido")
+       
+        
+        
+        
+        
+        
+        
+class gerandid():  # gera uma ID para o cliente
+    @staticmethod
+    def gera_id():
+        rand = randint(10000, 19999)
+        return rand
 
 
 
 
+def emprest():
+    os.system("cls")
+    while True:
+        hora_atual = datetime.now()
+        hora = hora_atual.strftime('%H:%M')
+        data = date.today()
+        print(f'''
+        ========================================================
+                        data {data} / hora {hora}                   
+
+                        1 - Solicitar Empréstimo
+                        2 - Verificar as nossas taxas 
+                        3 - Politicas da mpresa
+                        4 - Voltar ao Menu Principal
+                        
+            
+            
+            
+        =================== Since 2022 ========================
+        
+        ''')
+        opcao = ' '
+        opcao = input("Escolha uma opção: ")
+        
+        if opcao == '1':
+            solicitar()
+        elif opcao == '2':
+            pass
+        elif opcao == '3':
+            pass
+        elif opcao == '4':
+            print("Saindo...")
+            sleep(1)
+            os.system("cls")
+            break
+        else:
+            print("Escolha uma opção válida")
+            
