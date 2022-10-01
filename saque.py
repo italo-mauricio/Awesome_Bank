@@ -82,7 +82,7 @@ def deposibanco(): # Função para o depósito bancário!
         else:
             print("Usuário encontrado!") # Se o usuário for encontrado, ele exibe o usuário vinculado ao CPF.
             print(dici[senha][0]) # Mando printar a posição nome do cliente
-            valor = float(input("Digite o quanto você quer depositar: ")) # Peço a quantia que ele quer depositar!
+            valor = int(input("Digite o quanto você quer depositar: ")) # Peço a quantia que ele quer depositar!
             dici[senha][4] += valor # Faço a soma
             print("valor novo " + str(dici[senha][4])) # Coloco o novo valor no dicionário
             print('Valor depositado com sucesso!')
@@ -142,7 +142,7 @@ def saldo(): # Função para ver o saldo
             ''')
     print("=="*50)
     while True:
-        senha = getpass("Digite o CPF cadastrado!: ") # Peço para o cliente digitar o CPF cadastrado
+        senha = getpass("Digite a senha cadastrada!: ") # Peço para o cliente digitar o CPF cadastrado
         if senha not in dici:
             print('Usuário não encontrado!')
             break
@@ -188,43 +188,41 @@ def extrato(): # Função para o extrato
     | ============================================================================================== |
             ''')
     print("=="*50)
-    cpf = ' '
+    token = ' '
     while True:
-        cpf = getpass("Digite o CPF cadastrado!: ")
-        if cadastrocpf(cpf):
-            if cpf not in dici:
-                print("Usuário não encontrado!")
-                break
-            else:
-                print("Uusário encontrado!")
-                print(f'''
-                 ========================================================================================= 
-                 ---------------------------------- Extrato Bancário ------------------------------------- 
-                   Nome: {dici[cpf][0]}                                                                   
-                   Email: {dici[cpf][1]}                                                                  
-                   Endereço: {dici[cpf][2]}                                                               
-                   Complemento: {dici[cpf][3]}                                                            
-                   Saldo em conta: {dici[cpf][4]}                                                         
-                   CPF: {dici[cpf][6]}                                                                    
-                                                                                                          
-                 ========================================================================================= 
-                 Olá {dici[cpf][0]} você tem R${dici[cpf][4]} em sua conta bancária!                     
-                 -------> Sua conta está segura e você pode fazer qualquer tipo de movimentação ---------- 
-                 ========================================================================================= 
-                ''')
-                conti = input("Deseja continuar visualizando o seu extrato: [S/N]").strip().upper()
-                if conti == 'S'.upper():
-                    extrato()
-                if conti == 'N'.upper():
-                    menusaque()
-                else:
-                    print("Opção inválida!")
-
+        token = getpass("Digite seu token cadastrado: ")
+   
+        if token not in dici:
+            print("Usuário não encontrado!")
+            break
         else:
-            print("CPF não cadastrado!") 
-            
-            
-            
+            print("Uusário encontrado!")
+            print(f'''
+                ========================================================================================= 
+                ---------------------------------- Extrato Bancário ------------------------------------- 
+                Nome: {dici[token][0]}                                                                   
+                Email: {dici[token][1]}                                                                  
+                Endereço: {dici[token][2]}                                                               
+                Complemento: {dici[token][3]}                                                            
+                Saldo em conta: {dici[token][4]}                                                         
+                CPF: {dici[token][6]}                                                                    
+                                                                                                        
+                ========================================================================================= 
+                Olá {dici[token][0]} você tem R${dici[token][4]} em sua conta bancária!                     
+                -------> Sua conta está segura e você pode fazer qualquer tipo de movimentação ---------- 
+                ========================================================================================= 
+            ''')
+            conti = input("Deseja continuar visualizando o seu extrato: [S/N]").strip().upper()
+            if conti == 'S'.upper():
+                extrato()
+            if conti == 'N'.upper():
+                menusaque()
+            else:
+                print("Opção inválida!")
+
+        
+        
+        
             
             
             
