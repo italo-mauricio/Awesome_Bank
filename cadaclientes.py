@@ -97,15 +97,13 @@ def cadastrobanco():
     complemento = input("Informe um complemento (opcional): ").strip() # Complemento livre.
     valores = float(input("Quanto você espera depositar em sua conta?: ")) # Local que será usado no módulo saque.
     while True:
-        senha = ' '
-        senha = getpass('Escolha um senha numérica de qualquer tamanho: ').strip() # Peço uma senha de acesso
-        if validnum(senha):
-            if senha not in diciclientes: # Vereifico se a mesma já consta no sistema
-                break
-            else:
-                print("Senha já cadastrada!")
+     
+        senha = float(input('Escolha um senha numérica de qualquer tamanho: ')) # Peço uma senha de acesso
+        if senha not in diciclientes: # Vereifico se a mesma já consta no sistema
+            break
         else:
-            print("Senha inválida!")
+            print("Senha já cadastrada!")
+      
     id = gerandid.gera_id()                         
     print(f"Sua ID é {id}")
     
@@ -113,9 +111,9 @@ def cadastrobanco():
         cpf = input("Digite um CPF válido: ").strip() # Peço um CPF + verificação.
         if cadastrocpf(cpf):
             if cpf not in diciclientes:
-                diciclientes[cpf] = [nome, email, endereco, complemento, valores, senha, id]
+                diciclientes[id] = [nome, email, endereco, complemento, valores, senha, cpf]
                 print(f'''
-                      Bem vindo(a) {diciclientes[cpf][0]} ao time, estamos muito felizes em ver você por aqui!
+                      Bem vindo(a) {diciclientes[id][0]} ao time, estamos muito felizes em ver você por aqui!
                       Você foi cadastrado no dia {data} e no horário {hora}
                       ''')
                
@@ -145,58 +143,55 @@ def editadados(): # Função para alterar os dados.
             ''')
     print("=="*50)
     while True:
-        cpf = input("Digite o cpf cadastrado no sistema: ")
-
-        if cadastrocpf(cpf):
-            if cpf not in diciclientes:
-                print('Usuário não encontrado!')
-                break
-            else:
-                print("Usuário encontrado no sistema!")
-                alterar = ' '
-                alterar = input("Qual dado você quer alterar do seu cadastro: ").upper().strip() # Peço as novas informações
-                if alterar == "nome".strip().upper():
-                    novo_nome = input("Digite seu novo nome: ").strip()
-                    diciclientes[cpf][0] = novo_nome # Adiciono o novo nome ao dicionário posição nome
-                    print('Nome alterado com sucesso!')
-                    gravclientes(diciclientes)
-                    break
-                if alterar == "email".strip().upper():
-                    novo_email = input("Digite seu novo email: ").strip()
-                    if validemail(novo_email):
-                        diciclientes[cpf][1] = novo_email # Adiciono o novo email ao dicionário posição email
-                        print("Email alterado com sucesso!")
-                        gravclientes(diciclientes)
-                        break
-                    else:
-                        print("Email inválido!")
-                if alterar == "endereco".strip().upper():
-                    novo_endereco = input("Digite seu novo endereço: ").strip()
-                    diciclientes[cpf][2] = novo_endereco # Adiciono o novo endereço ao dicionário posição endereço
-                    print("Endereço atualizado com sucesso!")
-                    gravclientes(diciclientes)
-                    break
-                if alterar == "opicional".strip().upper():
-                    novo_opcional = input("Digite seu novo endereço opcional: ").strip()
-                    diciclientes[cpf][3] = novo_opcional # Adiciono o novo complementoao dicionário posição complemento
-                    print("Endereço opcional atualizado com sucesso!")
-                    gravclientes(diciclientes)
-                    break
-            
-                if alterar == "senha".strip().upper():
-                    nova_senha = input("Digite sua nova senha: ").strip()
-                    if validnum(nova_senha):
-                        diciclientes[cpf][5] = nova_senha # Adiciono a nova senha ao dicionário posição senha
-                        print('Senha atualizada com sucesso!')
-                        gravclientes(diciclientes)
-                        break
-                    else:
-                        print("Senha inválida!")
-                else:
-                    print("Opção inválida!")
+        id = input("Digite o seu token de acesso: ")
+        if id not in diciclientes:
+            print('Usuário não encontrado!')
+            break
         else:
-            print("CPF inválido!")
+            print("Usuário encontrado no sistema!")
+            alterar = ' '
+            alterar = input("Qual dado você quer alterar do seu cadastro: ").upper().strip() # Peço as novas informações
+            if alterar == "nome".strip().upper():
+                novo_nome = input("Digite seu novo nome: ").strip()
+                diciclientes[id][0] = novo_nome # Adiciono o novo nome ao dicionário posição nome
+                print('Nome alterado com sucesso!')
+                gravclientes(diciclientes)
+                break
+            if alterar == "email".strip().upper():
+                novo_email = input("Digite seu novo email: ").strip()
+                if validemail(novo_email):
+                    diciclientes[id][1] = novo_email # Adiciono o novo email ao dicionário posição email
+                    print("Email alterado com sucesso!")
+                    gravclientes(diciclientes)
+                    break
+                else:
+                    print("Email inválido!")
+            if alterar == "endereco".strip().upper():
+                novo_endereco = input("Digite seu novo endereço: ").strip()
+                diciclientes[id][2] = novo_endereco # Adiciono o novo endereço ao dicionário posição endereço
+                print("Endereço atualizado com sucesso!")
+                gravclientes(diciclientes)
+                break
+            if alterar == "opicional".strip().upper():
+                novo_opcional = input("Digite seu novo endereço opcional: ").strip()
+                diciclientes[id][3] = novo_opcional # Adiciono o novo complementoao dicionário posição complemento
+                print("Endereço opcional atualizado com sucesso!")
+                gravclientes(diciclientes)
+                break
         
+            if alterar == "senha".strip().upper():
+                nova_senha = input("Digite sua nova senha: ").strip()
+                if validnum(nova_senha):
+                    diciclientes[id][5] = nova_senha # Adiciono a nova senha ao dicionário posição senha
+                    print('Senha atualizada com sucesso!')
+                    gravclientes(diciclientes)
+                    break
+                else:
+                    print("Senha inválida!")
+            else:
+                print("Opção inválida!")
+
+    
     
 
 def extratoconta():
@@ -213,9 +208,8 @@ def extratoconta():
     print("=="*50)
     while True:
         cpf = ' '
-        cpf = getpass("Digite o seu CPF: ") # Peço o cpf do cliente
-        if cadastrocpf(cpf):
-            if cpf in diciclientes:
+        cpf = getpass("Digite o seu token: ") # Peço o cpf do cliente
+        if cpf in diciclientes:
                 os.system("cls") # Faço a verificação.
                 print("Usuário encontrado!")
                 print(f'''
@@ -238,27 +232,26 @@ def extratoconta():
                 conti = input('Press ENTER for continue...')
                 os.system("cls")
                 break
-            else:
-                print("Usuário não encontrado!")
-                continuar = ' '
-                continuar = str(input('Deseja continuar [S/N]: ')).strip().upper() # Pergunto se ele quer continuar caso não for encontrado
-                if continuar == "S".upper():
-                    extratoconta()
-                elif continuar == "N".upper():
-                    print('Saindo...')
-                    sleep(2)
-                    break
-                else:
-                    print("Opção inválida!")
         else:
-            print("CPF inválido!")
+            print("Usuário não encontrado!")
+            continuar = ' '
+            continuar = str(input('Deseja continuar [S/N]: ')).strip().upper() # Pergunto se ele quer continuar caso não for encontrado
+            if continuar == "S".upper():
+                extratoconta()
+            elif continuar == "N".upper():
+                print('Saindo...')
+                sleep(2)
+                break
+            else:
+                print("Opção inválida!")
+      
 # ------------------------------------------------------------------------------------------------------- #
 
 
 class gerandid():  # gera uma ID para o cliente
     @staticmethod
     def gera_id():
-        rand = randint(10000, 19999)
+        rand = randint(100000, 999999)
         return rand
 
                 

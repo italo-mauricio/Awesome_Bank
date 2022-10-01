@@ -68,43 +68,40 @@ def solicitarcliente():
     data = date.today()
     while True:
         print("Precisamos confirmar seu CPF!")
-        cliente = input("Por favor, digite o seu CPF cadastrado: ")
-        if cadastrocpf(cliente):
-            if cliente not in diciclientes:
-                print("Seu registro não foi encontrado!")
-                break
-            else:
-                print(f'''
-                ======================= Área do Cliente ====================
-            
-                    Bem vindo {diciclientes[cliente][0]}
-                                    
-                    Seu atual saldo é de: {diciclientes[cliente][4]}
-                    Seu ID é: {diciclientes[cliente][6]}
-
-                    
-                    ''')
-                while True:
-                    emp = input("Quanto você deseja solicitar: ")
-                    if validnum(emp):
-                        print(f'''
-                        | ================= Extrato da Solicitação ==================== |
-                        |                                                               |
-                            Cliente {diciclientes[cliente][0]}
-                            ID da solicitação {diciclientes[cliente][6]}
-                            Valor do pedido {emp}
-                            Horário e data do pedido {hora} / {data}
-                            
-                              
-                        |   Pedido realizado com sucesso!                               |
-                              
-                              ''')
-                        gravemprestimos(emprestimobox)
-                        conti = input("Aperte ENTER para continuar...")
-                        break
+        cliente = input("Por favor, digite a senha cadastrada: ")
+        if cliente not in dicitotal:
+            print("Seu registro não foi encontrado!")
+            break
         else:
-            print("Digite um CPF válido!")
-            
+            print(f'''
+            ======================= Área do Cliente ====================
+        
+                Bem vindo {diciclientes[cliente][0]}
+                                
+                Seu atual saldo é de: {diciclientes[cliente][4]}
+                Seu ID é: {diciclientes[cliente][6]}
+
+                
+                ''')
+            while True:
+                emp = input("Quanto você deseja solicitar: ")
+                if validnum(emp):
+                    print(f'''
+                    | ================= Extrato da Solicitação ==================== |
+                    |                                                               |
+                        Cliente {diciclientes[cliente][0]}
+                        ID da solicitação {diciclientes[cliente][6]}
+                        Valor do pedido {emp}
+                        Horário e data do pedido {hora} / {data}
+                        
+                            
+                    |   Pedido realizado com sucesso!                               |
+                            
+                            ''')
+                    gravemprestimos(emprestimobox)
+                    conti = input("Aperte ENTER para continuar...")
+                    break
+    
         
     
     

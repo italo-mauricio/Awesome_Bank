@@ -5,24 +5,15 @@ from datetime import date
 
 
 
-# ----------------------------------------- Bem vindos às funções financeiras ------------------------------------------#
+# --------------------------------------- Bem vindos às funções financeiras ------------------------------------------#
 # Nesta parte estão as funções de depósito em conta já cadastrada, saque, as vantagens de ser cliente BB, e o seu saldo!
 # Explicarei passo a passo como eu pensei o cóigo por completo
 
 
 def menusaque():
+    os.system("cls")
     while True:
-        print("Antes, precisamos confirmar seus dados para o acesso!")
-        print("Por favor, informe sua credencial")
-        cpf = input("Digite o seu CPF: ")
-        if cadastrocpf(cpf):
-            if cpf not in dici:
-                print("Você não é cliente BB, por favor realize seu cadastro!")
-                print('Redirecionando para a tela de cadastro...')
-                sleep(1)
-                regcliente()
-                break
-            else:
+
                 os.system("cls")
                 print("Você é nosso cliente, seja bem vindo!")
                 print(''' 
@@ -60,8 +51,8 @@ def menusaque():
                     break
                 else: 
                     print('Opção inválida!')
-        else:
-            print("Coloque um CPF válido!")
+      
+   
 
 dici = diciclientes # Criei essa variável para somente facilitar o manuseio do dicionário que está em outro módulo.
 
@@ -114,24 +105,29 @@ def saquebanco(): # Função para o saque em conta.
             ''')
     print("=="*50)
     while True:
-        cpf = getpass("Digite o CPF já cadastrado em nosso sistema: ") # Peço para o cliente inserir o CPF já cadastrado na conta.
-        if cpf not in dici: # Faço a verificação se ele realmente está cadastrado
+        id = int(input("Informe sua ID cadastrada no sistema: "))
+
+        if id not in dici:
             print("Usuário não encontrado!")
             break
         else:
-            print("Cliente encontrado!") # Se sim, exibo o cliente.
-            print(dici[cpf][0])
-            valor = float(input('Qual o valor você quer sacar da sua conta: ')) # Peço para ele adicionar o valor desejado para o saque
-            if valor > 0: 
-                dici[cpf][4]-= valor # Faço a subtração
-                print('Valor resgatado com sucesso!')
-                print("valor novo " + str(dici[cpf][4]))
-                print(f"Você sacou R${valor:.2f}")
-                gravclientes(diciclientes)
-                break
+            if id == dici:
+                print("Tente outra id!")
             else:
-                print("Você não tem saldo suficiente!")
-            
+                print("Cliente encontrado!") 
+                print(dici[id][0])
+                valor = int(input('Qual o valor você quer sacar da sua conta: ')) 
+                if valor > 0 : 
+                    dici[id][4] -= valor 
+                    print('Valor resgatado com sucesso!')
+                    print("valor novo " + str(dici[id][4]))
+                    print(f"Você sacou R${valor:.2f}")
+                    gravclientes(diciclientes)
+                    conti = input("Aperta ENTER para continuar...")
+                    break
+                else:
+                    print("Você não tem saldo suficiente!")
+                    
 
 # =================================================================================================================== #
 
@@ -196,7 +192,7 @@ def extrato(): # Função para o extrato
     while True:
         cpf = getpass("Digite o CPF cadastrado!: ")
         if cadastrocpf(cpf):
-            if cpf not in dici2:
+            if cpf not in dici:
                 print("Usuário não encontrado!")
                 break
             else:
@@ -204,15 +200,15 @@ def extrato(): # Função para o extrato
                 print(f'''
                  ========================================================================================= 
                  ---------------------------------- Extrato Bancário ------------------------------------- 
-                   Nome: {dici2[cpf][0]}                                                                   
-                   Email: {dici2[cpf][1]}                                                                  
-                   Endereço: {dici2[cpf][2]}                                                               
-                   Complemento: {dici2[cpf][3]}                                                            
-                   Saldo em conta: {dici2[cpf][4]}                                                         
-                   CPF: {dici2[cpf][6]}                                                                    
+                   Nome: {dici[cpf][0]}                                                                   
+                   Email: {dici[cpf][1]}                                                                  
+                   Endereço: {dici[cpf][2]}                                                               
+                   Complemento: {dici[cpf][3]}                                                            
+                   Saldo em conta: {dici[cpf][4]}                                                         
+                   CPF: {dici[cpf][6]}                                                                    
                                                                                                           
                  ========================================================================================= 
-                 Olá {dici2[cpf][0]} você tem R${dici2[cpf][4]} em sua conta bancária!                     
+                 Olá {dici[cpf][0]} você tem R${dici[cpf][4]} em sua conta bancária!                     
                  -------> Sua conta está segura e você pode fazer qualquer tipo de movimentação ---------- 
                  ========================================================================================= 
                 ''')
@@ -266,27 +262,28 @@ def transfer():
             ''')
             while True:
                 transf = input("Digite CPF da pessoa que você quer enviar: ")
-                if validnum(transf):
-                    if transf not in dici:
-                        print("Usuário não cadastrado no nosso sistema!")
-                        break
-                    else:
-                        print(f'''.
-                                        Usuário encontrado!
+
+                if transf not in dici:
+                    print("Usuário não cadastrado no nosso sistema!")
+                    break
+                else:
+                    print(f'''.
+                                    Usuário encontrado!
+                        
+                        
+                        Nome: {dici[transf][0]}
+                        Email: {dici[transf][1]}
+                        ID: {dici[transf][6]}
                             
+                        ''')
+                
+                    quant = float(input("Digite quanto você quer transferir: "))
+                    dici[transf][4] += quant
+                    print("Transferência realizada com sucesso")
+                    print("Novo valor: "+ str(dici[transf][4]))
+                    conti = input("Aperto ENTER para continuar... ")
+                    break
+                    
                             
-                            Nome: {dici[transf][0]}
-                            Email: {dici[transf][1]}
-                            ID: {dici[transf][6]}
-                              
-                            ''')
-                        while True:
-                            quant = input("Quanto você deseja transferir: ")
-                            if validnum(quant):
-                                dici[transf][4] += quant
-                                print("Transação efetuada com sucesso!")
-                                menusaque()
-                                break
-                            else:
-                                print("Por favor, digite um número válido!")
-                            
+                        
+                
