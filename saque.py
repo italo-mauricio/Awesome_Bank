@@ -16,7 +16,7 @@ def menusaque():
         print("Por favor, informe sua credencial")
         cpf = input("Digite o seu CPF: ")
         if cadastrocpf(cpf):
-            if cpf not in diciclientes:
+            if cpf not in dici:
                 print("Você não é cliente BB, por favor realize seu cadastro!")
                 print('Redirecionando para a tela de cadastro...')
                 sleep(1)
@@ -32,9 +32,10 @@ def menusaque():
                 |                                                    |
                 |             Depositar            [1]               |
                 |             Saque                [2]               |
-                |             Vantagens            [3]               |
-                |             Visualizar saldo     [4]               |
-                |             Extrato              [5]               |
+                |             Transferências       [3]               |
+                |             Vantagens            [4]               |
+                |             Visualizar saldo     [5]               |
+                |             Extrato              [6]               |
                 |             Back main menu       [0]               |
                 |                                                    |
                 | ================================================== |
@@ -47,10 +48,12 @@ def menusaque():
                 elif usuario == "2":
                     saquebanco()
                 elif usuario == "3": 
-                    vantagens()
+                    transfer()
                 elif usuario == "4": 
-                    saldo()
+                    vantagens()
                 elif usuario == "5": 
+                    saldo()
+                elif usuario == "6":
                     extrato()
                 elif usuario == "0":
                     os.system("cls")
@@ -198,7 +201,6 @@ def extrato(): # Função para o extrato
                 break
             else:
                 print("Uusário encontrado!")
-                print(dici2[cpf][0][1][2][3])
                 print(f'''
                  ========================================================================================= 
                  ---------------------------------- Extrato Bancário ------------------------------------- 
@@ -238,7 +240,7 @@ def transfer():
         |                                                     |
         |                                                     |
         |               1 - Para clientes BB                  |
-        |               2 - Para outros                       |
+        |               2 - Para não clientes                 |
         |               3 - Voltar ao Menu                    |
         |                                                     |
         |                                                     |
@@ -252,7 +254,13 @@ def transfer():
         
         if opcao == '1':
             os.system("cls")
-            while True:
-                print('Precisa')
-              
+       
+            print(f'''
+
+            Bem vindo ao nosso sistema de transferência, você optou pela opção
+            de tranferir para um cliente já cadastrado em nosso sistema!
+                    
+            ''')
+            
+            
         
