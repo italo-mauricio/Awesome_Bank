@@ -214,13 +214,13 @@ def menucot():
         print(f'''
         | =================== Menu Cotações ==================== |
         | ------------------------------------------------------ |
-        | -                  Consultar Dólar    1              - |
-        | -                  Consultar Euro     2              - | 
-        | -                  Consultar Franco   3              - |
-        | -                  Consultar Bitcoin  4              - |
-        | -                  Consultar Iene     5              - |
-        | -                  Consultar CAD      6              - |
-        | -                  Voltar pro Menu    0              - |
+        | -                 Consultar Dólar    1               - |
+        | -                 Consultar Euro     2               - | 
+        | -                 Consultar Franco   3               - |
+        | -                 Consultar Bitcoin  4               - |
+        | -                 Consultar Iene     5               - |
+        | -                 Consultar CAD      6               - |
+        | -                 Voltar pro Menu    0               - |
         | ------------------------------------------------------ |
         | ====================================================== |
         ''')

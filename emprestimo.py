@@ -75,9 +75,9 @@ def solicitarcliente():
                 break
             else:
                 print(f'''
-                ======================= Área do Cliente ==========================
-                |
-                                    Bem vindo {diciclientes[cliente][0]}
+                ======================= Área do Cliente ====================
+            
+                    Bem vindo {diciclientes[cliente][0]}
                                     
                     Seu atual saldo é de: {diciclientes[cliente][4]}
                     Seu ID é: {diciclientes[cliente][6]}
@@ -96,7 +96,7 @@ def solicitarcliente():
                             Horário e data do pedido {hora} / {data}
                             
                               
-                        | Pedido realizado com sucesso!                                |
+                        |   Pedido realizado com sucesso!                               |
                               
                               ''')
                         gravemprestimos(emprestimobox)
@@ -118,26 +118,26 @@ def solicitarnaocliente():
     data = date.today()
     
     print(f'''
-    | ========================================================== |
-    |                 Enviar Dados para Análise                  |
-    |                                                            |
-    | ---------------------------------------------------------- |
+    | =========================================================== |
+    |                  Enviar Dados para Análise                  |
+    |                                                             |
+    | ----------------------------------------------------------- |
     
                         ~ FICHA EXEMPLO ~ 
     
-    Nome: seu nome
-    CPF: seu cpf
-    Email: seu melhor email
-    Endereço: seu endereço
-    ID: seu registro gerado automaticamente
-    Valor da solicitação: quanto você deseja
-    Data e Hora do registro: a data que foi realizado o pedido
+        Nome: seu nome
+        CPF: seu cpf
+        Email: seu melhor email
+        Endereço: seu endereço
+        ID: seu registro gerado automaticamente
+        Valor da solicitação: quanto você deseja
+        Data e Hora do registro: a data que foi realizado o pedido
     
     
     
                                             
     
-    | ===================== Since 2022 ======================== |''')
+    | ======================= Since 2022 ======================== |''')
     
     while True:
         nome = input("Digite o seu nome: ")

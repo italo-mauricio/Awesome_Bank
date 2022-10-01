@@ -164,6 +164,8 @@ def vantagens(): # Função extra somente de print
         input("Aperte qualquer tecla para sair: ")
         break
 
+
+
 def extrato(): # Função para o extrato
     os.system("cls")
     print("=="*50)
@@ -208,3 +210,29 @@ def extrato(): # Função para o extrato
 
         else:
             print("CPF não cadastrado!") 
+            
+            
+            
+            
+            
+            
+def transfer():
+    os.system("cls")
+    while True:
+        print(f'''
+        | ================= Transferências ================== |
+        |                                                     |
+        |                                                     |
+        |               1 - Para clientes BB                  |
+        |               2 - Para outros                       |
+        |               3 - Voltar ao Menu                    |
+        |                                                     |
+        |                                                     |
+        | ------------------ since 2022 --------------------- |
+        | =================================================== |
+              
+        ''')
+        
+        
+        
+        
