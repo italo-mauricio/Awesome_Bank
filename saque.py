@@ -3,48 +3,62 @@ from getpass import getpass
 from datetime import datetime
 from datetime import date
 
+
+
 # ----------------------------------------- Bem vindos às funções financeiras ------------------------------------------#
 # Nesta parte estão as funções de depósito em conta já cadastrada, saque, as vantagens de ser cliente BB, e o seu saldo!
 # Explicarei passo a passo como eu pensei o cóigo por completo
 
 
-def menusaque(): # De começo criei essa função para trazer o menu de opções
+def menusaque():
     while True:
-        os.system("cls")
+        print("Antes, precisamos confirmar seus dados para o acesso!")
+        print("Por favor, informe sua credencial")
+        cpf = input("Digite o seu CPF: ")
+        if cadastrocpf(cpf):
+            if cpf not in diciclientes:
+                print("Você não é cliente BB, por favor realize seu cadastro!")
+                print('Redirecionando para a tela de cadastro...')
+                sleep(1)
+                regcliente()
+                break
+            else:
+                os.system("cls")
+                print("Você é nosso cliente, seja bem vindo!")
+                print(''' 
+                | ================================================== |
+                |              Bem vindos ao financeiro              |
+                | -------------------------------------------------- |
+                |                                                    |
+                |             Depositar            [1]               |
+                |             Saque                [2]               |
+                |             Vantagens            [3]               |
+                |             Visualizar saldo     [4]               |
+                |             Extrato              [5]               |
+                |             Back main menu       [0]               |
+                |                                                    |
+                | ================================================== |
+                    ''')
 
-                # Neste menu estão linkadas todas as funções deste módulo
-        print(''' 
-        | ================================================== |
-        |              Bem vindos ao financeiro              |
-        | -------------------------------------------------- |
-        |                                                    |
-        |             Depositar            [1]               |
-        |             Saque                [2]               |
-        |             Vantagens            [3]               |
-        |             Visualizar saldo     [4]               |
-        |             Extrato              [5]               |
-        |             Back main menu       [0]               |
-        |                                                    |
-        | ================================================== |
-            ''')
-
-        usuario = ' '
-        usuario = input("Escolha uma opção: ") # aqui eu peço para o usuário escolher algumas das opções!
-        if usuario == "1": 
-            deposibanco()
-        elif usuario == "2":
-            saquebanco()
-        elif usuario == "3": 
-            vantagens()
-        elif usuario == "4": 
-            saldo()
-        elif usuario == "5": 
-            extrato()
-        elif usuario == "0":
-            os.system("cls")
-            break
-        else: 
-            print('Opção inválida!')
+                usuario = ' '
+                usuario = input("Escolha uma opção: ") # aqui eu peço para o usuário escolher algumas das opções!
+                if usuario == "1": 
+                    deposibanco()
+                elif usuario == "2":
+                    saquebanco()
+                elif usuario == "3": 
+                    vantagens()
+                elif usuario == "4": 
+                    saldo()
+                elif usuario == "5": 
+                    extrato()
+                elif usuario == "0":
+                    os.system("cls")
+                    break
+                else: 
+                    print('Opção inválida!')
+        else:
+            print("Coloque um CPF válido!")
 
 dici = diciclientes # Criei essa variável para somente facilitar o manuseio do dicionário que está em outro módulo.
 
@@ -233,6 +247,12 @@ def transfer():
               
         ''')
         
+        opcao = ' '
+        opcao = input("Escolha uma opção: ")
         
-        
+        if opcao == '1':
+            os.system("cls")
+            while True:
+                print('Precisa')
+              
         
