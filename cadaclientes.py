@@ -207,9 +207,9 @@ def extratoconta():
             ''')
     print("=="*50)
     while True:
-        cpf = ' '
-        cpf = getpass("Digite o seu token: ") # Peço o cpf do cliente
-        if cpf in diciclientes:
+        id = ' '
+        id = getpass("Digite o seu token: ") # Peço o cpf do cliente
+        if id in diciclientes:
                 os.system("cls") # Faço a verificação.
                 print("Usuário encontrado!")
                 print(f'''
@@ -217,13 +217,13 @@ def extratoconta():
                 | ------------------------------------------------------------ |
                 | Data da verificação: {data}
                 | Horário da verificação: {hora}
-                | Nome: {diciclientes[cpf][0]}                                    
-                | Email: {diciclientes[cpf][1]}                                              
-                | Endereço: {diciclientes[cpf][2]}                                 
-                | Complemento: {diciclientes[cpf][3]}                             
-                | Saldo: {diciclientes[cpf][4]}                                   
-                | Senha: {diciclientes[cpf][5]}                                     
-                | ID: {diciclientes[cpf][6]}                                       
+                | Nome: {diciclientes[id][0]}                                    
+                | Email: {diciclientes[id][1]}                                              
+                | Endereço: {diciclientes[id][2]}                                 
+                | Complemento: {diciclientes[id][3]}                             
+                | Saldo: {diciclientes[id][4]}                                   
+                | Senha: {diciclientes[id][5]}                                     
+                | ID: {diciclientes[id][6]}                                       
                 |                                                              |
                 | ------------------------------------------------------------ |
                 | ============================================================ |      

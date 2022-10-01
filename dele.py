@@ -22,27 +22,26 @@ def delusu():
     print("=="*50)
     while True:
         print("Vamos deletar o seu usuário!")
-        cpf = input("Digite o CPF cadastrada: ") # Peço o CPF cadastrado no sistema
-        if cadastrocpf(cpf): # Faço a validação
-            if cpf not in diciclientes: # Verifico se o mesmo se encontra no dicionário.
-                print("Usuário não encontrado!")
-                continuar = input("Deseja continuar: [S/N] ").strip().upper()
-                if continuar == 'S'.upper():
-                    delusu()
-                elif continuar == 'N'.upper():
-                    regcliente()
-                else:
-                    print('Opção inválida!')
+        token = input("Digite o token cadastrado: ") # Peço o CPF cadastrado no sistema
+
+        if token not in diciclientes: # Verifico se o mesmo se encontra no dicionário.
+            print("Usuário não encontrado!")
+            continuar = input("Deseja continuar: [S/N] ").strip().upper()
+            if continuar == 'S'.upper():
+                delusu()
+            elif continuar == 'N'.upper():
+                regcliente()
             else:
-                print("Usuário encontrado!")
-                del diciclientes[cpf]
-                print("Usuário deletado com sucesso!")
-                print(f'''
-                    Usuário foi deletado dia: {data}
-                    Horário da exclusão: {hora_atual}
-                      ''')
-                gravclientes(diciclientes)
-                conti = input("Press ENTER for continue... ")
-                break
+                print('Opção inválida!')
         else:
-            print('CPF inválido! ')
+            print("Usuário encontrado!")
+            del diciclientes[token]
+            print("Usuário deletado com sucesso!")
+            print(f'''
+                Usuário foi deletado dia: {data}
+                Horário da exclusão: {hora_atual}
+                    ''')
+            gravclientes(diciclientes)
+            conti = input("Press ENTER for continue... ")
+            break
+ 
