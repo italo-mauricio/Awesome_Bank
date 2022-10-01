@@ -259,8 +259,34 @@ def transfer():
 
             Bem vindo ao nosso sistema de transferência, você optou pela opção
             de tranferir para um cliente já cadastrado em nosso sistema!
+            
+            Nós solicitamos o CPF da pessoa cadastrada, por tanto, esteja com o 
+            CPF em mãos na hora da transferência.
                     
             ''')
-            
-            
-        
+            while True:
+                transf = input("Digite CPF da pessoa que você quer enviar: ")
+                if validnum(transf):
+                    if transf not in dici:
+                        print("Usuário não cadastrado no nosso sistema!")
+                        break
+                    else:
+                        print(f'''.
+                                        Usuário encontrado!
+                            
+                            
+                            Nome: {dici[transf][0]}
+                            Email: {dici[transf][1]}
+                            ID: {dici[transf][6]}
+                              
+                            ''')
+                        while True:
+                            quant = input("Quanto você deseja transferir: ")
+                            if validnum(quant):
+                                dici[transf][4] += quant
+                                print("Transação efetuada com sucesso!")
+                                menusaque()
+                                break
+                            else:
+                                print("Por favor, digite um número válido!")
+                            
