@@ -165,6 +165,13 @@ def solicitarnaocliente():
             break
         else:
             print("Digite um nome válido")
+
+    while True:
+        salario = input("Digite seu salário em R$: ")
+        if validnum(salario):
+            break
+        else:
+            print("Informe um numero!")
     while True:
         email = input("Digite o seu email: ")
         if validemail(email):
@@ -186,7 +193,7 @@ def solicitarnaocliente():
         cpf = input("Digite o seu CPF: ")
         if cadastrocpf(cpf):
             if id not in emprestimobox:
-                emprestimobox[token] = [nome, email, endereco, cpf, datatotal, valor, rastreio]
+                emprestimobox[token] = [nome, salario, email, endereco, cpf, datatotal, valor, rastreio]
                 print(f'''
                 | ========================================================== |
                 |                 Enviar Dados para Análise                  |
@@ -197,6 +204,7 @@ def solicitarnaocliente():
                 
                 Nome: {nome}
                 CPF: {cpf}
+                Renda: {salario}
                 Email: {email}
                 Endereço: {endereco}
                 Token: {token}
