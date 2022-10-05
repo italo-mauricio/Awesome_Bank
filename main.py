@@ -27,7 +27,7 @@ def menu():
         |                   Deletar conta:         3                         |
         |                   Consultar Cotação:     4                         |
         |                   Empréstimos            5                         |
-        |                   Sair do Sistema:       6                         |    
+        |                   Sair do Sistema:       0                         |    
         | ================================================================== |
         | ---------------   Obrigado pela preferência!   ------------------- |
         |                          since 2022                                |
@@ -44,7 +44,7 @@ def menu():
             menucot()
         elif opcao == "5":
             emprest()
-        elif opcao == "6":
+        elif opcao == "0":
             print("Obrigado pela preferência!")
             break
         else:

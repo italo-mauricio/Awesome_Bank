@@ -149,8 +149,8 @@ def solicitarnaocliente():
         else:
             print("Digite um email válido!")
     endereco = input("Digite seu endereço: ")
-    id = gerandid.gera_id()                         
-    print(f"Sua ID é {id}")
+    token = gerandid.gera_id()                         
+    print(f"Seu Token de acesso é {token}")
     while True:
         valor = input("Quanto você deseja solicitar: ")
         if validnum(valor):
@@ -160,8 +160,8 @@ def solicitarnaocliente():
     while True:
         cpf = input("Digite o seu CPF: ")
         if cadastrocpf(cpf):
-            if cpf not in emprestimobox:
-                emprestimobox[cpf] = [nome, email, endereco, id]
+            if id not in emprestimobox:
+                emprestimobox[token] = [nome, email, endereco, cpf]
                 print(f'''
                 | ========================================================== |
                 |                 Enviar Dados para Análise                  |
@@ -174,7 +174,7 @@ def solicitarnaocliente():
                 CPF: {cpf}
                 Email: {email}
                 Endereço: {endereco}
-                ID: {id}
+                Token: {token}
                 Valor da solicitação: {valor}
                 Data e Hora do registro: {data} {hora}
                 
