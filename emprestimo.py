@@ -105,8 +105,29 @@ def solicitarcliente():
         
     
     
-    
-    
+def situpedido():
+    while True:
+        os.system("cls")
+        codigo = input("Digite o seu código de acesso: ")
+        if validnum(codigo):
+            if codigo not in emprestimobox:
+                print("Empréstimo não encontrado!")
+                break
+            else: 
+                print(f'''
+            | --------------------------------------------------- |
+            | -                Banco do Brasil                  - |
+            | --------------------------------------------------- |
+              Seu Pedido de empréstimo!
+              
+              Nome: {emprestimobox[codigo][0]}
+              Valor do pedido: {emprestimobox[codigo][5]}
+              Data da solicitação: {emprestimobox[codigo][4]}
+              Código do pedido: {emprestimobox[codigo][6]}
+              
+            ''')
+                
+        
     
 def solicitarnaocliente():
     os.system("cls")
@@ -159,11 +180,13 @@ def solicitarnaocliente():
             break
         else:
             print("Digite um número!")
+    rastreio = gerabarra.gera_barra()
+    print(f"Seu código de rastreio é {rastreio}")
     while True:
         cpf = input("Digite o seu CPF: ")
         if cadastrocpf(cpf):
             if id not in emprestimobox:
-                emprestimobox[token] = [nome, email, endereco, cpf, datatotal]
+                emprestimobox[token] = [nome, email, endereco, cpf, datatotal, valor, rastreio]
                 print(f'''
                 | ========================================================== |
                 |                 Enviar Dados para Análise                  |
@@ -179,6 +202,7 @@ def solicitarnaocliente():
                 Token: {token}
                 Valor da solicitação: {valor}
                 Data e Hora do registro: {datatotal}
+                Código de Rastreio: {rastreio}
                 
                 
                 
@@ -205,6 +229,12 @@ class gerandid():  # gera uma ID para o cliente
     def gera_id():
         rand = randint(10000, 19999)
         return rand
+
+class gerabarra():
+    @staticmethod
+    def gera_barra():
+        codigo = randint(500000, 9000000)
+        return codigo
 
 
 
