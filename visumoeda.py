@@ -84,7 +84,7 @@ def bitcoin():
 
     if response.status_code == 200:
         bitcoin_value = float(response.json()['BTC']['low'])
-        print(f'O valor do bitcoin é R${bitcoin_value:.2f}')
+        print(f'O valor do bitcoin é R${bitcoin_value:.5f}')
         while True:
             converte = input("Deseja converter sua moeda em Bitcoin: [Y/N] ").strip().lower()
             if converte == 'Y'.lower():
