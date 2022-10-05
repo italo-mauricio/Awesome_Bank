@@ -26,7 +26,6 @@ dicitotal = diciclientes
 emprestimobox = listemprestimo()
 
 
-
 def solicitar():
     while True:
         os.system("cls")
@@ -37,14 +36,14 @@ def solicitar():
         |                     1 - Já sou cliente                           |
         |                     2 - Não sou cliente                          |
         |                     3 - Vantagens                                |
-        |                     4 - Voltar ao Menu                           |
+        |                     0 - Voltar ao Menu                           |
         |                                                                  |
         |                                                                  |
         |                                                                  |
         | ======================= Since 2022 ============================= |
                 
         ''')
-        
+        option = ' '
         option = input("Escolha uma opção: ")
         
         if option == "1":
@@ -53,12 +52,13 @@ def solicitar():
             solicitarnaocliente()
         elif option == "3":
             pass
-        elif option == "4":
-            emprest()
+        elif option == "0":
+            os.system("cls")
+            break
+        
         else:
             print("Escolha uma opção válida!")
-    
-    
+
     
             
 def solicitarcliente():
@@ -112,7 +112,9 @@ def solicitarnaocliente():
     os.system("cls")
     hora_atual = datetime.now()
     hora = hora_atual.strftime('%H:%M')
-    data = date.today()
+    data_atual = date.today()
+    data_texto = '{}/{}/{}'.format(data_atual.day, data_atual.month, data_atual.year )
+    datatotal = [data_texto, hora]
     
     print(f'''
     | =========================================================== |
@@ -161,7 +163,7 @@ def solicitarnaocliente():
         cpf = input("Digite o seu CPF: ")
         if cadastrocpf(cpf):
             if id not in emprestimobox:
-                emprestimobox[token] = [nome, email, endereco, cpf]
+                emprestimobox[token] = [nome, email, endereco, cpf, datatotal]
                 print(f'''
                 | ========================================================== |
                 |                 Enviar Dados para Análise                  |
@@ -176,14 +178,14 @@ def solicitarnaocliente():
                 Endereço: {endereco}
                 Token: {token}
                 Valor da solicitação: {valor}
-                Data e Hora do registro: {data} {hora}
+                Data e Hora do registro: {datatotal}
                 
                 
                 
                 | ===================== Since 2022 ======================== |''')
                 gravemprestimos(emprestimobox)
                 conti = input("Aperte ENTER para continuar...")
-                emprest()
+                break
             else:
                 print("Empréstimo já foi solicitado por este usuário!")
                 print("Tente outro cadastro!")
@@ -244,7 +246,10 @@ def emprest():
             print("Saindo...")
             sleep(1)
             os.system("cls")
+           
             break
+            
         else:
             print("Escolha uma opção válida")
-            
+                
+                
