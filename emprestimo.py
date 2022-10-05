@@ -102,8 +102,29 @@ def solicitarcliente():
                     conti = input("Aperte ENTER para continuar...")
                     break
     
+
         
-    
+def validaemp():
+    os.system("cls")
+    print("Vamos verificar se você está apto")
+ 
+    salario = float(input("Informe o seu salário em R$: "))
+    valor = float(input("De quanto você precisa?: "))
+    ano = int(input("Em quantos anos você pretende pagar?: "))
+    parcelas = (valor / ano) / 12
+    while True:
+        if parcelas > salario + (30/100):
+            print("Empréstimo negado!")
+            input("Aperte ENTER para continuar")
+            solicitar()
+            break
+        else:
+            print('Empréstimo concedido!')
+            print(f'A parcela do seu empréstimo é de {parcelas:.2f} ao mês!')
+            gravemprestimos(emprestimobox)
+            input("Aperte ENTER para sair!")
+            solicitar()
+            break
     
 def situpedido():
     while True:
@@ -126,7 +147,7 @@ def situpedido():
               Código do pedido: {emprestimobox[codigo][6]}
               
             ''')
-                
+            
         
     
 def solicitarnaocliente():
@@ -167,12 +188,6 @@ def solicitarnaocliente():
             print("Digite um nome válido")
 
     while True:
-        salario = input("Digite seu salário em R$: ")
-        if validnum(salario):
-            break
-        else:
-            print("Informe um numero!")
-    while True:
         email = input("Digite o seu email: ")
         if validemail(email):
             break
@@ -193,7 +208,7 @@ def solicitarnaocliente():
         cpf = input("Digite o seu CPF: ")
         if cadastrocpf(cpf):
             if id not in emprestimobox:
-                emprestimobox[token] = [nome, salario, email, endereco, cpf, datatotal, valor, rastreio]
+                emprestimobox[token] = [nome, email, endereco, cpf, datatotal, valor, rastreio]
                 print(f'''
                 | ========================================================== |
                 |                 Enviar Dados para Análise                  |
@@ -204,7 +219,6 @@ def solicitarnaocliente():
                 
                 Nome: {nome}
                 CPF: {cpf}
-                Renda: {salario}
                 Email: {email}
                 Endereço: {endereco}
                 Token: {token}
@@ -216,7 +230,8 @@ def solicitarnaocliente():
                 
                 | ===================== Since 2022 ======================== |''')
                 gravemprestimos(emprestimobox)
-                conti = input("Aperte ENTER para continuar...")
+                valida = input("Agora vamos vaerificar se você está apto para o empréstimo...")
+                validaemp()
                 break
             else:
                 print("Empréstimo já foi solicitado por este usuário!")
@@ -228,9 +243,10 @@ def solicitarnaocliente():
        
         
         
+
         
-        
-        
+
+    
         
 class gerandid():  # gera uma ID para o cliente
     @staticmethod
