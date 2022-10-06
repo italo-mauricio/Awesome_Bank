@@ -10,7 +10,7 @@ from emprestimo import *
 
 #=========================== Simulador de Caixa Eletrônico ===============================#
 def menu():
-    os.system("cls")
+    os.system("clear")
     while True:
         opcao = ' '
         hora_atual = datetime.now()

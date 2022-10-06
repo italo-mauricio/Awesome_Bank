@@ -8,7 +8,7 @@ from datetime import date
 # Cotação do Dólar Americano
 
 def dolar():
-    os.system('cls')
+    os.system('clear')
     url = 'https://economia.awesomeapi.com.br/all/USD-BRL'  # Url para verificar em tempo real a cotação do Dólar
 
     response = requests.get(url) # Comando .get para pegar essa URL e adicionar a biblioteca
@@ -42,7 +42,7 @@ def dolar():
 # Cotação do Euro         
          
 def euro():
-    os.system('cls')
+    os.system('clear')
     url = 'https://economia.awesomeapi.com.br/all/EUR-BRL'
 
     response = requests.get(url)
@@ -76,7 +76,7 @@ def euro():
 # Cotação do Bitcoin    
         
 def bitcoin():
-    os.system('cls')
+    os.system('clear')
     url = 'https://economia.awesomeapi.com.br/all/BTC-BRL'
 
     response = requests.get(url)
@@ -109,7 +109,7 @@ def bitcoin():
 # Cotação do Franco       
         
 def franco():
-    os.system('cls')
+    os.system('clear')
     url = 'https://economia.awesomeapi.com.br/all/CHF-BRL'
 
     response = requests.get(url)
@@ -142,7 +142,7 @@ def franco():
 # Cotação do Iene 
         
 def iene():
-    os.system('cls')
+    os.system('clear')
     url = 'https://economia.awesomeapi.com.br/all/JPY-BRL'
 
     response = requests.get(url)
@@ -176,7 +176,7 @@ def iene():
 # Cotação do Dólar Canadense        
         
 def dolarcanadense():
-    os.system('cls')
+    os.system('clear')
     url = 'https://economia.awesomeapi.com.br/all/CAD-BRL'
 
     response = requests.get(url)
@@ -210,7 +210,7 @@ def dolarcanadense():
         
 def menucot():
     while True:
-        os.system('cls')
+        os.system('clear')
         print(f'''
         | =================== Menu Cotações ==================== |
         | ------------------------------------------------------ |
@@ -240,7 +240,7 @@ def menucot():
         elif opcao == '6':
             dolarcanadense()
         elif opcao == '0':
-            os.system("cls")
+            os.system("clear")
             break
         else:
             print("Opção inválida!")

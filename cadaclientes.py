@@ -4,7 +4,7 @@ import pickle
 import os
 from time import sleep
 from random import randint
-import PySimpleGUI as sg
+
 from getpass import getpass
 from datetime import datetime
 from datetime import date
@@ -13,7 +13,7 @@ from datetime import date
 
 
 def regcliente():
-    os.system("cls")
+    os.system("clear")
     while True:
             print('''   
             | ==================================================================== |
@@ -40,7 +40,7 @@ def regcliente():
             
             else:
                 print('Opção inválida!')
-                os.system("cls")            
+                os.system("clear")            
 
 
 
@@ -73,7 +73,7 @@ def cadastrobanco():
     hora_atual = datetime.now()
     hora = hora_atual.strftime('%H:%M')
     data = date.today()# Função de cadastramento
-    os.system("cls")
+    os.system("clear")
     print("=="*50)
     print(''' 
     | ---------------------  Bem vindos ao cadastro de clientes! -------------------------- |
@@ -122,7 +122,7 @@ def cadastrobanco():
         else:
             print("CPF inválido!")
     input('Aperte alguma tecla para continuar!')
-    os.system("cls")
+    os.system("clear")
     
 
 
@@ -134,7 +134,7 @@ def cadastrobanco():
 # ------------------------------------------------------------------------------------------------------- #
 
 def editadados(): # Função para alterar os dados.
-    os.system("cls")
+    os.system("clear")
     print("=="*50)
     print(''' 
     | -------------------  Vamos alterar os seus dados cadastrados! ----------------------- |
@@ -198,7 +198,7 @@ def extratoconta():
     hora_atual = datetime.now()
     hora = hora_atual.strftime('%H:%M')
     data = date.today()# Função de visualizar clientes cadastrados.
-    os.system("cls")
+    os.system("clear")
     print("=="*50)
     print(''' 
     | ---------------- Vamos visualizar os seus dados cadastrados! ----------------------- |
