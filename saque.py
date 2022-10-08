@@ -11,10 +11,10 @@ from datetime import date
 
 
 def menusaque():
-    os.system("clear")
+    os.system("cls")
     while True:
 
-                os.system("clear")
+                os.system("cls")
                 print("Você é nosso cliente, seja bem vindo!")
                 print(''' 
                 | ================================================== |
@@ -47,7 +47,7 @@ def menusaque():
                 elif usuario == "6":
                     extrato()
                 elif usuario == "0":
-                    os.system("clear")
+                    os.system("cls")
                     break
                 else: 
                     print('Opção inválida!')
@@ -65,7 +65,7 @@ dici2 = {}
 
 
 def deposibanco(): # Função para o depósito bancário!
-    os.system("clear")
+    os.system("cls")
     print("=="*50)
     print(''' 
     | ----------------------------- Bem vindos ao depósito! ----------------------------- |
@@ -96,7 +96,7 @@ def deposibanco(): # Função para o depósito bancário!
 
 
 def saquebanco(): # Função para o saque em conta.
-    os.system("clear")
+    os.system("cls")
     print("=="*50)
     print(''' 
     | ----------------------------- Bem vindos ao saque! -------------------------------- |
@@ -133,7 +133,7 @@ def saquebanco(): # Função para o saque em conta.
 
       
 def saldo(): # Função para ver o saldo
-    os.system("clear")
+    os.system("cls")
     print("=="*50)
     print(''' 
     | ----------------------------- Bem vindos ao saldo! -------------------------------- |
@@ -159,7 +159,7 @@ def saldo(): # Função para ver o saldo
 
 
 def vantagens(): # Função extra somente de print 
-    os.system("clear")
+    os.system("cls")
     while True:
         print(''' 
         |======================================================================================|
@@ -180,7 +180,7 @@ def vantagens(): # Função extra somente de print
 
 
 def extrato(): # Função para o extrato
-    os.system("clear")
+    os.system("cls")
     print("=="*50)
     print(''' 
     | ----------------------------- Bem vindos ao seu extrato! ------------------------------------- |
@@ -227,7 +227,7 @@ def extrato(): # Função para o extrato
             
             
 def transfer():
-    os.system("clear")
+    os.system("cls")
     while True:
         print(f'''
         | ================= Transferências ================== |
@@ -247,7 +247,7 @@ def transfer():
         opcao = input("Escolha uma opção: ")
         
         if opcao == '1':
-            os.system("clear")
+            os.system("cls")
        
             print(f'''
 

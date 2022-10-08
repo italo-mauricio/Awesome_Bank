@@ -4,7 +4,7 @@ import pickle
 import os
 from time import sleep
 from random import randint
-
+from passwordcheck import passw
 from getpass import getpass
 from datetime import datetime
 from datetime import date
@@ -13,7 +13,7 @@ from datetime import date
 
 
 def regcliente():
-    os.system("clear")
+    os.system("cls")
     while True:
             print('''   
             | ==================================================================== |
@@ -73,7 +73,7 @@ def cadastrobanco():
     hora_atual = datetime.now()
     hora = hora_atual.strftime('%H:%M')
     data = date.today()# Função de cadastramento
-    os.system("clear")
+    os.system("cls")
     print("=="*50)
     print(''' 
     | ---------------------  Bem vindos ao cadastro de clientes! -------------------------- |
@@ -96,14 +96,8 @@ def cadastrobanco():
     endereco = input("Informe o seu endereço: ").strip() # Endereço livre.
     complemento = input("Informe um complemento (opcional): ").strip() # Complemento livre.
     valores = float(input("Quanto você espera depositar em sua conta?: ")) # Local que será usado no módulo saque.
-    while True:
-     
-        senha = float(input('Escolha um senha numérica de qualquer tamanho: ')) # Peço uma senha de acesso
-        if senha not in diciclientes: # Vereifico se a mesma já consta no sistema
-            break
-        else:
-            print("Senha já cadastrada!")
-      
+    senha = passw(password=passw)
+    print("Por favor, copie sua senha aleatória")   
     id = gerandid.gera_id()                         
     print(f"Sua ID é {id}")
     
@@ -134,7 +128,7 @@ def cadastrobanco():
 # ------------------------------------------------------------------------------------------------------- #
 
 def editadados(): # Função para alterar os dados.
-    os.system("clear")
+    os.system("cls")
     print("=="*50)
     print(''' 
     | -------------------  Vamos alterar os seus dados cadastrados! ----------------------- |
@@ -198,7 +192,7 @@ def extratoconta():
     hora_atual = datetime.now()
     hora = hora_atual.strftime('%H:%M')
     data = date.today()# Função de visualizar clientes cadastrados.
-    os.system("clear")
+    os.system("cls")
     print("=="*50)
     print(''' 
     | ---------------- Vamos visualizar os seus dados cadastrados! ----------------------- |

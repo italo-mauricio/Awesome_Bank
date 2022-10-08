@@ -28,7 +28,7 @@ emprestimobox = listemprestimo()
 
 def solicitar():
     while True:
-        os.system("clear")
+        os.system("cls")
         print(f'''
         | ==================== Área de Empréstimos ======================= |
         | ---------------------------------------------------------------- |
@@ -62,7 +62,7 @@ def solicitar():
     
             
 def solicitarcliente():
-    os.system("clear")
+    os.system("cls")
     hora_atual = datetime.now()
     hora = hora_atual.strftime('%H:%M')
     data = date.today()
@@ -105,7 +105,7 @@ def solicitarcliente():
 
         
 def validaemp():
-    os.system("clear")
+    os.system("cls")
     print("Vamos verificar se você está apto")
  
     salario = float(input("Informe o seu salário em R$: "))
@@ -151,7 +151,7 @@ def situpedido():
         
     
 def solicitarnaocliente():
-    os.system("clear")
+    os.system("cls")
     hora_atual = datetime.now()
     hora = hora_atual.strftime('%H:%M')
     data_atual = date.today()
@@ -264,7 +264,7 @@ class gerabarra():
 
 
 def emprest():
-    os.system("clear")
+    os.system("cls")
     while True:
         hora_atual = datetime.now()
         hora = hora_atual.strftime('%H:%M')
@@ -299,7 +299,7 @@ def emprest():
         elif opcao == '0':
             print("Saindo...")
             sleep(1)
-            os.system("clear")
+            os.system("cls")
            
             break
             
