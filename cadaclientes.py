@@ -8,7 +8,7 @@ from passwordcheck import passw
 from getpass import getpass
 from datetime import datetime
 from datetime import date
-
+import pwinput
 
 
 
@@ -174,7 +174,7 @@ def editadados(): # Função para alterar os dados.
                 break
         
             if alterar == "senha".strip().upper():
-                nova_senha = input("Digite sua nova senha: ").strip()
+                nova_senha = pwinput.pwinput("Digite sua nova senha: ").strip()
                 if validnum(nova_senha):
                     diciclientes[id][5] = nova_senha # Adiciono a nova senha ao dicionário posição senha
                     print('Senha atualizada com sucesso!')
