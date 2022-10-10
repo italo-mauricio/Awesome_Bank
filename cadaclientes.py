@@ -1,14 +1,13 @@
 
 from validacoes import *
-import pickle
-import os
+import pickle, os, pwinput
 from time import sleep
 from random import randint
 from passwordcheck import passw
 from getpass import getpass
 from datetime import datetime
 from datetime import date
-import pwinput
+
 
 
 
