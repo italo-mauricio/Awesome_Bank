@@ -1,7 +1,5 @@
 import re #Essa função serve para validar o CPF do cliente.
 def cadastrocpf(cpf):
-    # fLAVIUS, RETIRAMOS ESSA VALIDAÇÃO DA INTERNET, NÃO CONSEGUI ACHAR O LINK
-    # NÃO CONSEGUIMOS DESENVOLVER O VALIDADOR DE CPF
     #validação do CPF do cliente
     cpf = [int(caracter) for caracter in cpf if caracter.isdigit()]
  
@@ -35,8 +33,7 @@ def validemail(email): # Validação de Email
         
     
 def data_valida(data):
-    # FlAVIUS ESSE CÓDIGO DE VALIDAÇÃO NÃO É NOSSO!
-    # PEGAMOS NESTE LINK: https://pt.stackoverflow.com/questions/377579/validação-de-data-testes-com-python
+
     # faz o split e transforma em números
     dia, mes, ano = map(int, data.split('/'))
 
