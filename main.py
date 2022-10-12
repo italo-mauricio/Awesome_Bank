@@ -1,6 +1,5 @@
 from cadaclientes import *
-import saque
-import dele
+import saque, dele
 from visumoeda import menucot
 from datetime import datetime
 from datetime import date
