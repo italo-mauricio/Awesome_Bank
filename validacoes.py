@@ -77,7 +77,7 @@ def validstring(nome): # Validação de strings
 
 def validnum(num): # Validação de números, para usar no programa principal
     numeros = '0123456789'
-    num = num
+    num = numeros
     count = 0
     for i in range(len(numeros)):
         for j in range(len(num)):
