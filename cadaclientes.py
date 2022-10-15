@@ -26,23 +26,24 @@ def regcliente():
             |                                                                      |
             | ==================================================================== |
             ''')
-            cliente = ' '
-            cliente = input("Escolha uma das opções: ")
+            client = ' '
+            client = input("Choose your option: ")
 
-            if cliente == "1":
+            if client == "1":
                 cadastrobanco()
-            elif cliente == "2":
+            elif client == "2":
                 extratoconta()
-            elif cliente == "3":
+            elif client == "3":
                 editadados()
-            elif cliente == "0":
+            elif client == "0":
                 os.system("cls")
                 break
                 
             
             else:
-                print('Opção inválida!')
-                os.system("clear")            
+                print('Invalid Option!')
+                conti = input("dsadsadas")
+                os.system("cls")            
 
 
 

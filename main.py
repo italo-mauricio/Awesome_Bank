@@ -14,12 +14,12 @@ def menu():
         option = ' '
         time_now = datetime.now()
         hour = time_now.strftime('%H:%M')
-        date = date.today()
+        date1 = date.today()
         print(f'''                                           
         | ================================================================== |
         |                       Revolution Bank                              |
         | ================================================================== |
-                           Date: {date} / Time: {hour}
+                           Date: {date1} / Time: {hour}
         | ================================================================== |
         |                   Register Users:        1                         |
         |                   Account Withdrawal:    2                         |
