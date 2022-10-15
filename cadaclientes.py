@@ -16,11 +16,14 @@ def regcliente():
     while True:
             print('''   
             | ==================================================================== |
-            | ------------------- Bem vindos ao menu cadastro! ------------------- |
-            |                Cadastrar novos clientes!          [1]                |
-            |                Extrato!                           [2]                |
-            |                Alterar dados dos clientes!        [3]                |
-            |                Voltar ao menu principal           [0]                |
+            |                     Welcome to User Registration                     |
+            | -------------------------------------------------------------------- |
+            |                                                                      |
+            |                Register new users                 [1]                |
+            |                Bank Statement                     [2]                |
+            |                Change user data                   [3]                |
+            |                Back to main menu                  [0]                |
+            |                                                                      |
             | ==================================================================== |
             ''')
             cliente = ' '
