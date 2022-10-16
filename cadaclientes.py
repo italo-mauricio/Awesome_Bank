@@ -41,7 +41,7 @@ def regcliente():
                 
             
             else:
-                print('Invalid Option oiiiiiii!')
+                print('Invalid Option!')
                 conti = input("dsadsadas")
                 os.system("cls")            
 
