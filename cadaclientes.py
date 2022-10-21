@@ -76,7 +76,7 @@ def cadastrobanco():
     hora_atual = datetime.now()
     hora = hora_atual.strftime('%H:%M')
     data = date.today()# Função de cadastramento
-    os.system("cls")
+    os.system("cls")               
     print(''' 
           | ================================================== |
           |                     Neo Bank                       |
@@ -88,19 +88,19 @@ def cadastrobanco():
      ''')
 
     while True:
-        nome = input('Digite o seu nome: ').strip() # Nome do cliente + verificação de string.
-        if validstring(nome):
+        name = input('Type your Name: ').strip() # Nome do cliente + verificação de string.
+        if validstring(name):
             break
         else:
-            print("Nome inválido!")
+            print("Invalid Name!")
     while True:
-        email = input("Digite um email válido: ").strip() # Email + verificação de email.
+        email = input("Type your Email: ").strip() # Email + verificação de email.
         if validemail(email):
             break
         else:
-            print('Email inválido!')
-    endereco = input("Informe o seu endereço: ").strip() # Endereço livre.
-    complemento = input("Informe um complemento (opcional): ").strip() # Complemento livre.
+            print('Invalid email')
+    address = input("Inform your address: ").strip() # Endereço livre.
+    complement = input("Inform the complement(optional): ").strip() # Complemento livre.
     valores = float(input("Quanto você espera depositar em sua conta?: ")) # Local que será usado no módulo saque.
     senha = passw(password=passw)
     print("Por favor, copie sua senha aleatória")   
@@ -111,7 +111,7 @@ def cadastrobanco():
         cpf = input("Digite um CPF válido: ").strip() # Peço um CPF + verificação.
         if cadastrocpf(cpf):
             if cpf not in diciclientes:
-                diciclientes[id] = [nome, email, endereco, complemento, valores, senha, cpf]
+                diciclientes[id] = [name, email, address, complement, valores, senha, cpf]
                 print(f'''
                       Bem vindo(a) {diciclientes[id][0]} ao time, estamos muito felizes em ver você por aqui!
                       Você foi cadastrado no dia {data} e no horário {hora}
