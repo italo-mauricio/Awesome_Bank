@@ -115,7 +115,7 @@ def bitcoin():
             |                          Neo Bank                             |
             \                                                              /
                                                                            
-                    The BItcoin value in Brazilian reais is R${bitcoin_value:.2f}    
+                    The BItcoin value in Brazilian reais is R${bitcoin_value:.3f}    
             
             /                                                               \ 
             |
@@ -124,15 +124,15 @@ def bitcoin():
               
               ''')
         while True:
-            converte = input("Do you want to convert your currency to Bitcoin: [Y/N] ").strip().lower()
-            if converte == 'Y'.lower():
+            convert = input("Do you want to convert your currency to Bitcoin: [Y/N] ").strip().lower()
+            if convert == 'Y'.lower():
                 real = float(input("Enter how much you want to convert real R$: "))
                 conv = real / bitcoin_value
                 print(f"Their R${real} converted stay BTC$: {conv:.2f}")
                 conti = input(("Press START for continue..."))
                 break
                  
-            if converte == 'N'.lower():
+            if convert == 'N'.lower():
                 print("Thank You!")
                 break
             
@@ -155,26 +155,40 @@ def franco():
 
     if response.status_code == 200:
         franco_value = float(response.json()['CHF']['low'])
-        print(f'O valor do franco suiço é R${franco_value:.2f}')
+        print(f'''
+              
+            | ============================================================= |
+            |                          Neo Bank                             |
+            \                                                              /
+                                                                           
+                    The Franco value in Brazilian reais is R${franco_value:.2f}    
+            
+            /                                                               \ 
+            |
+            | ------------------------------------------------------------- |
+            | ======================== since 2022 ========================= |
+              
+              ''')
         while True:
-            converte = input("Deseja converter sua moeda em Franco: [Y/N] ").strip().lower()
-            if converte == 'Y'.lower():
-                real = float(input("Digite quanto você quer converter em R$: "))
+            convert = input("Do you want to convert your currency to Franco: [Y/N] ").strip().lower()
+            if convert == 'Y'.lower():
+                real = float(input("Enter how much you want to convert real R$: "))
                 conv = real / franco_value
-                print(f"Seus R${real} convertidos ficam CHF: {conv:.2f}")
+                print(f"Their R${real} converted stay CHF$: {conv:.2f}")
                 conti = input(("Press START for continue..."))
                 break
                  
-            if converte == 'N'.lower():
-                print("Obrigado!")
+            if convert == 'N'.lower():
+                print("Thank You!")
                 break
             
             
             else:
-                print("Escolha uma opção válida!")
+                print("Choose your a option!")
         
     else:
-        print("Erro ao buscar o valor do franco suiço")
+        print("Error fetching bitcoin value!")
+        
         
        
 # Cotação do Iene 
@@ -188,26 +202,39 @@ def iene():
 
     if response.status_code == 200:
         iene_value = float(response.json()['JPY']['low'])
-        print(f'O valor do iene é R${iene_value:.2f}')
+        print(f'''
+              
+            | ============================================================= |
+            |                          Neo Bank                             |
+            \                                                              /
+                                                                           
+                    The Franco value in Brazilian reais is R${iene_value:.2f}    
+            
+            /                                                               \ 
+            |
+            | ------------------------------------------------------------- |
+            | ======================== since 2022 ========================= |
+              
+              ''')
         while True:
-            converte = input("Deseja converter sua moeda em Iene: [Y/N] ").strip().lower()
-            if converte == 'Y'.lower():
-                real = float(input("Digite quanto você quer converter em R$: "))
+            convert = input("Do you want to convert your currency to Iene: [Y/N] ").strip().lower()
+            if convert == 'Y'.lower():
+                real = float(input("Enter how much you want to convert real R$: "))
                 conv = real / iene_value
-                print(f"Seus R${real} convertidos ficam JPY: {conv:.2f}")
+                print(f"Their R${real} converted stay JPY$: {conv:.2f}")
                 conti = input(("Press START for continue..."))
                 break
                  
-            if converte == 'N'.lower():
-                print("Obrigado!")
+            if convert == 'N'.lower():
+                print("Thank You!")
                 break
             
             
             else:
-                print("Escolha uma opção válida!")
+                print("Choose your a option!")
         
     else:
-        print("Erro ao buscar o valor do iene")
+        print("Error fetching Iene value!")
         
         
         
@@ -222,26 +249,40 @@ def dolarcanadense():
 
     if response.status_code == 200:
         cad_value = float(response.json()['CAD']['low'])
-        print(f'O valor do dólar canadense é R${cad_value:.2f}')
+        print(f'''
+              
+            | ============================================================= |
+            |                          Neo Bank                             |
+            \                                                              /
+                                                                           
+                    The Franco value in Brazilian reais is R${cad_value:.2f}    
+            
+            /                                                               \ 
+            |
+            | ------------------------------------------------------------- |
+            | ======================== since 2022 ========================= |
+              
+              ''')
         while True:
-            converte = input("Deseja converter sua moeda em CAD: [Y/N] ").strip().lower()
-            if converte == 'Y'.lower():
-                real = float(input("Digite quanto você quer converter em R$: "))
+            convert = input("Do you want to convert your currency to Canadian dollar: [Y/N] ").strip().lower()
+            if convert == 'Y'.lower():
+                real = float(input("Enter how much you want to convert real R$: "))
                 conv = real / cad_value
-                print(f"Seus R${real} convertidos ficam CAD: {conv:.2f}")
+                print(f"Their R${real} converted stay CAD$: {conv:.2f}")
                 conti = input(("Press START for continue..."))
                 break
                  
-            if converte == 'N'.lower():
-                print("Obrigado!")
+            if convert == 'N'.lower():
+                print("Thank You!")
                 break
             
             
             else:
-                print("Escolha uma opção válida!")
+                print("Choose your a option!")
         
     else:
-        print("Erro ao buscar o valor do dólar canadense")
+        print("Error fetching Iene value!")
+        
         
         
 # Menu principal        
@@ -252,36 +293,36 @@ def menucot():
         print(f'''
         | =================== Menu Cotações ==================== |
         | ------------------------------------------------------ |
-        | -                 Consultar Dólar    1               - |
-        | -                 Consultar Euro     2               - | 
-        | -                 Consultar Franco   3               - |
-        | -                 Consultar Bitcoin  4               - |
-        | -                 Consultar Iene     5               - |
-        | -                 Consultar CAD      6               - |
-        | -                 Voltar pro Menu    0               - |
+        | -                 Consult   Dólar    1               - |
+        | -                 Consult   Euro     2               - | 
+        | -                 Consult   Franco   3               - |
+        | -                 Consult   Bitcoin  4               - |
+        | -                 Consult   Iene     5               - |
+        | -                 Consult   CAD      6               - |
+        | -                 Back to main menu  0               - |
         | ------------------------------------------------------ |
         | ====================================================== |
         ''')
 
-        opcao = ' '
-        opcao = input("Escolha uma opção: ")
-        if opcao == '1':
+        option = ' '
+        option = input("Choose your option: ")
+        if option == '1':
             dolar()
-        elif opcao == '2':
+        elif option == '2':
             euro()
-        elif opcao == '3':
+        elif option == '3':
             franco()
-        elif opcao == '4':
+        elif option == '4':
             bitcoin()
-        elif opcao == '5':
+        elif option == '5':
             iene()
-        elif opcao == '6':
+        elif option == '6':
             dolarcanadense()
-        elif opcao == '0':
+        elif option == '0':
             os.system("cls")
             break
         else:
-            print("Opção inválida!")
+            print("Invalid Option")
 
 
 
