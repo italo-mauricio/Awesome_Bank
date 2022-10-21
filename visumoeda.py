@@ -13,28 +13,40 @@ def dolar():
 
     response = requests.get(url) # Comando .get para pegar essa URL e adicionar a biblioteca
 
-
     if response.status_code == 200:
         dolar_value = float(response.json()['USD']['low']) # Utilizando o float para o cálculo de conversão
-        print(f'O valor do dólar é R${dolar_value:.2f}')
+        print(f'''
+              
+            | ============================================================= |
+            |                          Neo Bank                             |
+            \                                                              /
+                                                                           
+                    The dollar value in Brazilian reais is R${dolar_value:.2f}    
+            
+            /                                                               \ 
+            |
+            | ------------------------------------------------------------- |
+            | ======================== since 2022 ========================= |
+              
+              ''')
         while True:
-            converte = input("Deseja converter sua moeda em Dólar: [Y/N] ").strip().lower()
-            if converte == 'Y'.lower():
-                real = float(input("Digite quanto você quer converter em R$: "))
+            convert = input("Do you want to convert your currency to dollar: [Y/N] ").strip().lower()
+            if convert == 'Y'.lower():
+                real = float(input("Enter how much you want to convert real R$: "))
                 conv = real / dolar_value
-                print(f"Seus R${real} convertidos ficam USD$ {conv:.2f}")
+                print(f"Their R${real} converted stay USD$ {conv:.2f}")
                 conti = input(("Press START for continue..."))
                 break
                  
-            elif converte == 'N'.lower():
-                print("Obrigado!")
+            elif convert == 'N'.lower():
+                print("Thank you!")
                 break
             
             else:
-                print("Escolha uma opção válida!")
+                print("Choose a valid option!")
     
     else:
-        print("Erro ao buscar o valor do dólar") 
+        print("Error fetching dollar value") 
          
                
          
@@ -50,18 +62,31 @@ def euro():
 
     if response.status_code == 200:
         euro_value = float(response.json()['EUR']['low'])
-        print(f'O valor do euro é R${euro_value:.2f}')
+        print(f'''
+              
+            | ============================================================= |
+            |                          Neo Bank                             |
+            \                                                              /
+                                                                           
+                    The dollar value in Brazilian reais is R${euro_value:.2f}    
+            
+            /                                                               \ 
+            |
+            | ------------------------------------------------------------- |
+            | ======================== since 2022 ========================= |
+              
+              ''')
         while True:
-            converte = input("Deseja converter sua moeda em Euro: [Y/N] ").strip().lower()
-            if converte == 'Y'.lower():
-                real = float(input("Digite quanto você quer converter em R$: "))
+            convert = input("Do you want to convert your currency to Euro: [Y/N] ").strip().lower()
+            if convert == 'Y'.lower():
+                real = float(input("Enter how much you want to convert real R$: "))
                 conv = real / euro_value
-                print(f"Seus R${real} convertidos ficam EUR{conv:.2f}")
+                print(f"Their R${real} converted stay ficam EUR{conv:.2f}")
                 conti = input(("Press START for continue..."))
                 break
                  
-            if converte == 'N'.lower():
-                print("Obrigado!")
+            if convert == 'N'.lower():
+                print("Thank You!")
                 break
             
             
