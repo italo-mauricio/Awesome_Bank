@@ -77,13 +77,16 @@ def cadastrobanco():
     hora = hora_atual.strftime('%H:%M')
     data = date.today()# Função de cadastramento
     os.system("cls")
-    print("=="*50)
     print(''' 
-    | ---------------------  Bem vindos ao cadastro de clientes! -------------------------- |
-    | ------- Se você ainda não estiver cadastrado, vamos fazer o seu cadastro! ----------- |
-    | ===================================================================================== |
-            ''')
-    print("=="*50)
+          | ================================================== |
+          |                     Neo Bank                       |
+          |                                                    |
+          |                Wellcome to Register                |
+          |       Come be our Neo client, let's register!      |
+          |                                                    |
+          | ------------------ since 2022 -------------------- |
+     ''')
+
     while True:
         nome = input('Digite o seu nome: ').strip() # Nome do cliente + verificação de string.
         if validstring(nome):
