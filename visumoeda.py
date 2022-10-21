@@ -81,7 +81,7 @@ def euro():
             if convert == 'Y'.lower():
                 real = float(input("Enter how much you want to convert real R$: "))
                 conv = real / euro_value
-                print(f"Their R${real} converted stay ficam EUR{conv:.2f}")
+                print(f"Their R${real} converted stay EUR${conv:.2f}")
                 conti = input(("Press START for continue..."))
                 break
                  
@@ -91,10 +91,10 @@ def euro():
             
             
             else:
-                print("Escolha uma opção válida!")
+                print("Choose a valid option!")
                 
     else:
-        print("Erro ao buscar o valor do euro")
+        print("Error fetching euro value!")
     
     
     
@@ -109,26 +109,39 @@ def bitcoin():
 
     if response.status_code == 200:
         bitcoin_value = float(response.json()['BTC']['low'])
-        print(f'O valor do bitcoin é R${bitcoin_value:.5f}')
+        print(f'''
+              
+            | ============================================================= |
+            |                          Neo Bank                             |
+            \                                                              /
+                                                                           
+                    The BItcoin value in Brazilian reais is R${bitcoin_value:.2f}    
+            
+            /                                                               \ 
+            |
+            | ------------------------------------------------------------- |
+            | ======================== since 2022 ========================= |
+              
+              ''')
         while True:
-            converte = input("Deseja converter sua moeda em Bitcoin: [Y/N] ").strip().lower()
+            converte = input("Do you want to convert your currency to Bitcoin: [Y/N] ").strip().lower()
             if converte == 'Y'.lower():
-                real = float(input("Digite quanto você quer converter em R$: "))
+                real = float(input("Enter how much you want to convert real R$: "))
                 conv = real / bitcoin_value
-                print(f"Seus R${real} convertidos ficam Bitcoin: {conv:.2f}")
+                print(f"Their R${real} converted stay BTC$: {conv:.2f}")
                 conti = input(("Press START for continue..."))
                 break
                  
             if converte == 'N'.lower():
-                print("Obrigado!")
+                print("Thank You!")
                 break
             
             
             else:
-                print("Escolha uma opção válida!")
+                print("Choose your a option!")
         
     else:
-        print("Erro ao buscar o valor do bitcoin")
+        print("Error fetching bitcoin value!")
         
        
 # Cotação do Franco       
