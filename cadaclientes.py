@@ -7,7 +7,7 @@ from passwordcheck import passw
 from getpass import getpass
 from datetime import datetime
 from datetime import date
-
+#from saque import dici2
 
 
 
@@ -100,8 +100,7 @@ def cadastrobanco():
         else:
             print('Invalid email')
     address = input("Inform your address: ").strip() # Endereço livre.
-    complement = input("Inform the complement(optional): ").strip() # Complemento livre.
-    valores = float(input("Quanto você espera depositar em sua conta?: ")) # Local que será usado no módulo saque.
+    complement = input("Inform the complement(optional): ").strip() # Complemento livre
     senha = passw(password=passw)
     print("Por favor, copie sua senha aleatória")   
     id = gerandid.gera_id()                         
@@ -111,7 +110,7 @@ def cadastrobanco():
         cpf = input("Digite um CPF válido: ").strip() # Peço um CPF + verificação.
         if cadastrocpf(cpf):
             if cpf not in diciclientes:
-                diciclientes[id] = [name, email, address, complement, valores, senha, cpf]
+                diciclientes[id] = [name, email, address, complement, [], senha, cpf]
                 print(f'''
                       Bem vindo(a) {diciclientes[id][0]} ao time, estamos muito felizes em ver você por aqui!
                       Você foi cadastrado no dia {data} e no horário {hora}

@@ -5,6 +5,9 @@ from datetime import date
 
 
 
+
+
+
 # --------------------------------------- Bem vindos às funções financeiras ------------------------------------------#
 # Nesta parte estão as funções de depósito em conta já cadastrada, saque, as vantagens de ser cliente BB, e o seu saldo!
 # Explicarei passo a passo como eu pensei o cóigo por completo
@@ -52,11 +55,25 @@ def menusaque():
                 else: 
                     print('Opção inválida!')
       
-   
+def listdeposito(): # Gravando em arquivos.dat
+    try:
+        clientesa = open("deposito.dat", "rb")
+        dici2 = pickle.load(clientesa)
+        clientesa.close()
+    except:
+        clientesa = open("deposito.dat", "wb")
+        clientesa.close()
+    return dici2
 
-dici = diciclientes # Criei essa variável para somente facilitar o manuseio do dicionário que está em outro módulo.
+def gravdeposito(dici2):
+    clientesa = open("deposito.dat", "wb")
+    pickle.dump(dici2, clientesa)
+    clientesa.close()
+
 
 dici2 = {}
+
+dici = diciclientes
 
 
 # ---------------------------------------------- Funções do módulo -------------------------------------------------- #
@@ -66,16 +83,15 @@ dici2 = {}
 
 def deposibanco(): # Função para o depósito bancário!
     os.system("cls")
-    print("=="*50)
     print(''' 
     | ----------------------------- Bem vindos ao depósito! ----------------------------- |
     | ----- Se você está cadastrado no nosso sistema, poderá realizar seu depósito! ----- |
     | =================================================================================== |
             ''')
-    print("=="*50)
+ 
     while True:
         
-        senha = getpass("Digite o CPF já cadastrado em nosso sistema: ") # usando o getpass ele não mostra a senha que está sendo digitada
+        senha = pwinput.pwinput("Digite o CPF já cadastrado em nosso sistema: ") # usando o getpass ele não mostra a senha que está sendo digitada
         if senha not in dici: # Faço a verificação se ele consta ou não no sistema.
                 print("Usuário não cadastrado!")
                 break 
@@ -83,11 +99,13 @@ def deposibanco(): # Função para o depósito bancário!
             print("Usuário encontrado!") # Se o usuário for encontrado, ele exibe o usuário vinculado ao CPF.
             print(dici[senha][0]) # Mando printar a posição nome do cliente
             valor = int(input("Digite o quanto você quer depositar: ")) # Peço a quantia que ele quer depositar!
-            dici[senha][4] += valor # Faço a soma
+            dici[senha][0] += valor # Faço a soma
             print("valor novo " + str(dici[senha][4])) # Coloco o novo valor no dicionário
             print('Valor depositado com sucesso!')
-            print(f"Você depositou R${valor} em sua conta!") # Mostro na tela quanto foi depositado.
-            gravclientes(dici) # Salvo no dicionário
+            print(f"Você depositou R${valor} em sua conta!")
+            dici = dici2[senha][0][4]# Mostro na tela quanto foi depositado.
+            gravclientes(dici)
+            gravdeposito(dici2)
             break
         
             
@@ -109,6 +127,7 @@ def saquebanco(): # Função para o saque em conta.
 
         if id not in dici:
             print("Usuário não encontrado!")
+            sleep(1)
             break
         else:
             if id == dici:
@@ -122,7 +141,8 @@ def saquebanco(): # Função para o saque em conta.
                     print('Valor resgatado com sucesso!')
                     print("valor novo " + str(dici[id][4]))
                     print(f"Você sacou R${valor:.2f}")
-                    gravclientes(diciclientes)
+                    gravdeposito(dici2)
+                    gravclientes(dici)
                     conti = input("Aperta ENTER para continuar...")
                     break
                 else:
@@ -190,7 +210,7 @@ def extrato(): # Função para o extrato
     print("=="*50)
     token = ' '
     while True:
-        token = getpass("Digite seu token cadastrado: ")
+        token = pwinput.pwinput("Digite seu token cadastrado: ")
    
         if token not in dici:
             print("Usuário não encontrado!")
