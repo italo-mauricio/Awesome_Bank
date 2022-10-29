@@ -103,16 +103,16 @@ def cadastrobanco():
     complement = input("Inform the complement(optional): ").strip() # Complemento livre
     senha = passw(password=passw)
     print("Por favor, copie sua senha aleatória")   
-    id = gerandid.gera_id()                         
-    print(f"Sua ID é {id}")
+    token = gerandid.gera_id()                         
+    print(f"Sua ID é {token}")
     
     while True:
         cpf = input("Digite um CPF válido: ").strip() # Peço um CPF + verificação.
         if cadastrocpf(cpf):
             if cpf not in diciclientes:
-                diciclientes[id] = [name, email, address, complement, [], senha, cpf]
+                diciclientes[token] = [name, email, address, complement, {} , senha, cpf]
                 print(f'''
-                      Bem vindo(a) {diciclientes[id][0]} ao time, estamos muito felizes em ver você por aqui!
+                      Bem vindo(a) {diciclientes[token][0]} ao time, estamos muito felizes em ver você por aqui!
                       Você foi cadastrado no dia {data} e no horário {hora}
                       ''')
                
@@ -206,9 +206,9 @@ def extratoconta():
             ''')
     print("=="*50)
     while True:
-        id = ' '
-        id = pwinput.pwinput("Digite o seu token: ") # Peço o cpf do cliente
-        if id in diciclientes:
+        token = ' '
+        token = pwinput.pwinput("Digite o seu token: ") # Peço o cpf do cliente
+        if token in diciclientes:
                 os.system("cls") # Faço a verificação.
                 print("Usuário encontrado!")
                 print(f'''
@@ -216,13 +216,13 @@ def extratoconta():
                 | ------------------------------------------------------------ |
                 | Data da verificação: {data}
                 | Horário da verificação: {hora}
-                | Nome: {diciclientes[id][0]}                                    
-                | Email: {diciclientes[id][1]}                                              
-                | Endereço: {diciclientes[id][2]}                                 
-                | Complemento: {diciclientes[id][3]}                             
-                | Saldo: {diciclientes[id][4]}                                   
-                | Senha: {diciclientes[id][5]}                                     
-                | ID: {diciclientes[id][6]}                                       
+                | Nome: {diciclientes[token][0]}                                    
+                | Email: {diciclientes[token][1]}                                              
+                | Endereço: {diciclientes[token][2]}                                 
+                | Complemento: {diciclientes[token][3]}                             
+                | Saldo: {diciclientes[token][4]}                                   
+                | Senha: {diciclientes[token][5]}                                     
+                | ID: {diciclientes[token][6]}                                       
                 |                                                              |
                 | ------------------------------------------------------------ |
                 | ============================================================ |      

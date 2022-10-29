@@ -73,7 +73,7 @@ def gravdeposito(dici2):
 
 dici2 = {}
 
-dici = diciclientes()
+dici = diciclientes
 
 
 # ---------------------------------------------- Funções do módulo -------------------------------------------------- #
@@ -82,7 +82,7 @@ dici = diciclientes()
 
 
 def deposibanco(): # Função para o depósito bancário!
-    dici = diciclientes()
+    dici = diciclientes
     os.system("cls")
     print(''' 
     | ----------------------------- Bem vindos ao depósito! ----------------------------- |
@@ -100,7 +100,7 @@ def deposibanco(): # Função para o depósito bancário!
             print("Usuário encontrado!") # Se o usuário for encontrado, ele exibe o usuário vinculado ao CPF.
             print(dici[senha][0]) # Mando printar a posição nome do cliente
             valor = int(input("Digite o quanto você quer depositar: ")) # Peço a quantia que ele quer depositar!
-            dici[senha][0] += valor # Faço a soma
+            dici[senha][4] += valor # Faço a soma
             print("valor novo " + str(dici[senha][4])) # Coloco o novo valor no dicionário
             print('Valor depositado com sucesso!')
             print(f"Você depositou R${valor} em sua conta!")
