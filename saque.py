@@ -73,7 +73,7 @@ def gravdeposito(dici2):
 
 dici2 = {}
 
-dici = diciclientes
+dici = diciclientes()
 
 
 # ---------------------------------------------- Funções do módulo -------------------------------------------------- #
@@ -82,6 +82,7 @@ dici = diciclientes
 
 
 def deposibanco(): # Função para o depósito bancário!
+    dici = diciclientes()
     os.system("cls")
     print(''' 
     | ----------------------------- Bem vindos ao depósito! ----------------------------- |

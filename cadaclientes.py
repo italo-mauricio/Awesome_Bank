@@ -207,7 +207,7 @@ def extratoconta():
     print("=="*50)
     while True:
         id = ' '
-        id = getpass("Digite o seu token: ") # Peço o cpf do cliente
+        id = pwinput.pwinput("Digite o seu token: ") # Peço o cpf do cliente
         if id in diciclientes:
                 os.system("cls") # Faço a verificação.
                 print("Usuário encontrado!")
