@@ -92,8 +92,10 @@ def validnum(num): # Validação de números, para usar no programa principal
 
 
 
-        
-
-            
-                
+def isInt(value):
+  try:
+    int(value)
+    return True
+  except:
+    return False
     
