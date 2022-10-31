@@ -1,9 +1,14 @@
 
-from lib2to3.pgen2 import token
-from cadaclientes import *
+from cadaclientes import diciclientes
 from getpass import getpass
 from datetime import datetime
 from datetime import date
+import pickle
+import os
+import pwinput
+from cadaclientes import gravclientes
+from time import sleep
+from archive import *
 
 
 
@@ -56,26 +61,10 @@ def menusaque():
                 else: 
                     print('Opção inválida!')
       
-def listdeposito(): # Gravando em arquivos.dat
-    try:
-        clientesa = open("deposito.dat", "rb")
-        dici2 = pickle.load(clientesa)
-        clientesa.close()
-    except:
-        clientesa = open("deposito.dat", "wb")
-        clientesa.close()
-    return dici2
-
-def gravdeposito(dici2):
-    clientesa = open("deposito.dat", "wb")
-    pickle.dump(dici2, clientesa)
-    clientesa.close()
 
 
-dici2 = {}
+
 dici = diciclientes
-
-
 
 # ---------------------------------------------- Funções do módulo -------------------------------------------------- #
 

@@ -1,6 +1,4 @@
 
-from lib2to3.pgen2.tokenize import tokenize
-from secrets import token_urlsafe
 from validacoes import *
 import pickle, os, pwinput
 from time import sleep
@@ -9,7 +7,8 @@ from passwordcheck import passw
 from getpass import getpass
 from datetime import datetime
 from datetime import date
-#from saque import dici2
+from archive import *
+
 
 
 
@@ -53,23 +52,6 @@ def regcliente():
 # ============================= Funções da parte de cadastro de clientes ================================ #
 
 
-def listclient(): # Gravando em arquivos.dat
-    try:
-        clientesb = open("clientesbanco.dat", "rb")
-        diciclientes = pickle.load(clientesb)
-        clientesb.close()
-    except:
-        clientesb = open("clientesbanco.dat", "wb")
-        clientesb.close()
-    return diciclientes
-
-def gravclientes(diciclientes):
-    clientesb = open("clientesbanco.dat", "wb")
-    pickle.dump(diciclientes, clientesb)
-    clientesb.close()
-
-
-diciclientes = listclient()
 
 
 # ------------------------------------------------------------------------------------------------------- #
@@ -106,15 +88,17 @@ def cadastrobanco():
     while True:
         senha = input("Digite sua senha: ")
         if isInt(senha):
+            
             break
         else:
-            print("Senha apenas numérica")
+            if validstring(senha):
+                print("Senha apenas numérica")
     
     while True:
         cpf = input("Digite um CPF válido: ").strip() # Peço um CPF + verificação.
         if cadastrocpf(cpf):
             if cpf not in diciclientes:
-                diciclientes[senha] = [name, email, address, complement, {}, cpf]
+                diciclientes[senha] = [name, email, address, complement, cpf]
                 print(f'''
                       Bem vindo(a) {diciclientes[senha][0]} ao time, estamos muito felizes em ver você por aqui!
                       Você foi cadastrado no dia {data} e no horário {hora}
@@ -224,10 +208,8 @@ def extratoconta():
                 | Email: {diciclientes[token][1]}                                              
                 | Endereço: {diciclientes[token][2]}                                 
                 | Complemento: {diciclientes[token][3]}                             
-                | Saldo: {diciclientes[token][4]}                                   
-                | Senha: {diciclientes[token][5]}                                     
-                | ID: {diciclientes[token][6]}                                       
-                |                                                              |
+                | CPF: {diciclientes[token][4]}   
+                | Saldo: {dici2[0]}                                                                    
                 | ------------------------------------------------------------ |
                 | ============================================================ |      
                       

@@ -1,0 +1,43 @@
+import pickle
+
+
+
+
+def listclient(): # Gravando em arquivos.dat
+    try:
+        clientesb = open("clientesbanco.dat", "rb")
+        diciclientes = pickle.load(clientesb)
+        clientesb.close()
+    except:
+        clientesb = open("clientesbanco.dat", "wb")
+        clientesb.close()
+    return diciclientes
+
+def gravclientes(diciclientes):
+    clientesb = open("clientesbanco.dat", "wb")
+    pickle.dump(diciclientes, clientesb)
+    clientesb.close()
+
+
+diciclientes = listclient()
+
+
+
+
+def listdeposito(): # Gravando em arquivos.dat
+    try:
+        clientesa = open("deposito.dat", "rb")
+        dici2 = pickle.load(clientesa)
+        clientesa.close()
+    except:
+        clientesa = open("deposito.dat", "wb")
+        clientesa.close()
+    return dici2
+
+def gravdeposito(dici2):
+    clientesa = open("deposito.dat", "wb")
+    pickle.dump(dici2, clientesa)
+    clientesa.close()
+
+
+dici2 = {}
