@@ -1,3 +1,5 @@
+
+from lib2to3.pgen2 import token
 from cadaclientes import *
 from getpass import getpass
 from datetime import datetime
@@ -11,7 +13,6 @@ from datetime import date
 # --------------------------------------- Bem vindos às funções financeiras ------------------------------------------#
 # Nesta parte estão as funções de depósito em conta já cadastrada, saque, as vantagens de ser cliente BB, e o seu saldo!
 # Explicarei passo a passo como eu pensei o cóigo por completo
-
 
 def menusaque():
     os.system("cls")
@@ -72,8 +73,8 @@ def gravdeposito(dici2):
 
 
 dici2 = {}
-
 dici = diciclientes
+
 
 
 # ---------------------------------------------- Funções do módulo -------------------------------------------------- #
@@ -81,8 +82,9 @@ dici = diciclientes
 # =================================================================================================================== #
 
 
-def deposibanco(): # Função para o depósito bancário!
-    dici = diciclientes
+def deposibanco():
+    dici = diciclientes # Função para o depósito bancário!
+   
     os.system("cls")
     print(''' 
     | ----------------------------- Bem vindos ao depósito! ----------------------------- |
@@ -92,8 +94,8 @@ def deposibanco(): # Função para o depósito bancário!
  
     while True:
         
-        senha = pwinput.pwinput("Digite o CPF já cadastrado em nosso sistema: ") # usando o getpass ele não mostra a senha que está sendo digitada
-        if senha not in dici: # Faço a verificação se ele consta ou não no sistema.
+        senha = int(pwinput.pwinput("Digite o CPF já cadastrado em nosso sistema: ")) 
+        if senha not in dici:
                 print("Usuário não cadastrado!")
                 break 
         else:
@@ -124,23 +126,23 @@ def saquebanco(): # Função para o saque em conta.
             ''')
     print("=="*50)
     while True:
-        id = int(input("Informe sua ID cadastrada no sistema: "))
+        token = int(input("Informe sua ID cadastrada no sistema: "))
 
-        if id not in dici:
+        if token not in dici:
             print("Usuário não encontrado!")
             sleep(1)
             break
         else:
-            if id == dici:
+            if token == dici:
                 print("Tente outra id!")
             else:
                 print("Cliente encontrado!") 
-                print(dici[id][0])
+                print(dici[token][0])
                 valor = int(input('Qual o valor você quer sacar da sua conta: ')) 
                 if valor > 0 : 
-                    dici[id][4] -= valor 
+                    dici[token][4] -= valor 
                     print('Valor resgatado com sucesso!')
-                    print("valor novo " + str(dici[id][4]))
+                    print("valor novo " + str(dici[token][4]))
                     print(f"Você sacou R${valor:.2f}")
                     gravdeposito(dici2)
                     gravclientes(dici)
@@ -163,7 +165,7 @@ def saldo(): # Função para ver o saldo
             ''')
     print("=="*50)
     while True:
-        senha = getpass("Digite a senha cadastrada!: ") # Peço para o cliente digitar o CPF cadastrado
+        senha= getpass("Digite a senha cadastrada!: ") # Peço para o cliente digitar o CPF cadastrado
         if senha not in dici:
             print('Usuário não encontrado!')
             break

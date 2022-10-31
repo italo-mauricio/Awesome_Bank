@@ -1,4 +1,6 @@
 
+from lib2to3.pgen2.tokenize import tokenize
+from secrets import token_urlsafe
 from validacoes import *
 import pickle, os, pwinput
 from time import sleep
@@ -67,7 +69,7 @@ def gravclientes(diciclientes):
     clientesb.close()
 
 
-diciclientes = listclient() # Dicionário com os dados dos clientes
+diciclientes = listclient()
 
 
 # ------------------------------------------------------------------------------------------------------- #
@@ -101,18 +103,15 @@ def cadastrobanco():
             print('Invalid email')
     address = input("Inform your address: ").strip() # Endereço livre.
     complement = input("Inform the complement(optional): ").strip() # Complemento livre
-    senha = passw(password=passw)
-    print("Por favor, copie sua senha aleatória")   
-    token = gerandid.gera_id()                         
-    print(f"Sua ID é {token}")
+    senha = int("Digite sua senha: ")
     
     while True:
         cpf = input("Digite um CPF válido: ").strip() # Peço um CPF + verificação.
         if cadastrocpf(cpf):
             if cpf not in diciclientes:
-                diciclientes[token] = [name, email, address, complement, {} , senha, cpf]
+                diciclientes[senha] = [name, email, address, complement, {}, cpf]
                 print(f'''
-                      Bem vindo(a) {diciclientes[token][0]} ao time, estamos muito felizes em ver você por aqui!
+                      Bem vindo(a) {diciclientes[senha][0]} ao time, estamos muito felizes em ver você por aqui!
                       Você foi cadastrado no dia {data} e no horário {hora}
                       ''')
                
@@ -142,8 +141,8 @@ def editadados(): # Função para alterar os dados.
             ''')
     print("=="*50)
     while True:
-        id = input("Digite o seu token de acesso: ")
-        if id not in diciclientes:
+        token = input("Digite o seu token de acesso: ")
+        if token not in diciclientes:
             print('Usuário não encontrado!')
             break
         else:
@@ -152,14 +151,14 @@ def editadados(): # Função para alterar os dados.
             alterar = input("Qual dado você quer alterar do seu cadastro: ").upper().strip() # Peço as novas informações
             if alterar == "nome".strip().upper():
                 novo_nome = input("Digite seu novo nome: ").strip()
-                diciclientes[id][0] = novo_nome # Adiciono o novo nome ao dicionário posição nome
+                diciclientes[token][0] = novo_nome # Adiciono o novo nome ao dicionário posição nome
                 print('Nome alterado com sucesso!')
                 gravclientes(diciclientes)
                 break
             if alterar == "email".strip().upper():
                 novo_email = input("Digite seu novo email: ").strip()
                 if validemail(novo_email):
-                    diciclientes[id][1] = novo_email # Adiciono o novo email ao dicionário posição email
+                    diciclientes[token][1] = novo_email # Adiciono o novo email ao dicionário posição email
                     print("Email alterado com sucesso!")
                     gravclientes(diciclientes)
                     break
@@ -167,13 +166,13 @@ def editadados(): # Função para alterar os dados.
                     print("Email inválido!")
             if alterar == "endereco".strip().upper():
                 novo_endereco = input("Digite seu novo endereço: ").strip()
-                diciclientes[id][2] = novo_endereco # Adiciono o novo endereço ao dicionário posição endereço
+                diciclientes[token][2] = novo_endereco # Adiciono o novo endereço ao dicionário posição endereço
                 print("Endereço atualizado com sucesso!")
                 gravclientes(diciclientes)
                 break
             if alterar == "opicional".strip().upper():
                 novo_opcional = input("Digite seu novo endereço opcional: ").strip()
-                diciclientes[id][3] = novo_opcional # Adiciono o novo complementoao dicionário posição complemento
+                diciclientes[token][3] = novo_opcional # Adiciono o novo complementoao dicionário posição complemento
                 print("Endereço opcional atualizado com sucesso!")
                 gravclientes(diciclientes)
                 break
@@ -181,7 +180,7 @@ def editadados(): # Função para alterar os dados.
             if alterar == "senha".strip().upper():
                 nova_senha = pwinput.pwinput("Digite sua nova senha: ").strip()
                 if validnum(nova_senha):
-                    diciclientes[id][5] = nova_senha # Adiciono a nova senha ao dicionário posição senha
+                    diciclientes[token][5] = nova_senha # Adiciono a nova senha ao dicionário posição senha
                     print('Senha atualizada com sucesso!')
                     gravclientes(diciclientes)
                     break
