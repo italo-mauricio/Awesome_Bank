@@ -82,6 +82,7 @@ def deposibanco():
             ''')
  
     while True:
+        print("teste")
         
         senha = int(pwinput.pwinput("Digite o CPF já cadastrado em nosso sistema: ")) 
         if senha not in dici:
