@@ -40,4 +40,4 @@ def gravdeposito(dici2):
     clientesa.close()
 
 
-dici2 = {}
+dici2 = listdeposito()
