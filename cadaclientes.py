@@ -108,8 +108,9 @@ def cadastrobanco():
                 break
         else:
             print("CPF inválido!")
+
     input('Aperte alguma tecla para continuar!')
-    os.system("clear")
+    os.system("cls")
     
 
 

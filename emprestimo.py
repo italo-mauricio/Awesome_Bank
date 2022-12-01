@@ -126,6 +126,8 @@ def validaemp():
             solicitar()
             break
     
+
+    
 def situpedido():
     while True:
         os.system("clear")
