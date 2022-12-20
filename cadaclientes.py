@@ -187,13 +187,12 @@ def extratoconta():
     hora = hora_atual.strftime('%H:%M')
     data = date.today()# Função de visualizar clientes cadastrados.
     os.system("cls")
-    print("=="*50)
     print(''' 
     | ---------------- Vamos visualizar os seus dados cadastrados! ----------------------- |
     | ------- Se você estiver cadastrado no sistema, poderá consultar seus dados! -------- |
     | ==================================================================================== |
             ''')
-    print("=="*50)
+ 
     while True:
         token = ' '
         token = pwinput.pwinput("Digite o seu token: ") # Peço o cpf do cliente
@@ -240,7 +239,9 @@ class gerandid():  # gera uma ID para o cliente
         rand = randint(100000, 999999)
         return rand
 
-                
+
+
+
 
 
 

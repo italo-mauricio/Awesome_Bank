@@ -139,7 +139,7 @@ def situpedido():
             else: 
                 print(f'''
             | --------------------------------------------------- |
-            | -                Banco do Brasil                  - |
+            | -                  Banco do Neo                   - |
             | --------------------------------------------------- |
               Seu Pedido de empréstimo!
               
@@ -309,3 +309,4 @@ def emprest():
             print("Escolha uma opção válida")
                 
                 
+

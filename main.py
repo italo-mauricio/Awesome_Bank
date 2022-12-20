@@ -50,6 +50,11 @@ def menu():
             print('Opção inválida!')
 
 
-menu()
+
+def __init__(menu):
+    menu();
+    return menu
 
  
+
+__init__(menu);
