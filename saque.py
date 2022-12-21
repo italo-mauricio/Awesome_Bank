@@ -1,14 +1,13 @@
 
-from cadaclientes import diciclientes
+from archive import *
 from getpass import getpass
 from datetime import datetime
 from datetime import date
 import pickle
 import os
 import pwinput
-from cadaclientes import gravclientes
 from time import sleep
-from archive import *
+
 
 
 
@@ -63,7 +62,7 @@ def menusaque():
 
 
 
-dici = diciclientes
+
 
 # ---------------------------------------------- Funções do módulo -------------------------------------------------- #
 
@@ -71,7 +70,6 @@ dici = diciclientes
 
 
 def deposibanco():
-    dici = diciclientes # Função para o depósito bancário!
    
     os.system("cls")
     print(''' 
@@ -81,18 +79,18 @@ def deposibanco():
             ''')
  
     while True:
-        print("teste")
-        
-        senha = int(pwinput.pwinput("Digite o CPF já cadastrado em nosso sistema: ")) 
+        senha = pwinput.pwinput("Digite o CPF já cadastrado em nosso sistema: ")
+
         if senha not in dici:
                 print("Usuário não cadastrado!")
+                input("para")
                 break 
         else:
             print("Usuário encontrado!") # Se o usuário for encontrado, ele exibe o usuário vinculado ao CPF.
             print(dici[senha][0]) # Mando printar a posição nome do cliente
             valor = int(input("Digite o quanto você quer depositar: ")) # Peço a quantia que ele quer depositar!
-            dici[senha][4] += valor # Faço a soma
-            print("valor novo " + str(dici[senha][4])) # Coloco o novo valor no dicionário
+            dici[senha][5] += valor # Faço a soma
+            print("valor novo " + str(dici[senha][5])) # Coloco o novo valor no dicionário
             print('Valor depositado com sucesso!')
             print(f"Você depositou R${valor} em sua conta!")
             dici = dici2[senha][0][4]# Mostro na tela quanto foi depositado.
@@ -107,13 +105,12 @@ def deposibanco():
 
 def saquebanco(): # Função para o saque em conta.
     os.system("cls")
-    print("=="*50)
     print(''' 
     | ----------------------------- Bem vindos ao saque! -------------------------------- |
     | ------- Se você está cadastrado no nosso sistema, poderá realizar seu saque! ------ |
     | =================================================================================== |
             ''')
-    print("=="*50)
+
     while True:
         token = int(input("Informe sua ID cadastrada no sistema: "))
 
@@ -154,7 +151,7 @@ def saldo(): # Função para ver o saldo
             ''')
     print("=="*50)
     while True:
-        senha= getpass("Digite a senha cadastrada!: ") # Peço para o cliente digitar o CPF cadastrado
+        senha = getpass("Digite a senha cadastrada!: ") # Peço para o cliente digitar o CPF cadastrado
         if senha not in dici:
             print('Usuário não encontrado!')
             break
@@ -216,11 +213,11 @@ def extrato(): # Função para o extrato
                 Email: {dici[token][1]}                                                                  
                 Endereço: {dici[token][2]}                                                               
                 Complemento: {dici[token][3]}                                                            
-                Saldo em conta: {dici[token][4]}                                                         
-                CPF: {dici[token][6]}                                                                    
+                CPF: {dici[token][4]}                                                         
+                Saldo em conta: {dici[token][5]}                                                                    
                                                                                                         
                 ========================================================================================= 
-                Olá {dici[token][0]} você tem R${dici[token][4]} em sua conta bancária!                     
+                Olá {dici[token][0]} você tem R${dici[token][5]} em sua conta bancária!                     
                 -------> Sua conta está segura e você pode fazer qualquer tipo de movimentação ---------- 
                 ========================================================================================= 
             ''')

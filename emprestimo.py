@@ -21,7 +21,7 @@ def gravemprestimos(emprestimobox):
     empresti.close()
 
 
-dicitotal = diciclientes
+dicitotal = dici
 
 emprestimobox = listemprestimo()
 
@@ -76,10 +76,10 @@ def solicitarcliente():
             print(f'''
             ======================= Área do Cliente ====================
         
-                Bem vindo {diciclientes[cliente][0]}
+                Bem vindo {dici[cliente][0]}
                                 
-                Seu atual saldo é de: {diciclientes[cliente][4]}
-                Seu ID é: {diciclientes[cliente][6]}
+                Seu atual saldo é de: {dici[cliente][4]}
+                Seu ID é: {dici[cliente][6]}
 
                 
                 ''')
@@ -89,8 +89,8 @@ def solicitarcliente():
                     print(f'''
                     | ================= Extrato da Solicitação ==================== |
                     |                                                               |
-                        Cliente {diciclientes[cliente][0]}
-                        ID da solicitação {diciclientes[cliente][6]}
+                        Cliente {dici[cliente][0]}
+                        ID da solicitação {dici[cliente][6]}
                         Valor do pedido {emp}
                         Horário e data do pedido {hora} / {data}
                         

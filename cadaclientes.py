@@ -93,18 +93,25 @@ def cadastrobanco():
         else:
             if validstring(senha):
                 print("Senha apenas numérica")
+    while True:
+        saldo = input("Quanto você deseja depositar: ")
+        if isInt(saldo):
+            break
+        else:
+            if validstring(saldo):
+                print("Apenas números por favor")
     
     while True:
         cpf = input("Digite um CPF válido: ").strip() # Peço um CPF + verificação.
         if cadastrocpf(cpf):
-            if cpf not in diciclientes:
-                diciclientes[senha] = [name, email, address, complement, cpf]
+            if cpf not in dici:
+                dici[senha] = [name, email, address, complement, cpf, saldo]
                 print(f'''
-                      Bem vindo(a) {diciclientes[senha][0]} ao time, estamos muito felizes em ver você por aqui!
+                      Bem vindo(a) {dici[senha][0]} ao time, estamos muito felizes em ver você por aqui!
                       Você foi cadastrado no dia {data} e no horário {hora}
                       ''')
                
-                gravclientes(diciclientes)
+                gravclientes(dici)
                 break
         else:
             print("CPF inválido!")
@@ -134,7 +141,7 @@ def editadados(): # Função para alterar os dados.
      ''')
     while True:
         token = input("Digite o seu token de acesso: ")
-        if token not in diciclientes:
+        if token not in dici:
             print('Usuário não encontrado!')
             break
         else:
@@ -143,38 +150,38 @@ def editadados(): # Função para alterar os dados.
             alterar = input("Qual dado você quer alterar do seu cadastro: ").upper().strip() # Peço as novas informações
             if alterar == "nome".strip().upper():
                 novo_nome = input("Digite seu novo nome: ").strip()
-                diciclientes[token][0] = novo_nome # Adiciono o novo nome ao dicionário posição nome
+                dici[token][0] = novo_nome # Adiciono o novo nome ao dicionário posição nome
                 print('Nome alterado com sucesso!')
-                gravclientes(diciclientes)
+                gravclientes(dici)
                 break
             if alterar == "email".strip().upper():
                 novo_email = input("Digite seu novo email: ").strip()
                 if validemail(novo_email):
-                    diciclientes[token][1] = novo_email # Adiciono o novo email ao dicionário posição email
+                    dici[token][1] = novo_email # Adiciono o novo email ao dicionário posição email
                     print("Email alterado com sucesso!")
-                    gravclientes(diciclientes)
+                    gravclientes(dici)
                     break
                 else:
                     print("Email inválido!")
             if alterar == "endereco".strip().upper():
                 novo_endereco = input("Digite seu novo endereço: ").strip()
-                diciclientes[token][2] = novo_endereco # Adiciono o novo endereço ao dicionário posição endereço
+                dici[token][2] = novo_endereco # Adiciono o novo endereço ao dicionário posição endereço
                 print("Endereço atualizado com sucesso!")
-                gravclientes(diciclientes)
+                gravclientes(dici)
                 break
             if alterar == "opicional".strip().upper():
                 novo_opcional = input("Digite seu novo endereço opcional: ").strip()
-                diciclientes[token][3] = novo_opcional # Adiciono o novo complementoao dicionário posição complemento
+                dici[token][3] = novo_opcional # Adiciono o novo complementoao dicionário posição complemento
                 print("Endereço opcional atualizado com sucesso!")
-                gravclientes(diciclientes)
+                gravclientes(dici)
                 break
         
             if alterar == "senha".strip().upper():
                 nova_senha = pwinput.pwinput("Digite sua nova senha: ").strip()
                 if validnum(nova_senha):
-                    diciclientes[token][5] = nova_senha # Adiciono a nova senha ao dicionário posição senha
+                    dici[token][5] = nova_senha # Adiciono a nova senha ao dicionário posição senha
                     print('Senha atualizada com sucesso!')
-                    gravclientes(diciclientes)
+                    gravclientes(dici)
                     break
                 else:
                     print("Senha inválida!")
@@ -202,7 +209,7 @@ def extratoconta():
     while True:
         token = ' '
         token = pwinput.pwinput("Digite o seu token: ") # Peço o cpf do cliente
-        if token in diciclientes:
+        if token in dici:
                 os.system("cls") # Faço a verificação.
                 print("Usuário encontrado!")
                 print(f'''
@@ -210,11 +217,11 @@ def extratoconta():
                 | ------------------------------------------------------------ |
                 | Data da verificação: {data}
                 | Horário da verificação: {hora}
-                | Nome: {diciclientes[token][0]}                                    
-                | Email: {diciclientes[token][1]}                                              
-                | Endereço: {diciclientes[token][2]}                                 
-                | Complemento: {diciclientes[token][3]}                             
-                | CPF: {diciclientes[token][4]}   
+                | Nome: {dici[token][0]}                                    
+                | Email: {dici[token][1]}                                              
+                | Endereço: {dici[token][2]}                                 
+                | Complemento: {dici[token][3]}                             
+                | CPF: {dici[token][4]}   
                 | Saldo: {dici2[0]}                                                                    
                 | ------------------------------------------------------------ |
                 | ============================================================ |      

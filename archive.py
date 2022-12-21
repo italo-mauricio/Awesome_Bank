@@ -19,7 +19,7 @@ def gravclientes(diciclientes):
     clientesb.close()
 
 
-diciclientes = listclient()
+dici = listclient()
 
 
 
