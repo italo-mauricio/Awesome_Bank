@@ -56,6 +56,7 @@ def menusaque():
                 elif usuario == "6":
                     extrato()
                 elif usuario == "0":
+                    os.system("cls")
                     break
                 else: 
                     print('Opção inválida!')
