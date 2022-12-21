@@ -38,12 +38,10 @@ def regcliente():
                 editadados()
             elif client == "0":
                 os.system("cls")
-                break
-                
-            
+                break           
             else:
                 print('Invalid Option!')
-                conti = input("dsadsadas")
+                input("Digite uma opção válida")
                 os.system("cls")            
 
 

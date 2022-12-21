@@ -63,42 +63,45 @@ def menusaque():
 
 
 
-
-
 # ---------------------------------------------- Funções do módulo -------------------------------------------------- #
 
 # =================================================================================================================== #
 
 
-def deposibanco():
-   
+def deposibanco(): # Função para o saque em conta.
     os.system("cls")
     print(''' 
-    | ----------------------------- Bem vindos ao depósito! ----------------------------- |
-    | ----- Se você está cadastrado no nosso sistema, poderá realizar seu depósito! ----- |
-    | =================================================================================== |
+    | ----------------------------- Bem vindos ao depósito! -------------------------------- |
+    | ------- Se você está cadastrado no nosso sistema, poderá realizar seu depósito! ------ |
+    | ====================================================================================== |
             ''')
- 
-    while True:
-        senha = pwinput.pwinput("Digite o CPF já cadastrado em nosso sistema: ")
 
-        if senha not in dici:
-                print("Usuário não cadastrado!")
-                input("para")
-                break 
-        else:
-            print("Usuário encontrado!") # Se o usuário for encontrado, ele exibe o usuário vinculado ao CPF.
-            print(dici[senha][0]) # Mando printar a posição nome do cliente
-            valor = int(input("Digite o quanto você quer depositar: ")) # Peço a quantia que ele quer depositar!
-            dici[senha][5] += valor # Faço a soma
-            print("valor novo " + str(dici[senha][5])) # Coloco o novo valor no dicionário
-            print('Valor depositado com sucesso!')
-            print(f"Você depositou R${valor} em sua conta!")
-            dici = dici2[senha][0][4]# Mostro na tela quanto foi depositado.
-            gravclientes(dici)
-            gravdeposito(dici2)
+    while True:
+        token = int(input("Informe sua senha de acesso: "))
+        if token not in dici:
+            print("Usuário não encontrado!")
+            sleep(1)
             break
-        
+        else:
+            if token == dici:
+                print("Tente outra id!")
+            else:
+                print("Cliente encontrado!") 
+                print(dici[token][0])
+                valor = int(input('Qual o valor você quer sacar da sua conta: '))
+                if valor >= 0 : 
+                    novo = dici[token][5] + valor 
+                    dici[token][5] = novo
+                    print('Valor resgatado com sucesso!')
+                    print(f"valor novo {dici[token][5]}")
+                    print(f"Você depositou R${valor:.2f}")
+                    gravdeposito(dici2)
+                    gravclientes(dici)
+                    conti = input("Aperta ENTER para continuar...")
+                    break
+                else:
+                    print("Você não tem saldo suficiente!")
+            
             
 
 # =================================================================================================================== #
@@ -114,7 +117,6 @@ def saquebanco(): # Função para o saque em conta.
 
     while True:
         token = int(input("Informe sua ID cadastrada no sistema: "))
-
         if token not in dici:
             print("Usuário não encontrado!")
             sleep(1)
