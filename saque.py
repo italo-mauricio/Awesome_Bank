@@ -112,7 +112,7 @@ def saquebanco(): # Função para o saque em conta.
             ''')
 
     while True:
-        token = int(input("Informe sua ID cadastrada no sistema: "))
+        token = input("Informe sua ID cadastrada no sistema: ")
 
         if token not in dici:
             print("Usuário não encontrado!")
@@ -126,9 +126,9 @@ def saquebanco(): # Função para o saque em conta.
                 print(dici[token][0])
                 valor = int(input('Qual o valor você quer sacar da sua conta: ')) 
                 if valor > 0 : 
-                    dici[token][4] -= valor 
+                    dici[token][5] -= valor 
                     print('Valor resgatado com sucesso!')
-                    print("valor novo " + str(dici[token][4]))
+                    print("valor novo " + str(dici[token][5]))
                     print(f"Você sacou R${valor:.2f}")
                     gravdeposito(dici2)
                     gravclientes(dici)
@@ -199,12 +199,13 @@ def extrato(): # Função para o extrato
     print("=="*50)
     token = ' '
     while True:
-        token = pwinput.pwinput("Digite seu token cadastrado: ")
+        token = pwinput.pwinput("Digite sua senha de acesso: ")
    
         if token not in dici:
             print("Usuário não encontrado!")
             break
         else:
+            os.system("cls")
             print("Uusário encontrado!")
             print(f'''
                 ========================================================================================= 
