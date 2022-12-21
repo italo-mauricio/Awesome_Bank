@@ -85,21 +85,10 @@ def cadastrobanco():
             print('Invalid email')
     address = input("Inform your address: ").strip() # Endereço livre.
     complement = input("Inform the complement(optional): ").strip() # Complemento livre
-    while True:
-        senha = input("Digite sua senha: ")
-        if isInt(senha):
-            
-            break
-        else:
-            if validstring(senha):
-                print("Senha apenas numérica")
-    while True:
-        saldo = input("Quanto você deseja depositar: ")
-        if isInt(saldo):
-            break
-        else:
-            if validstring(saldo):
-                print("Apenas números por favor")
+
+    senha = int(input("Digite sua senha: "))
+        
+    saldo = int(input("Quanto você deseja depositar: "))
     
     while True:
         cpf = input("Digite um CPF válido: ").strip() # Peço um CPF + verificação.

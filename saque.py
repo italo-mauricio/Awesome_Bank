@@ -7,6 +7,7 @@ import pickle
 import os
 import pwinput
 from time import sleep
+from validacoes import *
 
 
 
@@ -112,7 +113,7 @@ def saquebanco(): # Função para o saque em conta.
             ''')
 
     while True:
-        token = input("Informe sua ID cadastrada no sistema: ")
+        token = int(input("Informe sua ID cadastrada no sistema: "))
 
         if token not in dici:
             print("Usuário não encontrado!")
@@ -124,11 +125,12 @@ def saquebanco(): # Função para o saque em conta.
             else:
                 print("Cliente encontrado!") 
                 print(dici[token][0])
-                valor = int(input('Qual o valor você quer sacar da sua conta: ')) 
-                if valor > 0 : 
-                    dici[token][5] -= valor 
+                valor = int(input('Qual o valor você quer sacar da sua conta: '))
+                if valor >= 0 : 
+                    novo = dici[token][5] - valor 
+                    dici[token][5] = novo
                     print('Valor resgatado com sucesso!')
-                    print("valor novo " + str(dici[token][5]))
+                    print(f"valor novo {dici[token][5]}")
                     print(f"Você sacou R${valor:.2f}")
                     gravdeposito(dici2)
                     gravclientes(dici)
@@ -136,7 +138,8 @@ def saquebanco(): # Função para o saque em conta.
                     break
                 else:
                     print("Você não tem saldo suficiente!")
-                    
+            
+                        
 
 # =================================================================================================================== #
 
@@ -199,7 +202,7 @@ def extrato(): # Função para o extrato
     print("=="*50)
     token = ' '
     while True:
-        token = pwinput.pwinput("Digite sua senha de acesso: ")
+        token = int(pwinput.pwinput("Digite sua senha de acesso: "))
    
         if token not in dici:
             print("Usuário não encontrado!")
