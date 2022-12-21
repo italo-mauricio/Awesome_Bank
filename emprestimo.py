@@ -276,7 +276,7 @@ def emprest():
                         data {data} / hora {hora}                   
 
                         1 - Solicitar Empréstimo
-                        2 - Verificar situação do pedido
+                        2 - Verificar validade do empréstimo
                         3 - Verificar as nossas taxas 
                         4 - Politicas da mpresa
                         0 - Voltar ao Menu Principal
