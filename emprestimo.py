@@ -81,25 +81,25 @@ def solicitarcliente():
                 Seu atual saldo é de: {dici[cliente][5]}
                 
                 ''')
-            while True:
-                emp = input("Quanto você deseja solicitar: ")
-                if validnum(emp):
-                    print(f'''
-                    | ================= Extrato da Solicitação ==================== |
-                    |                                                               |
-                        Cliente {dici[cliente][0]}
-                        ID da solicitação {dici[cliente][6]}
-                        Valor do pedido {emp}
-                        Horário e data do pedido {hora} / {data}
-                        
-                            
-                    |   Pedido realizado com sucesso!                               |
-                            
-                            ''')
-                    gravemprestimos(emprestimobox)
-                    conti = input("Aperte ENTER para continuar...")
-                    break
     
+            emp = int(input("Quanto você deseja solicitar: "))
+        
+            print(f'''
+            | ================= Extrato da Solicitação ==================== |
+            |                                                               |
+                Cliente {dici[cliente][0]}
+                ID da solicitação {dici[cliente][6]}
+                Valor do pedido {emp}
+                Horário e data do pedido {hora} / {data}
+                
+                    
+            |   Pedido realizado com sucesso!                               |
+                    
+                    ''')
+            gravemprestimos(emprestimobox)
+            input("Aperte ENTER para continuar...")
+            break
+
 
         
 def validaemp():

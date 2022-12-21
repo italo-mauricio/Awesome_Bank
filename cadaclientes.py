@@ -84,15 +84,16 @@ def cadastrobanco():
     address = input("Inform your address: ").strip() # Endereço livre.
     complement = input("Inform the complement(optional): ").strip() # Complemento livre
 
-    senha = int(input("Digite sua senha: "))
-        
+    senha = int(input("Digite sua senha: "))     
     saldo = int(input("Quanto você deseja depositar: "))
+    id = gerandid.gera_id()
+    print(f"Sua ID de registro é: {id}")
     
     while True:
         cpf = input("Digite um CPF válido: ").strip() # Peço um CPF + verificação.
         if cadastrocpf(cpf):
             if cpf not in dici:
-                dici[senha] = [name, email, address, complement, cpf, saldo]
+                dici[senha] = [name, email, address, complement, cpf, saldo, id]
                 print(f'''
                       Bem vindo(a) {dici[senha][0]} ao time, estamos muito felizes em ver você por aqui!
                       Você foi cadastrado no dia {data} e no horário {hora}
