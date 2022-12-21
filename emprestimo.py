@@ -96,6 +96,7 @@ def solicitarcliente():
             |   Pedido realizado com sucesso!                               |
                     
                     ''')
+            emprestimobox[cliente] = [emp]
             gravemprestimos(emprestimobox)
             input("Aperte ENTER para continuar...")
             break
@@ -105,9 +106,10 @@ def solicitarcliente():
 def validaemp():
     os.system("cls")
     print("Vamos verificar se você está apto")
- 
+    cliente = int(input("Digite sua senha: "))
     salario = float(input("Informe o seu salário em R$: "))
-    valor = float(input("De quanto você precisa?: "))
+    valor = emprestimobox[cliente][0]
+    print(f"O seu pedido de empréstimo foi no valor de: R${valor}")
     ano = int(input("Em quantos anos você pretende pagar?: "))
     parcelas = (valor / ano) / 12
     while True:
@@ -291,7 +293,7 @@ def emprest():
         if opcao == '1':
             solicitar()
         elif opcao == '2':
-            pass
+            validaemp()
         elif opcao == '3':
             pass
         elif opcao == '4':
