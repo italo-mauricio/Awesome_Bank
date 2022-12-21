@@ -128,7 +128,7 @@ def saquebanco(): # Função para o saque em conta.
                 print("Cliente encontrado!") 
                 print(dici[token][0])
                 valor = int(input('Qual o valor você quer sacar da sua conta: '))
-                if valor >= 0 : 
+                if dici[token][5] > 0 : 
                     novo = dici[token][5] - valor 
                     dici[token][5] = novo
                     print('Valor resgatado com sucesso!')
@@ -176,17 +176,17 @@ def vantagens(): # Função extra somente de print
     os.system("cls")
     while True:
         print(''' 
-        |======================================================================================|
-        |----------------------- Bem vindos às vantagens do BB --------------------------------|
-        |--------------------------------------------------------------------------------------|
-        |------- 1 - Nós temos as melhores taxas anuais para para empréstimos -----------------|
-        |------- 2 - Nós temos as melhores facilidades para você financiar a sua casa, --------|
-        |o seu carro, ou qualquer tipo de imóvel! ---------------------------------------------|
-        |------- 3 - Temos as melhores linhas de crédito para micro e pequeno empreendedor ----|
-        |------- 4 - Somente aqui no Banco do Brasil você consegue ter uma home broker, -------|
-        |totalmente personalizada para você que quer começar os seus investimentos! -----------|
-        |------- 5 - Então o que está esperando? venha logo fazer parte da família BB! --------|
-        |======================================================================================|
+        |=======================================================================================|
+        |----------------------- Bem vindos às vantagens do Neo --------------------------------|
+        |---------------------------------------------------------------------------------------|
+        |------- 1 - Nós temos as melhores taxas anuais para para empréstimos ------------------|
+        |------- 2 - Nós temos as melhores facilidades para você financiar a sua casa, ---------|
+        |o seu carro, ou qualquer tipo de imóvel! ----------------------------------------------|
+        |------- 3 - Temos as melhores linhas de crédito para micro e pequeno empreendedor -----|
+        |------- 4 - Somente aqui no Banco do Brasil você consegue ter uma home broker, --------|
+        |totalmente personalizada para você que quer começar os seus investimentos! ------------|
+        |------- 5 - Então o que está esperando? venha logo fazer parte da família BB! ---------|
+        |=======================================================================================|
         ''')
         input("Aperte qualquer tecla para sair: ")
         break
