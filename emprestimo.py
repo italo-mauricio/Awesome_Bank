@@ -68,7 +68,7 @@ def solicitarcliente():
     data = date.today()
     while True:
         print("Precisamos confirmar seu CPF!")
-        cliente = input("Por favor, digite a senha cadastrada: ")
+        cliente = int(input("Por favor, digite a senha cadastrada: "))
         if cliente not in dicitotal:
             print("Seu registro não foi encontrado!")
             break
@@ -78,9 +78,7 @@ def solicitarcliente():
         
                 Bem vindo {dici[cliente][0]}
                                 
-                Seu atual saldo é de: {dici[cliente][4]}
-                Seu ID é: {dici[cliente][6]}
-
+                Seu atual saldo é de: {dici[cliente][5]}
                 
                 ''')
             while True:
