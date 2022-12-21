@@ -193,8 +193,8 @@ def extratoconta():
           | ================================================== |
           |                     Neo Bank                       |
           |                                                    |
-          |                Wellcome to Editing                 |
-          |       Come be our Neo client, let's Editing        |
+          |                Wellcome to Extrato                 |
+          |       Come be our Neo client, let's Extrato        |
           |                                                    |
           | ------------------ since 2022 -------------------- |
      ''')
