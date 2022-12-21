@@ -123,13 +123,15 @@ def cadastrobanco():
 
 def editadados(): # Função para alterar os dados.
     os.system("cls")
-    print("=="*50)
     print(''' 
-    | -------------------  Vamos alterar os seus dados cadastrados! ----------------------- |
-    | ------- Se você estiver cadastrado no sistema, poderá alterar os seus dados! -------- |
-    | ===================================================================================== |
-            ''')
-    print("=="*50)
+          | ================================================== |
+          |                     Neo Bank                       |
+          |                                                    |
+          |                Wellcome to Editing                 |
+          |       Come be our Neo client, let's Editing        |
+          |                                                    |
+          | ------------------ since 2022 -------------------- |
+     ''')
     while True:
         token = input("Digite o seu token de acesso: ")
         if token not in diciclientes:
@@ -188,10 +190,14 @@ def extratoconta():
     data = date.today()# Função de visualizar clientes cadastrados.
     os.system("cls")
     print(''' 
-    | ---------------- Vamos visualizar os seus dados cadastrados! ----------------------- |
-    | ------- Se você estiver cadastrado no sistema, poderá consultar seus dados! -------- |
-    | ==================================================================================== |
-            ''')
+          | ================================================== |
+          |                     Neo Bank                       |
+          |                                                    |
+          |                Wellcome to Editing                 |
+          |       Come be our Neo client, let's Editing        |
+          |                                                    |
+          | ------------------ since 2022 -------------------- |
+     ''')
  
     while True:
         token = ' '

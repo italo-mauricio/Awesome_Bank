@@ -40,4 +40,6 @@ def gravdeposito(dici2):
     clientesa.close()
 
 
+
+
 dici2 = {}
