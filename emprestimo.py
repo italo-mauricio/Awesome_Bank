@@ -33,20 +33,19 @@ def solicitar():
         date1 = date.today()
         os.system("cls")
         print(f'''
-        |------------------------------------------------------------------|
-        |                         Loan Area                                |
-        |------------------------------------------------------------------|
+        |---------------------------------------------------------------|
+        |                      Apply for Loan                           |
+        |---------------------------------------------------------------|
                           Date: {date1} / Time: {hour}
-        | ---------------------------------------------------------------- |
-        |                                                                  |
-        |                     1 - I'm already a customer                   |
-        |                     2 - I'm not a customer                       |
-        |                     3 - Benefits                                 |
-        |                     0 - Back to main menu                        |
-        |                                                                  |
-        |                                                                  |
-        |                                                                  |
-        | ======================= Since 2022 ============================= |       
+        | ------------------------------------------------------------- |
+        |                                                               |
+        |                  1 - I'm already a customer                   |
+        |                  2 - I'm not a customer                       |
+        |                  3 - Benefits                                 |
+        |                  0 - Back to main menu                        |
+        |                                                               |
+        |                                                               |
+        | ======================= Since 2022 ========================== |       
         ''')
         option = ' '
         option = input("Escolha uma opção: ")
@@ -277,19 +276,20 @@ def emprest():
         hora = hora_atual.strftime('%H:%M')
         data = date.today()
         print(f'''
-        ========================================================
-                        data {data} / hora {hora}                   
-
-                        1 - Solicitar Empréstimo
-                        2 - Verificar validade do empréstimo
-                        3 - Verificar as nossas taxas 
-                        4 - Politicas da mpresa
-                        0 - Voltar ao Menu Principal
-                        
-            
-            
-            
-        =================== Since 2022 ========================
+        |------------------------------------------------------|
+        |                     Loan Area                        |
+        |------------------------------------------------------|
+                       data {data} / hora {hora}                   
+        |------------------------------------------------------|
+        |                                                      |
+        |               1 - Apply For Loan                     | 
+        |               2 - Check Loan Validity                | 
+        |               3 - Check Our Rates                    | 
+        |               4 - Company Policies                   | 
+        |               0 - Back To Main Menu                  | 
+        |                                                      | 
+        |                                                      |
+        |================== Since 2022 ========================|
         
         ''')
         opcao = ' '
