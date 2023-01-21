@@ -28,20 +28,25 @@ emprestimobox = listemprestimo()
 
 def solicitar():
     while True:
+        time_now = datetime.now()
+        hour = time_now.strftime('%H:%M')
+        date1 = date.today()
         os.system("cls")
         print(f'''
-        | ==================== Área de Empréstimos ======================== |
+        |------------------------------------------------------------------|
+        |                         Loan Area                                |
+        |------------------------------------------------------------------|
+                          Date: {date1} / Time: {hour}
         | ---------------------------------------------------------------- |
         |                                                                  |
-        |                     1 - Já sou cliente                           |
-        |                     2 - Não sou cliente                          |
-        |                     3 - Vantagens                                |
-        |                     0 - Voltar ao Menu                           |
+        |                     1 - I'm already a customer                   |
+        |                     2 - I'm not a customer                       |
+        |                     3 - Benefits                                 |
+        |                     0 - Back to main menu                        |
         |                                                                  |
         |                                                                  |
         |                                                                  |
-        | ======================= Since 2022 ============================= |
-                
+        | ======================= Since 2022 ============================= |       
         ''')
         option = ' '
         option = input("Escolha uma opção: ")
