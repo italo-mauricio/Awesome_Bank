@@ -120,14 +120,12 @@ def validaemp():
         if parcelas > salario + (30/100):
             print("Empréstimo negado!")
             input("Aperte ENTER para continuar")
-            solicitar()
             break
         else:
             print('Empréstimo concedido!')
             print(f'A parcela do seu empréstimo é de {parcelas:.2f} ao mês!')
             gravemprestimos(emprestimobox)
             input("Aperte ENTER para sair!")
-            solicitar()
             break
     
 
