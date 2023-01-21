@@ -21,15 +21,17 @@ def delusu():
 
     while True:
         print("Vamos deletar o seu usuário!")
-        token = int(input("Digite o token cadastrado: ")) # Peço o CPF cadastrado no sistema
+        token = int(input("Digite o token cadastrado: ")) 
 
-        if token not in dici: # Verifico se o mesmo se encontra no dicionário.
+        if token not in dici: 
             print("Usuário não encontrado!")
             continuar = input("Deseja continuar: [S/N] ").strip().upper()
             if continuar == 'S'.upper():
                 delusu()
             elif continuar == 'N'.upper():
-                regcliente()
+                os.system("cls")
+                break
+                
             else:
                 print('Opção inválida!')
         else:
