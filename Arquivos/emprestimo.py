@@ -23,7 +23,7 @@ def gravemprestimos(emprestimobox):
 
 dicitotal = dici
 
-emprestimobox = listemprestimo()
+emprestimobox = {}
 
 
 def solicitar():
