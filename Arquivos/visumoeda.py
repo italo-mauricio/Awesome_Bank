@@ -21,7 +21,7 @@ def dolar():
             |                          Neo Bank                             |
             \                                                              /
                                                                            
-                    The dollar value in Brazilian reais is R${dolar_value:.2f}    
+                    The Dóllar value in Brazilian Real is R${dolar_value:.2f}    
             
             /                                                               \ 
             |
@@ -68,7 +68,7 @@ def euro():
             |                          Neo Bank                             |
             \                                                              /
                                                                            
-                    The dollar value in Brazilian reais is R${euro_value:.2f}    
+                    The Euro value in Brazilian Real is R${euro_value:.2f}    
             
             /                                                               \ 
             |
@@ -115,7 +115,7 @@ def bitcoin():
             |                          Neo Bank                             |
             \                                                              /
                                                                            
-                    The BItcoin value in Brazilian reais is R${bitcoin_value:.3f}    
+                    The BItcoin value in Brazilian Real is R${bitcoin_value:.3f}    
             
             /                                                               \ 
             |
@@ -161,7 +161,7 @@ def franco():
             |                          Neo Bank                             |
             \                                                              /
                                                                            
-                    The Franco value in Brazilian reais is R${franco_value:.2f}    
+                    The Franco value in Brazilian Real is R${franco_value:.2f}    
             
             /                                                               \ 
             |
@@ -208,7 +208,7 @@ def iene():
             |                          Neo Bank                             |
             \                                                              /
                                                                            
-                    The Franco value in Brazilian reais is R${iene_value:.2f}    
+                    The Iene value in Brazilian Real is R${iene_value:.2f}    
             
             /                                                               \ 
             |
@@ -255,7 +255,7 @@ def dolarcanadense():
             |                          Neo Bank                             |
             \                                                              /
                                                                            
-                    The Franco value in Brazilian reais is R${cad_value:.2f}    
+                    The Franco value in Brazilian Real is R${cad_value:.2f}    
             
             /                                                               \ 
             |
