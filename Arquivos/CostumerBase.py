@@ -1,18 +1,18 @@
 
-from validacoes import *
+from Validations import *
 import pickle, os, pwinput
 from time import sleep
 from random import randint
-from passwordcheck import passw
+from PasswordCheck import passw
 from getpass import getpass
 from datetime import datetime
 from datetime import date
-from archive import *
+from Archive import *
 
 
 
 
-def regcliente():
+def register_client():
     os.system("cls")
     while True:
             print('''   
@@ -31,17 +31,17 @@ def regcliente():
             client = input("Choose your option: ")
 
             if client == "1":
-                cadastrobanco()
+                create_account()
             elif client == "2":
-                extratoconta()
+                extract_account()
             elif client == "3":
-                editadados()
+                edit_account()
             elif client == "0":
                 os.system("cls")
                 break           
             else:
                 print('Invalid Option!')
-                input("Digite uma opção válida")
+                input("Enter a valid option")
                 os.system("cls")            
 
 
@@ -54,10 +54,10 @@ def regcliente():
 
 # ------------------------------------------------------------------------------------------------------- #
 
-def cadastrobanco():
-    hora_atual = datetime.now()
-    hora = hora_atual.strftime('%H:%M')
-    data = date.today()# Função de cadastramento
+def create_account():
+    current_time = datetime.now()
+    hour = current_time.strftime('%H:%M')
+    date_time = date.today()
     os.system("cls")               
     print(''' 
           | ================================================== |
@@ -70,22 +70,21 @@ def cadastrobanco():
      ''')
 
     while True:
-        name = input('Type your Name: ').strip() # Nome do cliente + verificação de string.
-        if validstring(name):
+        name = input("Type your Name: ").strip() 
+        if validemail(name):
             break
         else:
-            print("Invalid Name!")
+            print('Invalid email')
     while True:
-        email = input("Type your Email: ").strip() # Email + verificação de email.
+        email = input("Type your Email: ").strip() 
         if validemail(email):
             break
         else:
             print('Invalid email')
-    address = input("Inform your address: ").strip() # Endereço livre.
-    complement = input("Inform the complement(optional): ").strip() # Complemento livre
-
-    senha = int(input("Digite sua senha: "))     
-    saldo = int(input("Quanto você deseja depositar: "))
+    address = input("Inform your address: ").strip() 
+    complement = input("Inform the complement(optional): ").strip() 
+    password = int(input("Digite sua senha: "))     
+    balance = int(input("Quanto você deseja depositar: "))
     id = gerandid.gera_id()
     print(f"Sua ID de registro é: {id}")
     
@@ -93,10 +92,10 @@ def cadastrobanco():
         cpf = input("Digite um CPF válido: ").strip() # Peço um CPF + verificação.
         if cadastrocpf(cpf):
             if cpf not in dici:
-                dici[senha] = [name, email, address, complement, cpf, saldo, id]
+                dici[password] = [name, email, address, complement, cpf, balance, id]
                 print(f'''
-                      Bem vindo(a) {dici[senha][0]} ao time, estamos muito felizes em ver você por aqui!
-                      Você foi cadastrado no dia {data} e no horário {hora}
+                      Bem vindo(a) {dici[password][0]} ao time, estamos muito felizes em ver você por aqui!
+                      Você foi cadastrado no dia {date_time} e no horário {hour}
                       ''')
                
                 gravclientes(dici)
@@ -116,7 +115,7 @@ def cadastrobanco():
 
 # ------------------------------------------------------------------------------------------------------- #
 
-def editadados(): # Função para alterar os dados.
+def edit_account(): # Função para alterar os dados.
     os.system("cls")
     print(''' 
           | ================================================== |
@@ -179,7 +178,7 @@ def editadados(): # Função para alterar os dados.
     
     
 
-def extratoconta():
+def extract_account():
     hora_atual = datetime.now()
     hora = hora_atual.strftime('%H:%M')
     data = date.today()# Função de visualizar clientes cadastrados.
@@ -223,7 +222,7 @@ def extratoconta():
             continuar = ' '
             continuar = str(input('Deseja continuar [S/N]: ')).strip().upper() # Pergunto se ele quer continuar caso não for encontrado
             if continuar == "S".upper():
-                extratoconta()
+                continue
             elif continuar == "N".upper():
                 print('Saindo...')
                 sleep(2)
@@ -233,6 +232,44 @@ def extratoconta():
       
 # ------------------------------------------------------------------------------------------------------- #
 
+def delete_account():
+    hora_atual = datetime.now()
+    hora = hora_atual.strftime('%H:%M')
+    data = date.today()# Função para deletar usuário
+    os.system("cls")
+    print(''' 
+    | -------------------  Vamos deletar os seus dados cadastrados! ----------------------- |
+    | ------- Se você estiver cadastrado no sistema, poderá deletar os seus dados! -------- |
+    | ===================================================================================== |
+            ''')
+
+    while True:
+        print("Vamos deletar o seu usuário!")
+        token = int(input("Digite o token cadastrado: ")) 
+
+        if token not in dici: 
+            print("Usuário não encontrado!")
+            continuar = input("Deseja continuar: [S/N] ").strip().upper()
+            if continuar == 'S'.upper():
+                break
+            elif continuar == 'N'.upper():
+                os.system("cls")
+                break
+                
+            else:
+                print('Opção inválida!')
+        else:
+            print("Usuário encontrado!")
+            del dici[token]
+            print("Usuário deletado com sucesso!")
+            print(f'''
+                Usuário foi deletado dia: {data}
+                Horário da exclusão: {hora_atual}
+                    ''')
+            gravclientes(dici)
+            input("Press ENTER for continue... ")
+            break
+ 
 
 class gerandid():  # gera uma ID para o cliente
     @staticmethod

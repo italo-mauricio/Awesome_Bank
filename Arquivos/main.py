@@ -1,9 +1,9 @@
-from cadaclientes import *
-import saque, dele
-from visumoeda import menucot
+from CostumerBase import *
+import Withdraw
+from CurrencyQuotations import menucot
 from datetime import datetime
 from datetime import date
-from emprestimo import *
+from Loans import *
 
 
 
@@ -34,11 +34,11 @@ def menu():
         option = input("Choose your option: ")
 
         if option == "1":
-            regcliente()
+            register_client()
         elif option == "2":
-            saque.menusaque()
+            Withdraw.menusaque()
         elif option == "3":
-            dele.delusu()
+            delete_account()
         elif option == "4":
             menucot()
         elif option == "5":

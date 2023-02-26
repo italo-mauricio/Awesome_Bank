@@ -1,7 +1,7 @@
-from cadaclientes import *
+from CostumerBase import *
 import os
 from time import sleep
-from validacoes import *
+from Validations import *
 
 
 
