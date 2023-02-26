@@ -55,3 +55,10 @@ def screen_costumer_extract_client():
           | ------------------ since 2022 -------------------- |
      ''')
  
+def screen_costumer_delete_client():
+    clean_window()
+    print(''' 
+    | -------------------  Vamos deletar os seus dados cadastrados! ----------------------- |
+    | ------- Se você estiver cadastrado no sistema, poderá deletar os seus dados! -------- |
+    | ===================================================================================== |
+            ''')

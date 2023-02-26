@@ -49,10 +49,10 @@ def create_account():
     screen_costumer_register_client()
     while True:
         name = input("Type your Name: ").strip() 
-        if validemail(name):
+        if validstring(name):
             break
         else:
-            print('Invalid email')
+            print('Invalid name')
     while True:
         email = input("Type your Email: ").strip() 
         if validemail(email):
@@ -86,8 +86,6 @@ def create_account():
 
 
 # ------------------------------------------------------------------------------------------------------- #
-
-
 
 
 # ------------------------------------------------------------------------------------------------------- #
@@ -194,13 +192,7 @@ def delete_account():
     hora_atual = datetime.now()
     hora = hora_atual.strftime('%H:%M')
     data = date.today()# Função para deletar usuário
-    os.system("cls")
-    print(''' 
-    | -------------------  Vamos deletar os seus dados cadastrados! ----------------------- |
-    | ------- Se você estiver cadastrado no sistema, poderá deletar os seus dados! -------- |
-    | ===================================================================================== |
-            ''')
-
+    screen_costumer_delete_client()
     while True:
         print("Vamos deletar o seu usuário!")
         token = int(input("Digite o token cadastrado: ")) 
