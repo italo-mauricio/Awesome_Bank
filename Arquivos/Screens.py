@@ -93,7 +93,71 @@ def screen_withdraw_deposit():
     clean_window()
     print('''
           | ------------------------------ Welcome to Deposit! ------------------------------------ |
-          |          If you are registered in our system, you can make your deposit now! -          |
+          |          If you are registered in our system, you can make your deposit now!            |
           | ======================================================================================= |
+      ''')
+    
+def screen_withdraw_subtration():
+     clean_window()
+     print('''
+     | ----------------------------- Welcome to Withdrawal! ------------------------------ |
+     |        If you are registered in our system, you can make your withdrawal now!       |
+     | =================================================================================== |
+     ''')
+
+def screen_withdraw_balance():
+    clean_window()
+    print('''
+          | ----------------------------- Welcome to Balance! --------------------------------- |
+          |        If you are registered in our system, you can check your balance now!         |
+          | =================================================================================== |
           ''')
-   
+def screen_withdraw_benefits():
+        print(''' 
+        |========================================================================================|
+        |                          Welcome to the Awesome advantages!                            |
+        |----------------------------------------------------------------------------------------|
+        |              1 - We have the best annual rates for loans                               |
+        |              2 - We have the best facilities for you to finance your home, your car,   |
+        |                  or any type of property                                               |
+        |              3 - We have the best credit lines for micro and small entrepeuners        |
+        |              4 - Only here at Neo Bank, you can have a home broker completely perso    |
+        |                  nalized for you who want to start your investiments!                  |
+        |              5 - So what are you waiting for? Come join the AB family!                 |
+        |========================================================================================|
+        ''')
+
+def screen_withdraw_statement():
+     clean_window()
+     print(''' 
+    | ----------------------------- Welcome to your bank statement! -------------------------------- |
+    |           If you are registered in our system, you can view your bank statement!               |
+    | ============================================================================================== |
+            ''')
+       
+def screen_withdraw_transfer():
+        clean_window()
+        print(f'''
+        | =================== Transfers ===================== |
+        |                                                     |
+        |                                                     |
+        |               1 - To AWB costumers                  |
+        |               2 - To Non-costumers                  |
+        |               3 - Back to main men                  |
+        |                                                     |
+        |                                                     |
+        | ------------------ since 2023 --------------------- |
+        | =================================================== |
+              
+        ''')
+def screen_withdraw_transfer_option_one():
+     clean_window()
+     print(f'''
+
+               Welcome to our transfer system, you have opted for the option 
+               to transfer to a customer already registered in our system!
+               
+               We request the CPF of the registered person, so please have the 
+               CPF in hand at the time of the transfer.    
+
+          ''')

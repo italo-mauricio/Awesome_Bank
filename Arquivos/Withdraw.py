@@ -54,47 +54,38 @@ def menusaque():
 
 
 def deposit_account(): # Função para o saque em conta.
-    clean_window()
-
+    screen_withdraw_deposit()
     while True:
-        token = int(input("Informe sua senha de acesso: "))
+        token = int(input("Please, type your password: "))
         if token not in dici:
-            print("Usuário não encontrado!")
+            print("User not found!")
             sleep(1)
             break
         else:
             if token == dici:
-                print("Tente outra id!")
+                print("Try another password")
             else:
-                print("Cliente encontrado!") 
+                print("Customer Found") 
                 print(dici[token][0])
-                valor = int(input('Qual o valor você quer sacar da sua conta: '))
+                valor = int(input('What amount do you want to withdraw from your account?: '))
                 if valor >= 0 : 
                     novo = dici[token][5] + valor 
                     dici[token][5] = novo
-                    print('Valor resgatado com sucesso!')
-                    print(f"valor novo {dici[token][5]}")
-                    print(f"Você depositou R${valor:.2f}")
+                    print('Amount redeemed successfully!')
+                    print(f"New value: {dici[token][5]}")
+                    print(f"You deposited: R${valor:.2f}")
                     gravdeposito(dici2)
                     gravclientes(dici)
-                    conti = input("Aperta ENTER para continuar...")
+                    input("Press ENTER for continue;;;")
                     break
                 else:
-                    print("Você não tem saldo suficiente!")
+                    print("You don't have enough balance!")
             
             
 
-# =================================================================================================================== #
 
-
-def withdraw_account(): # Função para o saque em conta.
-    clean_window()
-    print(''' 
-    | ----------------------------- Bem vindos ao saque! -------------------------------- |
-    | ------- Se você está cadastrado no nosso sistema, poderá realizar seu saque! ------ |
-    | =================================================================================== |
-            ''')
-
+def withdraw_account(): 
+    screen_withdraw_subtration()
     while True:
         token = int(input("Informe sua ID cadastrada no sistema: "))
         if token not in dici:
@@ -123,16 +114,10 @@ def withdraw_account(): # Função para o saque em conta.
             
                         
 
-# =================================================================================================================== #
-
       
-def balance_account(): # Função para ver o saldo
+def balance_account(): 
     clean_window()
-    print(''' 
-    | ----------------------------- Bem vindos ao saldo! -------------------------------- |
-    | ------- Se você está cadastrado no nosso sistema, poderá ver o seu saldo! --------- |
-    | =================================================================================== |
-            ''')
+    screen_withdraw_balance()
     while True:
         senha = getpass("Digite a senha cadastrada!: ") # Peço para o cliente digitar o CPF cadastrado
         if senha not in dici:
@@ -147,40 +132,23 @@ def balance_account(): # Função para ver o saldo
             break
 
 
-# =================================================================================================================== #
 
 
-def benefits_bank(): # Função extra somente de print 
+
+def benefits_bank(): 
     clean_window()
     while True:
-        print(''' 
-        |========================================================================================|
-        |                          Welcome to the Neo advantages!                                |
-        |----------------------------------------------------------------------------------------|
-        |              1 - We have the best annual rates for loans                               |
-        |              2 - We have the best facilities for you to finance your home, your car,   |
-        |                  or any type of property                                               |
-        |              3 - We have the best credit lines for micro and small entrepeuners        |
-        |              4 - Only here at Neo Bank, you can have a home broker completely perso    |
-        |                  nalized for you who want to start your investiments!                  |
-        |              5 - So what are you waiting for? Come join the BB family!                 |
-        |========================================================================================|
-        ''')
+        screen_withdraw_benefits()
         input("Press ENTER for continue... ")
         break
 
 
 
-def bank_statement(): # Função para o extrato
+def bank_statement():
     current_time = datetime.now()
     hour = current_time.strftime('%H:%M')
     date_time = date.today()
-    clean_window()
-    print(''' 
-    | ----------------------------- Welcome to your bank statement! -------------------------------- |
-    |           If you are registered in our system, you can view your bank statement!               |
-    | ============================================================================================== |
-            ''')
+    screen_withdraw_statement()
     while True:
         token = int(pwinput.pwinput("Digite sua senha de acesso: "))
     
@@ -215,37 +183,14 @@ def bank_statement(): # Função para o extrato
 def transfer_account():
     clean_window()
     while True:
-        print(f'''
-        | ================= Transferências ================== |
-        |                                                     |
-        |                                                     |
-        |               1 - Para clientes BB                  |
-        |               2 - Para não clientes                 |
-        |               3 - Voltar ao Menu                    |
-        |                                                     |
-        |                                                     |
-        | ------------------ since 2022 --------------------- |
-        | =================================================== |
-              
-        ''')
-        
+        screen_withdraw_transfer()
         opcao = ' '
         opcao = input("Escolha uma opção: ")
         
         if opcao == '1':
-            os.system("cls")
-       
-            print(f'''
-
-            Bem vindo ao nosso sistema de transferência, você optou pela opção
-            de tranferir para um cliente já cadastrado em nosso sistema!
-            
-            Nós solicitamos o CPF da pessoa cadastrada, por tanto, esteja com o 
-            CPF em mãos na hora da transferência.
-                    
-            ''')
+            screen_withdraw_transfer_option_one()
             while True:
-                transf = input("Digite CPF da pessoa que você quer enviar: ")
+                transf = input("Please, type your password: ")
 
                 if transf not in dici:
                     print("Usuário não cadastrado no nosso sistema!")
