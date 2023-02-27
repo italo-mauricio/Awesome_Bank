@@ -26,7 +26,7 @@ dicitotal = dici
 emprestimobox = {}
 
 
-def solicitar():
+def request():
     while True:
         time_now = datetime.now()
         hour = time_now.strftime('%H:%M')
@@ -51,9 +51,9 @@ def solicitar():
         option = input("Escolha uma opção: ")
         
         if option == "1":
-            solicitarcliente()
+            apply_for_costumer_loan()
         elif option == "2":
-            solicitarnaocliente()
+            apply_for_not_costumer_loan()
         elif option == "3":
             pass
         elif option == "0":
@@ -65,7 +65,7 @@ def solicitar():
 
     
             
-def solicitarcliente():
+def apply_for_costumer_loan():
     os.system("cls")
     hora_atual = datetime.now()
     hora = hora_atual.strftime('%H:%M')
@@ -154,7 +154,7 @@ def situpedido():
             
         
     
-def solicitarnaocliente():
+def apply_for_not_costumer_loan():
     os.system("cls")
     hora_atual = datetime.now()
     hora = hora_atual.strftime('%H:%M')

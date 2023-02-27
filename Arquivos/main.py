@@ -1,6 +1,6 @@
 from CostumerBase import *
 import Withdraw
-from CurrencyQuotations import menucot
+from CurrencyQuotations import menu_cotation
 from datetime import datetime
 from datetime import date
 from Loans import *
@@ -41,7 +41,7 @@ def menu():
         elif option == "3":
             delete_account()
         elif option == "4":
-            menucot()
+            menu_cotation()
         elif option == "5":
             emprest()
         elif option == "0":

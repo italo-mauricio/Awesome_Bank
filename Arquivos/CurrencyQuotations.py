@@ -283,9 +283,9 @@ def dolarcanadense():
         
 # Menu principal        
         
-def menucot():
+def menu_cotation():
     while True:
-        os.system('cls')
+        clean_window()
         print(f'''
         | =================== Menu Cotações ==================== |
         | ------------------------------------------------------ |
@@ -326,4 +326,4 @@ def menucot():
 
 
 def __init__(self):
-    menucot()
+    menu_cotation()
