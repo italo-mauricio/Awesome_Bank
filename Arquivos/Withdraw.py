@@ -91,7 +91,7 @@ def withdraw_account():
                 print("User found!") 
                 print(dici[token][0])
                 valor = int(input('What amount do you want to withdraw from your account:'))
-                if dici[token][5] > 0 : 
+                if dici[token][5] > 0 and dici[token][5] > valor: 
                     novo = dici[token][5] - valor 
                     dici[token][5] = novo
                     print('Value redeemed successfully!')
@@ -102,7 +102,7 @@ def withdraw_account():
                     input("Press ENTER for continue... ")
                     break
                 else:
-                    print("You don't have enough balance!")
+                    print("You don't have enough balance or insufficient funds!")
             
                         
       
@@ -110,20 +110,17 @@ def balance_account():
     clean_window()
     screen_withdraw_balance()
     while True:
-        senha = getpass("Digite a senha cadastrada!: ") # Peço para o cliente digitar o CPF cadastrado
-        if senha not in dici:
-            print('Usuário não encontrado!')
+        password = getpass("Please, type your passowrd: ") 
+        if password not in dici:
+            print('User not found')
             break
         else:
-            print("Usuário encontrado!")
-            nome = dici[senha][0] # Peço o nome
-            saldo = dici[senha][4] # Peço o saldo
-            print(f"Nome do usuário: {nome}")
-            print(f"seu saldo é de R${saldo}")
+            print("User found!")
+            name = dici[password][0]
+            balance = dici[password][4] 
+            print(f"Nome do usuário: {name}")
+            print(f"seu saldo é de R${balance}")
             break
-
-
-
 
 
 def benefits_bank(): 
@@ -134,18 +131,16 @@ def benefits_bank():
         break
 
 
-
 def bank_statement():
     current_time = datetime.now()
     hour = current_time.strftime('%H:%M')
     date_time = date.today()
     screen_withdraw_statement()
     while True:
-        token = int(pwinput.pwinput("Digite sua senha de acesso: "))
-    
+        token = int(input("Please, type your password: "))
         if token not in dici:
-                print("User not found!")
-                break
+            print("User not found!")
+            break
         else:
             os.system("cls")
             print("User found!")
@@ -175,33 +170,35 @@ def transfer_account():
     clean_window()
     while True:
         screen_withdraw_transfer()
-        opcao = ' '
-        opcao = input("Escolha uma opção: ")
-        
-        if opcao == '1':
+        option = ' '
+        option = input("Choose your option: ")
+        if option == '1':
             screen_withdraw_transfer_option_one()
             while True:
-                transf = input("Please, type your password: ")
+                transf = int(input("Please, type your password: "))
 
                 if transf not in dici:
-                    print("Usuário não cadastrado no nosso sistema!")
+                    print("User not found!")
                     break
                 else:
                     print(f'''.
-                                    Usuário encontrado!
+                            
+                            User Found!
                         
-                        
-                        Nome: {dici[transf][0]}
+                        Name: {dici[transf][0]}
                         Email: {dici[transf][1]}
+                        Balance: {dici[transf][5]}
                         ID: {dici[transf][6]}
                             
                         ''')
                 
-                    quant = float(input("Digite quanto você quer transferir: "))
-                    dici[transf][4] += quant
-                    print("Transferência realizada com sucesso")
-                    print("Novo valor: "+ str(dici[transf][4]))
-                    conti = input("Aperto ENTER para continuar... ")
+                    quant = int(input("Enter how much you want to transfer: "))
+                    dici[transf][5] += quant
+                    print("Transfer performed successfully")
+                    print("New Value: "(dici[transf][5]))
+                    input("Press ENTER for continue... ")
+                    gravclientes(dici)
+                    gravdeposito(dici2)
                     break
                     
                             
