@@ -28,9 +28,9 @@ def screen_costumer_register_client():
      clean_window()
      print(''' 
           | ================================================== |
-          |                     Neo Bank                       |
+          |                   Awesome Bank                     |
           |                                                    |
-          |                Welcome to Register                |
+          |                Welcome to Register                 |
           |       Come be our Neo client, let's register!      |
           |                                                    |
           | ------------------ since 2022 -------------------- |
@@ -40,9 +40,9 @@ def screen_costumer_editing_client():
     clean_window()
     print(''' 
           | ================================================== |
-          |                     Neo Bank                       |
+          |                   Awesome Bank                     |
           |                                                    |
-          |                Welcome to Editing                 |
+          |                Welcome to Editing                  |
           |       Come be our Neo client, let's Editing        |
           |                                                    |
           | ------------------ since 2022 -------------------- |
@@ -52,7 +52,7 @@ def screen_costumer_extract_client():
     clean_window()
     print(''' 
           | ================================================== |
-          |                     Neo Bank                       |
+          |                  American Bank                     |
           |                                                    |
           |                Wellcome to Extrato                 |
           |       Come be our Neo client, let's Extrato        |
