@@ -8,7 +8,7 @@
 
 ## * Author's Information:
 * Developed by: Italo Mauricio de Medeiros Santos
-* Computer Science Student at UFRN - CERES
+* Information Systems at UFRN - CERES
 * Age: 24 years old
 * Period: 2nd
 
