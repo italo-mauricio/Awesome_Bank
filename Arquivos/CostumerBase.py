@@ -21,11 +21,9 @@ def register_client():
             if client == "1":
                 create_account()
             elif client == "2":
-                extract_account()
-            elif client == "3":
                 edit_account()
             elif client == "0":
-                os.system("cls")
+                clean_window()
                 break           
             else:
                 print('Invalid Option!')
@@ -33,14 +31,7 @@ def register_client():
                 os.system("cls")            
 
 
-
-# ------------------------------------------------------------------------------------------------------- #
-# ============================= Funções da parte de cadastro de clientes ================================ #
-
-
-
-
-# ------------------------------------------------------------------------------------------------------- #
+# ------------------------------------------------------------------------------------- #
 
 def create_account():
     current_time = datetime.now()
@@ -83,10 +74,6 @@ def create_account():
     input("Press ENTER to continue...")
     clean_window()
     
-
-
-# ------------------------------------------------------------------------------------------------------- #
-
 
 # ------------------------------------------------------------------------------------------------------- #
 
@@ -142,50 +129,7 @@ def edit_account(): # Função para alterar os dados.
                 print("Opção inválida!")
 
     
-    
 
-def extract_account():
-    hora_atual = datetime.now()
-    hora = hora_atual.strftime('%H:%M')
-    data = date.today()
-    screen_costumer_extract_client()   
-    while True:
-        token = int(pwinput.pwinput(("Digite o seu token: "))) 
-        if token in dici:
-                os.system("cls") # Faço a verificação.
-                print("Usuário encontrado!")
-                print(f'''
-                | =========================== Extrato ======================== |
-                | ------------------------------------------------------------ |
-                | Data da verificação: {data}
-                | Horário da verificação: {hora}
-                | Nome: {dici[token][0]}                                    
-                | Email: {dici[token][1]}                                              
-                | Endereço: {dici[token][2]}                                 
-                | Complemento: {dici[token][3]}                             
-                | CPF: {dici[token][4]}   
-                | Saldo: {dici[token][5]}                                                                    
-                | ------------------------------------------------------------ |
-                | ============================================================ |      
-                      
-                ''')
-                conti = input('Press ENTER for continue...')
-                os.system("cls")
-                break
-        else:
-            print("Usuário não encontrado!")
-            continuar = ' '
-            continuar = str(input('Deseja continuar [S/N]: ')).strip().upper() # Pergunto se ele quer continuar caso não for encontrado
-            if continuar == "S".upper():
-                continue
-            elif continuar == "N".upper():
-                print('Saindo...')
-                sleep(2)
-                break
-            else:
-                print("Opção inválida!")
-      
-# ------------------------------------------------------------------------------------------------------- #
 
 def delete_account():
     hora_atual = datetime.now()

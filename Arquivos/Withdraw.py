@@ -8,6 +8,7 @@ import os
 import pwinput
 from time import sleep
 from Validations import *
+from Screens import *
 
 
 
@@ -20,7 +21,7 @@ from Validations import *
 # Explicarei passo a passo como eu pensei o cóigo por completo
 
 def menusaque():
-    os.system("cls")
+    clean_window()
     while True:
 
                 os.system("cls")
@@ -70,7 +71,7 @@ def menusaque():
 
 
 def deposibanco(): # Função para o saque em conta.
-    os.system("cls")
+    clean_window()
     print(''' 
     | ----------------------------- Bem vindos ao depósito! -------------------------------- |
     | ------- Se você está cadastrado no nosso sistema, poderá realizar seu depósito! ------ |
@@ -109,7 +110,7 @@ def deposibanco(): # Função para o saque em conta.
 
 
 def saquebanco(): # Função para o saque em conta.
-    os.system("cls")
+    clean_window()
     print(''' 
     | ----------------------------- Bem vindos ao saque! -------------------------------- |
     | ------- Se você está cadastrado no nosso sistema, poderá realizar seu saque! ------ |
@@ -148,14 +149,12 @@ def saquebanco(): # Função para o saque em conta.
 
       
 def saldo(): # Função para ver o saldo
-    os.system("cls")
-    print("=="*50)
+    clean_window()
     print(''' 
     | ----------------------------- Bem vindos ao saldo! -------------------------------- |
     | ------- Se você está cadastrado no nosso sistema, poderá ver o seu saldo! --------- |
     | =================================================================================== |
             ''')
-    print("=="*50)
     while True:
         senha = getpass("Digite a senha cadastrada!: ") # Peço para o cliente digitar o CPF cadastrado
         if senha not in dici:
@@ -174,7 +173,7 @@ def saldo(): # Função para ver o saldo
 
 
 def vantagens(): # Função extra somente de print 
-    os.system("cls")
+    clean_window()
     while True:
         print(''' 
         |=======================================================================================|
@@ -195,41 +194,45 @@ def vantagens(): # Função extra somente de print
 
 
 def extrato(): # Função para o extrato
-    os.system("cls")
-    print("=="*50)
+    current_time = datetime.now()
+    hour = current_time.strftime('%H:%M')
+    date_time = date.today()
+    clean_window()
     print(''' 
     | ----------------------------- Bem vindos ao seu extrato! ------------------------------------- |
     | ------- Se você está cadastrado no nosso sistema, poderá ver o seu extrato bancário! --------- |
     | ============================================================================================== |
             ''')
-    print("=="*50)
-    token = ' '
     while True:
         token = int(pwinput.pwinput("Digite sua senha de acesso: "))
-   
+    
         if token not in dici:
-            print("Usuário não encontrado!")
-            break
+                print("User not found!")
+                break
         else:
             os.system("cls")
-            print("Uusário encontrado!")
+            print("User found!")
             print(f'''
                 ========================================================================================= 
-                ---------------------------------- Extrato Bancário ------------------------------------- 
-                Nome: {dici[token][0]}                                                                   
+                ---------------------------------- Bank Statement --------------------------------------- 
+                Verification Date: {date_time}
+                Verification Time: {hour}
+                Name: {dici[token][0]}                                                                   
                 Email: {dici[token][1]}                                                                  
-                Endereço: {dici[token][2]}                                                               
-                Complemento: {dici[token][3]}                                                            
+                Address: {dici[token][2]}                                                               
+                Complement: {dici[token][3]}                                                            
                 CPF: {dici[token][4]}                                                         
-                Saldo em conta: {dici[token][5]}                                                                    
-                                                                                                        
+                Account Balance: {dici[token][5]}                                                                    
+                                                                                                            
                 ========================================================================================= 
-                Olá {dici[token][0]} você tem R${dici[token][5]} em sua conta bancária!                     
-                -------> Sua conta está segura e você pode fazer qualquer tipo de movimentação ---------- 
+                Hello {dici[token][0]}, you have R${dici[token][5]} in your bank account!                     
+                -------> Your account is secure and you can make any type of transaction ----------------- 
                 ========================================================================================= 
             ''')
-            input("Press ENTER for continue... ")
+            input("Press ENTER to continue... ")
             break
+
+
 
         
         
@@ -238,7 +241,7 @@ def extrato(): # Função para o extrato
             
             
 def transfer():
-    os.system("cls")
+    clean_window()
     while True:
         print(f'''
         | ================= Transferências ================== |

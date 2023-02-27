@@ -1,7 +1,10 @@
 import os
+from datetime import datetime
+from datetime import date
 
 def clean_window():
     os.system("cls")
+
 
 
 def screen_costumer_initial():
@@ -12,8 +15,7 @@ def screen_costumer_initial():
     | -------------------------------------------------------------------- |
     |                                                                      |
     |                Register new users                 [1]                |
-    |                Bank Statement                     [2]                |
-    |                Change user data                   [3]                |
+    |                Change user data                   [2]                |
     |                Back to main menu                  [0]                |
     |                                                                      |
     | ==================================================================== |
