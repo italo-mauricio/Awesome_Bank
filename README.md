@@ -1,37 +1,36 @@
 
-<h1 align="center">Simulador de Banco em Python </h1>
+<h1 align="center">Bank Simulator in Python</h1>
 
 <p align="center">
 <img src="https://media1.giphy.com/media/coxQHKASG60HrHtvkt/giphy.gif?cid=790b76114f808b9131dd7a0d9df3864154fa6d2feccf8f5a&rid=giphy.gif&ct=g" width="700" height="300"/>&nbsp;
 </p>
 
 
-## Dados do Autor:
-* Elaborado por: Italo Mauricio de Medeiros Santos
-*  Estudante de Sistemas de Informação na UFRN - CERES
-*  idade: 24 anos
-* Período: 2º
-
+## * Author's Information:
+* Developed by: Italo Mauricio de Medeiros Santos
+* Computer Science Student at UFRN - CERES
+* Age: 24 years old
+* Period: 2nd
 
 ## Features:
 
-- ✅ Cadastro de usuário
-- ✅ Extrato bancário
-- ✅ Cadastro de serviços
-- ✅ Conversor de Moedas
-- ✅ Opções de saque e depósito
-- ✅ Empréstimos
+- ✅ User registration
+- ✅ Bank statement
+- ✅ Service registration
+- ✅ Currency converter
+- ✅ Deposit and withdrawal options
+- ✅ Loans
 
 
-## Instalando o Python:
+## Installing Python:
 
-* Para instalar o Python em sua máquina é bem simples.
+* To install Python on your computer is very simple.
 
-Usuários Windows:
+Windows Users:
 
       https://www.python.org/downloads/
       
-Usuários Linux:
+Linux Users:
       
 * Step 1:
       
@@ -41,7 +40,7 @@ Usuários Linux:
 
       $ sudo apt-get install python3-pip
     
- Outra forma:
+ Outher Way:
  
 * Step 1:
  
@@ -52,11 +51,16 @@ Usuários Linux:
       $ yum -y install python3-pip
       
 
-## Bibliotecas Python utilizadas:
+## Python Libraries Used:
 
-✅ Biblioteca Requests instalação:
-
-* Biblioteca utilizada na requisição API para a verificação da cotação das moedas.
+- Os: Operating System Interface ✅
+- Datetime: Basic date and time types ✅
+- Json: JSON encoder and decoder ✅
+- Requests: HTTP library for Python ✅
+- Prettytable: Easily displaying tabular data in a visually appealing ASCII table format ✅
+- CurrencyConverter: Python library for live currency and exchange rate ✅
+- Pickle: Python object serialization and deserialization ✅
+- Library used for the API request to check currency exchange rates ✅
 
 First Step:
 
@@ -68,25 +72,25 @@ Second Step:
     
 
 
-Todos os módulos utilizam biblioteca Os:
+All modules use librarie Os:
 
        import os
        
   
-Módulo cadastro de clientes (cadacliente.py) utiliza a biblioteca pickle:
+The module "CustomerBase.py" uses the "pickle" library.:
        
        import pickle
     
-## IDE de desenvolvimento:
+## Development IDE:
 
-* Descrição: O projeto foi totalmente desenvolvido pelo Visual Studio, todas as suas funcionalidades foram testadas nele.
+* Description: The project was fully developed using Visual Studio, and all of its functionalities were tested on it.
 
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original-wordmark.svg" title="vscode" alt="vscode" width="60" height="60"/>&nbsp;
 
-## Sistema operacional de desenvolvimento:
+## Development Operating System:
 
-* Descrição: Projeto inicialmente desenvolvido com Windows 10, porém suas funcionalidades funcionam no Linux, com um adendo, a biblioteca Os precisa de alteração de "cls" para "clear" para quem for utiliza-lo em Linux.
-
+* Description: The project was initially developed on Windows 10, however its functionalities work on Linux as well, with the caveat that the "cls" command in the Os library needs to be changed to "clear" for those who use it on Linux.
+* 
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" title="Windows" alt="Windows" width="60" height="60"/>&nbsp;
     
 ## Language Used:
@@ -117,7 +121,7 @@ Módulo cadastro de clientes (cadacliente.py) utiliza a biblioteca pickle:
 
 Definition of CRUD: it comes from the combination of the words (Create, Read, Update, Delete), and it is basically an interconnected menu where the user can register people or things, update, read, and delete them. In the programming world, I would say that it is essential for a programmer to know how to develop a good CRUD because it is very important for the job market.
 
-* Now that we know what CRUD means, let's move on to the methods used.:
+* Now that we know what CRUD means, let's move on to the methods used:
 
 - Dictionaries for saving in binary files ✅ 
 - API ✅ 
