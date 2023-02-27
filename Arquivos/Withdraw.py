@@ -15,11 +15,6 @@ from Screens import *
 
 
 
-
-# --------------------------------------- Bem vindos às funções financeiras ------------------------------------------#
-# Nesta parte estão as funções de depósito em conta já cadastrada, saque, as vantagens de ser cliente BB, e o seu saldo!
-# Explicarei passo a passo como eu pensei o cóigo por completo
-
 def menusaque():
     clean_window()
 
@@ -48,12 +43,8 @@ def menusaque():
 
 
 
-# ---------------------------------------------- Funções do módulo -------------------------------------------------- #
 
-# =================================================================================================================== #
-
-
-def deposit_account(): # Função para o saque em conta.
+def deposit_account(): 
     screen_withdraw_deposit()
     while True:
         token = int(input("Please, type your password: "))
@@ -85,35 +76,35 @@ def deposit_account(): # Função para o saque em conta.
 
 
 def withdraw_account(): 
+
     screen_withdraw_subtration()
     while True:
-        token = int(input("Informe sua ID cadastrada no sistema: "))
+        token = int(input("Please, type your password "))
         if token not in dici:
-            print("Usuário não encontrado!")
+            print("User not found!")
             sleep(1)
             break
         else:
             if token == dici:
-                print("Tente outra id!")
+                print("Try another passowrd!")
             else:
-                print("Cliente encontrado!") 
+                print("User found!") 
                 print(dici[token][0])
-                valor = int(input('Qual o valor você quer sacar da sua conta: '))
+                valor = int(input('What amount do you want to withdraw from your account:'))
                 if dici[token][5] > 0 : 
                     novo = dici[token][5] - valor 
                     dici[token][5] = novo
-                    print('Valor resgatado com sucesso!')
-                    print(f"valor novo {dici[token][5]}")
-                    print(f"Você sacou R${valor:.2f}")
+                    print('Value redeemed successfully!')
+                    print(f"New Value: {dici[token][5]}")
+                    print(f"You withdrew: R${valor:.2f}")
                     gravdeposito(dici2)
                     gravclientes(dici)
-                    conti = input("Aperta ENTER para continuar...")
+                    input("Press ENTER for continue... ")
                     break
                 else:
-                    print("Você não tem saldo suficiente!")
+                    print("You don't have enough balance!")
             
                         
-
       
 def balance_account(): 
     clean_window()
