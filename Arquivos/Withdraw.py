@@ -22,45 +22,28 @@ from Screens import *
 
 def menusaque():
     clean_window()
+
     while True:
-
-                os.system("cls")
-                print("Você é nosso cliente, seja bem vindo!")
-                print(''' 
-                | ================================================== |
-                |              Bem vindos ao financeiro              |
-                | -------------------------------------------------- |
-                |                                                    |
-                |             Depositar            [1]               |
-                |             Saque                [2]               |
-                |             Transferências       [3]               |
-                |             Vantagens            [4]               |
-                |             Visualizar saldo     [5]               |
-                |             Extrato              [6]               |
-                |             Back main menu       [0]               |
-                |                                                    |
-                | ================================================== |
-                    ''')
-
-                usuario = ' '
-                usuario = input("Escolha uma opção: ") # aqui eu peço para o usuário escolher algumas das opções!
-                if usuario == "1": 
-                    deposibanco()
-                elif usuario == "2":
-                    saquebanco()
-                elif usuario == "3": 
-                    transfer()
-                elif usuario == "4": 
-                    vantagens()
-                elif usuario == "5": 
-                    saldo()
-                elif usuario == "6":
-                    extrato()
-                elif usuario == "0":
-                    os.system("cls")
-                    break
-                else: 
-                    print('Opção inválida!')
+        screen_withdraw_main()
+        usuario = ' '
+        usuario = input("Choose your option: ") 
+        if usuario == "1": 
+            deposit_account()
+        elif usuario == "2":
+            withdraw_account()
+        elif usuario == "3": 
+            transfer_account()
+        elif usuario == "4": 
+            benefits_bank()
+        elif usuario == "5": 
+            balance_account()
+        elif usuario == "6":
+            bank_statement()
+        elif usuario == "0":
+            clean_window()
+            break
+        else: 
+            print('Invalid Option!')
       
 
 
@@ -70,13 +53,8 @@ def menusaque():
 # =================================================================================================================== #
 
 
-def deposibanco(): # Função para o saque em conta.
+def deposit_account(): # Função para o saque em conta.
     clean_window()
-    print(''' 
-    | ----------------------------- Bem vindos ao depósito! -------------------------------- |
-    | ------- Se você está cadastrado no nosso sistema, poderá realizar seu depósito! ------ |
-    | ====================================================================================== |
-            ''')
 
     while True:
         token = int(input("Informe sua senha de acesso: "))
@@ -109,7 +87,7 @@ def deposibanco(): # Função para o saque em conta.
 # =================================================================================================================== #
 
 
-def saquebanco(): # Função para o saque em conta.
+def withdraw_account(): # Função para o saque em conta.
     clean_window()
     print(''' 
     | ----------------------------- Bem vindos ao saque! -------------------------------- |
@@ -148,7 +126,7 @@ def saquebanco(): # Função para o saque em conta.
 # =================================================================================================================== #
 
       
-def saldo(): # Função para ver o saldo
+def balance_account(): # Função para ver o saldo
     clean_window()
     print(''' 
     | ----------------------------- Bem vindos ao saldo! -------------------------------- |
@@ -172,7 +150,7 @@ def saldo(): # Função para ver o saldo
 # =================================================================================================================== #
 
 
-def vantagens(): # Função extra somente de print 
+def benefits_bank(): # Função extra somente de print 
     clean_window()
     while True:
         print(''' 
@@ -193,7 +171,7 @@ def vantagens(): # Função extra somente de print
 
 
 
-def extrato(): # Função para o extrato
+def bank_statement(): # Função para o extrato
     current_time = datetime.now()
     hour = current_time.strftime('%H:%M')
     date_time = date.today()
@@ -232,15 +210,9 @@ def extrato(): # Função para o extrato
             input("Press ENTER to continue... ")
             break
 
-
-
-        
-        
-        
             
             
-            
-def transfer():
+def transfer_account():
     clean_window()
     while True:
         print(f'''

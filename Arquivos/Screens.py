@@ -67,3 +67,33 @@ def screen_costumer_delete_client():
     | ------- Se você estiver cadastrado no sistema, poderá deletar os seus dados! -------- |
     | ===================================================================================== |
             ''')
+
+def screen_withdraw_main():
+     
+     clean_window()
+     print('''     
+     |----------------------------------------------------|
+     |               Welcome to Financial                 |
+     | ================================================== |
+     |                                                    |
+     |                                                    |                
+     |               Deposit [1]                          |
+     |               Withdrawal [2]                       |
+     |               Transfers [3]                        |
+     |               Benefits [4]                         |
+     |               View balance [5]                     |
+     |               Statement [6]                        |
+     |               Back to main menu [0]                |
+     |                                                    |
+     | ================================================== |
+       
+     ''')
+
+def screen_withdraw_deposit():
+    clean_window()
+    print('''
+          | ------------------------------ Welcome to Deposit! ------------------------------------ |
+          |          If you are registered in our system, you can make your deposit now! -          |
+          | ======================================================================================= |
+          ''')
+   
