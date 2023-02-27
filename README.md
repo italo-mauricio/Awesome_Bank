@@ -104,34 +104,33 @@ Módulo cadastro de clientes (cadacliente.py) utiliza a biblioteca pickle:
 
 ## Dados Gerais do Projeto:
 
-# Objetivo do projeto:
+# Project's Goal:
 
-* Esse é um projeto independente do autor que visa o treinamento de CRUDs em Python básico. Consiste em um programa simples que é subdividido em módulos interligados entre si. Esse projeto visa ensinar outras pessoas iniciantes na programação a desenvolver CRUDs baseados em Python.
-* Por isso deixei tudo público e com licensa MIT, para que possa ser compartilhado, e ensinado para outras pessoas, deixei também meus contatos, caso outras pessoas queiram dicas e explicações acerca do desenvolvimento do projeto, estarei disponível para sanar todas as dúvidas.
+* This is an independent project by the author that aims to train basic Python CRUDs. It consists of a simple program that is subdivided into interconnected modules. This project aims to teach other beginners in programming how to develop Python-based CRUDs.
 
-# Métodos:
+* That's why I made everything public and with the MIT license, so that it can be shared and taught to others. I also left my contacts in case other people want tips and explanations about the development of the project. I will be available to answer any questions.
 
-* O projeto conta com a utilização de várias bibliotecas e funcionalidades. Mas primeiro... o que é CRUD? :sweat:
 
-Definição de CRUD: vem da junção das palavras (Create, Read, Update, Delete), seria basicamente um menu interligado, no qual o usuário pode fazer o registro de pessoas ou coisas, pode fazer a alteração, a leitura e a exclusão. No mundo da programação, eu diria que é essencial um programador saber desenvolver um bom CRUD, pois para o mercado de trabalho ele se faz importantíssimo.
+# Methods:
 
-* Agora que já sabemos o que significa CRUD, vamos para os métodos utilizados:
+* The project uses several libraries and functionalities. But first... what is CRUD? :sweat:
 
-- Dicionários para salvamento em arquivos binários ✅ 
+Definition of CRUD: it comes from the combination of the words (Create, Read, Update, Delete), and it is basically an interconnected menu where the user can register people or things, update, read, and delete them. In the programming world, I would say that it is essential for a programmer to know how to develop a good CRUD because it is very important for the job market.
+
+* Now that we know what CRUD means, let's move on to the methods used.:
+
+- Dictionaries for saving in binary files ✅ 
 - API ✅ 
-- Formatações modernas da linguagem ✅ 
-- Método eficiente de processamento de dados ✅ 
-- Uso de clases ✅ 
-- Programa totalmente legível e escrito de forma coesa e limpa ✅ 
-- Programa totalmente modularizado ✅ 
+- Modern formatting of the language ✅ 
+- Efficient data processing method ✅ 
+- Use of clases ✅ 
+- Program that is completely readable and written in a cohesive and clean way ✅ 
+- Program that is completely modularized ✅ 
      
- ## Conclusão:
+ ## Conclusion:
       
-- Esse projeto visa essencialmente o aprendizado de novos alunos da UFRN do curso de Sistemas de Informação ou de qualquer lugar do mundo na utilização de Python puro, o código serve para a elaboração de CRUDs com salvamento em arquivo binário, porem podem ser adicionadas várias outras funcionalidades ao código fonte.
-
-
-
-      
+- This project aims primarily at teaching new students from UFRN's Information Systems course or from anywhere in the world about the use of pure Python. The code is intended for the development of CRUDs with saving to binary files, but several other functionalities can be added to the source code.
+- In this conversation, we discussed various aspects of a Python project aimed at developing CRUDs with binary file storage. We explored the definition of CRUD, methods used in the project, modern language formatting, use of classes, efficient data processing methods, modular and readable program design. We concluded that this project has significant value for beginner programming students and can be expanded to include additional functionality and resources.      
       
       
 
