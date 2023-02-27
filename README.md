@@ -1,5 +1,5 @@
 
-<h1 align="center">Bank Simulator in Python</h1>
+<h1 align="center">Awesome Bank</h1>
 
 <p align="center">
 <img src="https://media1.giphy.com/media/coxQHKASG60HrHtvkt/giphy.gif?cid=790b76114f808b9131dd7a0d9df3864154fa6d2feccf8f5a&rid=giphy.gif&ct=g" width="700" height="300"/>&nbsp;
