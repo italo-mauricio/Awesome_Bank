@@ -55,7 +55,7 @@ def deposit_account():
             else:
                 print("Customer Found") 
                 print(dici[token][0])
-                valor = int(input('What amount do you want to withdraw from your account?: '))
+                valor = int(input('What amount do you want deposit from your account?: '))
                 if valor > 0 : 
                     dici[token][5] += valor
                     print('Amount redeemed successfully!')
@@ -63,7 +63,7 @@ def deposit_account():
                     print(f"You deposited: R${valor:.2f}")
                     gravdeposito(dici2)
                     gravclientes(dici)
-                    input("Press ENTER for continue;;;")
+                    input("Press ENTER for continue...")
                     break
                 else:
                     print("You don't have enough balance!")
@@ -134,7 +134,7 @@ def bank_statement():
                 Address: {dici[token][2]}                                                               
                 Complement: {dici[token][3]}                                                            
                 CPF: {dici[token][4]}                                                         
-                Account Balance: {dici[token][5]}                                                                    
+                Account Balance: R$ {dici[token][5]} 
                                                                                                             
                 ========================================================================================= 
                 Hello {dici[token][0]}, you have R${dici[token][5]} in your bank account!                     
