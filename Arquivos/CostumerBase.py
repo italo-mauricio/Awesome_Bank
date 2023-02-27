@@ -93,7 +93,7 @@ def create_account():
 def edit_account(): # Função para alterar os dados.
     screen_costumer_editing_client()
     while True:
-        token = input("Digite o seu token de acesso: ")
+        token = int(input("Digite o seu token de acesso: "))
         if token not in dici:
             print('Usuário não encontrado!')
             break
@@ -147,11 +147,10 @@ def edit_account(): # Função para alterar os dados.
 def extract_account():
     hora_atual = datetime.now()
     hora = hora_atual.strftime('%H:%M')
-    data = date.today()# Função de visualizar clientes cadastrados.
+    data = date.today()
     screen_costumer_extract_client()   
     while True:
-        token = ' '
-        token = pwinput.pwinput("Digite o seu token: ") # Peço o cpf do cliente
+        token = int(pwinput.pwinput(("Digite o seu token: "))) 
         if token in dici:
                 os.system("cls") # Faço a verificação.
                 print("Usuário encontrado!")
@@ -165,7 +164,7 @@ def extract_account():
                 | Endereço: {dici[token][2]}                                 
                 | Complemento: {dici[token][3]}                             
                 | CPF: {dici[token][4]}   
-                | Saldo: {dici2[0]}                                                                    
+                | Saldo: {dici[token][5]}                                                                    
                 | ------------------------------------------------------------ |
                 | ============================================================ |      
                       

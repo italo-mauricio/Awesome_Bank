@@ -228,13 +228,8 @@ def extrato(): # Função para o extrato
                 -------> Sua conta está segura e você pode fazer qualquer tipo de movimentação ---------- 
                 ========================================================================================= 
             ''')
-            conti = input("Deseja continuar visualizando o seu extrato: [S/N]").strip().upper()
-            if conti == 'S'.upper():
-                extrato()
-            if conti == 'N'.upper():
-                menusaque()
-            else:
-                print("Opção inválida!")
+            input("Press ENTER for continue... ")
+            break
 
         
         

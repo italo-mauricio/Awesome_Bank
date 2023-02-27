@@ -19,7 +19,7 @@ def gravclientes(diciclientes):
     clientesb.close()
 
 
-dici = {}
+dici = listclient()
 
 
 
@@ -34,12 +34,12 @@ def listdeposito(): # Gravando em arquivos.dat
         clientesa.close()
     return dici2
 
-def gravdeposito(dici2):
+def gravdeposito(diciclientes2):
     clientesa = open("deposito.dat", "wb")
-    pickle.dump(dici2, clientesa)
+    pickle.dump(diciclientes2, clientesa)
     clientesa.close()
 
 
 
 
-dici2 = {}
+dici2 = listdeposito()

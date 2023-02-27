@@ -5,7 +5,7 @@ def clean_window():
 
 
 def screen_costumer_initial():
-    clean_window
+    clean_window()
     print('''   
     | ==================================================================== |
     |                     Welcome to User Registration                     |
