@@ -19,7 +19,7 @@ def dolar():
         print(f'''
               
             | ============================================================= |
-            |                          Neo Bank                             |
+            |                        Awesome Bank                             |
             \                                                              /
                                                                            
                  The Dóllar value in Brazilian Real is R${dolar_value:.2f}    
@@ -64,7 +64,7 @@ def euro():
         print(f'''
               
             | ============================================================= |
-            |                          Neo Bank                             |
+            |                        Awesome Bank                           |
             \                                                              /
                                                                            
                    The Euro value in Brazilian Real is R${euro_value:.2f}    
@@ -110,7 +110,7 @@ def bitcoin():
         print(f'''
               
             | ============================================================= |
-            |                          Neo Bank                             |
+            |                        Awesome Bank                           |
             \                                                              /
                                                                            
                 The BItcoin value in Brazilian Real is R${bitcoin_value:.3f}    
@@ -156,7 +156,7 @@ def franco():
         print(f'''
               
             | ============================================================= |
-            |                          Neo Bank                             |
+            |                        Awesome Bank                           |
             \                                                              /
                                                                            
                The Franco value in Brazilian Real is R${franco_value:.2f}    
@@ -201,7 +201,7 @@ def iene():
         print(f'''
               
             | ============================================================= |
-            |                          Neo Bank                             |
+            |                         Awesome Bank                          |
             \                                                              /
                                                                            
                     The Iene value in Brazilian Real is R${iene_value:.2f}    
@@ -248,7 +248,7 @@ def dolarcanadense():
         print(f'''
               
             | ============================================================= |
-            |                          Neo Bank                             |
+            |                        Awesome Bank                           |
             \                                                              /
                                                                            
                     The Franco value in Brazilian Real is R${cad_value:.2f}    
@@ -287,7 +287,7 @@ def menu_cotation():
     while True:
         clean_window()
         print(f'''
-        | =================== Menu Cotações ==================== |
+        | ===================== Menu Quotes ==================== |
         | ------------------------------------------------------ |
         | -                 Consult   Dólar    1               - |
         | -                 Consult   Euro     2               - | 
@@ -315,7 +315,7 @@ def menu_cotation():
         elif option == '6':
             dolarcanadense()
         elif option == '0':
-            os.system("cls")
+            clean_window()
             break
         else:
             print("Invalid Option")
