@@ -19,7 +19,7 @@ def gravclientes(diciclientes):
     clientesb.close()
 
 
-dici = {}
+dici = listclient()
 
 
 
@@ -42,4 +42,4 @@ def gravdeposito(diciclientes2):
 
 
 
-dici2 = {}
+dici2 = listdeposito()

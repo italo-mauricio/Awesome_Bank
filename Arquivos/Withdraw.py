@@ -14,7 +14,6 @@ from Screens import *
 
 
 
-
 def menusaque():
     clean_window()
 
@@ -31,8 +30,6 @@ def menusaque():
         elif usuario == "4": 
             benefits_bank()
         elif usuario == "5": 
-            balance_account()
-        elif usuario == "6":
             bank_statement()
         elif usuario == "0":
             clean_window()
@@ -59,9 +56,8 @@ def deposit_account():
                 print("Customer Found") 
                 print(dici[token][0])
                 valor = int(input('What amount do you want to withdraw from your account?: '))
-                if valor >= 0 : 
-                    novo = dici[token][5] + valor 
-                    dici[token][5] = novo
+                if valor > 0 : 
+                    dici[token][5] += valor
                     print('Amount redeemed successfully!')
                     print(f"New value: {dici[token][5]}")
                     print(f"You deposited: R${valor:.2f}")
@@ -106,22 +102,6 @@ def withdraw_account():
             
                         
       
-def balance_account(): 
-    clean_window()
-    screen_withdraw_balance()
-    while True:
-        password = getpass("Please, type your passowrd: ") 
-        if password not in dici:
-            print('User not found')
-            break
-        else:
-            print("User found!")
-            name = dici[password][0]
-            balance = dici[password][4] 
-            print(f"Nome do usuário: {name}")
-            print(f"seu saldo é de R${balance}")
-            break
-
 
 def benefits_bank(): 
     clean_window()

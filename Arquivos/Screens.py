@@ -81,8 +81,7 @@ def screen_withdraw_main():
      |               Withdrawal [2]                       |
      |               Transfers [3]                        |
      |               Benefits [4]                         |
-     |               View balance [5]                     |
-     |               Statement [6]                        |
+     |               Account Info [5]                     |
      |               Back to main menu [0]                |
      |                                                    |
      | ================================================== |
@@ -105,13 +104,7 @@ def screen_withdraw_subtration():
      | =================================================================================== |
      ''')
 
-def screen_withdraw_balance():
-    clean_window()
-    print('''
-          | ----------------------------- Welcome to Balance! --------------------------------- |
-          |        If you are registered in our system, you can check your balance now!         |
-          | =================================================================================== |
-          ''')
+
 def screen_withdraw_benefits():
         print(''' 
         |========================================================================================|
