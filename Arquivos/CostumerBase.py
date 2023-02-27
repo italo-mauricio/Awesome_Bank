@@ -139,27 +139,19 @@ def delete_account():
     data = date.today()# Função para deletar usuário
     screen_costumer_delete_client()
     while True:
-        print("Vamos deletar o seu usuário!")
-        token = int(input("Digite o token cadastrado: ")) 
+        print("Let's delete your user!")
+        token = int(input("Please, type your password: ")) 
 
         if token not in dici: 
-            print("Usuário não encontrado!")
-            continuar = input("Deseja continuar: [S/N] ").strip().upper()
-            if continuar == 'S'.upper():
-                break
-            elif continuar == 'N'.upper():
-                os.system("cls")
-                break
-                
-            else:
-                print('Opção inválida!')
+            print("User not found!")
+            break;
         else:
-            print("Usuário encontrado!")
+            print("User Found!")
             del dici[token]
-            print("Usuário deletado com sucesso!")
+            print("User successfully deleted.")
             print(f'''
-                Usuário foi deletado dia: {data}
-                Horário da exclusão: {hora_atual}
+                Deletion Date: {data}
+                Deletion Time: {hora_atual}
                     ''')
             gravclientes(dici)
             input("Press ENTER for continue... ")
