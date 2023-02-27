@@ -1,10 +1,13 @@
-import os
+import sys
 from datetime import datetime
 from datetime import date
+from colorama import init, AnsiToWin32
+
+
 
 def clean_window():
-    os.system("cls")
-
+    init(wrap=False)
+    AnsiToWin32(sys.stderr).write("\x1b[2J\x1b[H")
 
 
 def screen_costumer_initial():

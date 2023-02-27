@@ -13,7 +13,7 @@ from Archive import *
 
 
 def register_client():
-    clean_window
+    clean_window()
     while True:
             screen_costumer_initial()
             client = ' '

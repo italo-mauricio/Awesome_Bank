@@ -7,9 +7,10 @@ from Loans import *
 
 
 
+
 #=========================== Simulador de Caixa Eletrônico ===============================#
 def menu():
-    os.system("cls")
+    clean_window()
     while True:
         option = ' '
         time_now = datetime.now()

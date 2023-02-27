@@ -2,13 +2,14 @@ import requests
 import os
 from datetime import datetime
 from datetime import date
+from Screens import *
 
 
 
 # Cotação do Dólar Americano
 
 def dolar():
-    os.system('cls')
+    clean_window()
     url = 'https://economia.awesomeapi.com.br/all/USD-BRL'  # Url para verificar em tempo real a cotação do Dólar
 
     response = requests.get(url) # Comando .get para pegar essa URL e adicionar a biblioteca
@@ -21,7 +22,7 @@ def dolar():
             |                          Neo Bank                             |
             \                                                              /
                                                                            
-                    The Dóllar value in Brazilian Real is R${dolar_value:.2f}    
+                 The Dóllar value in Brazilian Real is R${dolar_value:.2f}    
             
             /                                                               \ 
             |
@@ -31,20 +32,18 @@ def dolar():
               ''')
         while True:
             convert = input("Do you want to convert your currency to dollar: [Y/N] ").strip().lower()
-            if convert == 'Y'.lower():
+            if convert == 'Y':
                 real = float(input("Enter how much you want to convert real R$: "))
                 conv = real / dolar_value
                 print(f"Their R${real} converted stay USD$ {conv:.2f}")
                 conti = input(("Press START for continue..."))
                 break
-                 
-            elif convert == 'N'.lower():
+            elif convert == 'N':
                 print("Thank you!")
                 break
             
             else:
                 print("Choose a valid option!")
-    
     else:
         print("Error fetching dollar value") 
          
@@ -54,7 +53,7 @@ def dolar():
 # Cotação do Euro         
          
 def euro():
-    os.system('cls')
+    clean_window()
     url = 'https://economia.awesomeapi.com.br/all/EUR-BRL'
 
     response = requests.get(url)
@@ -68,7 +67,7 @@ def euro():
             |                          Neo Bank                             |
             \                                                              /
                                                                            
-                    The Euro value in Brazilian Real is R${euro_value:.2f}    
+                   The Euro value in Brazilian Real is R${euro_value:.2f}    
             
             /                                                               \ 
             |
@@ -77,18 +76,17 @@ def euro():
               
               ''')
         while True:
-            convert = input("Do you want to convert your currency to Euro: [Y/N] ").strip().lower()
-            if convert == 'Y'.lower():
+            convert_coin = input("Do you want to convert your currency to Euro: [Y/N] ").strip().lower()
+            if convert_coin == 'Y'.strip():
                 real = float(input("Enter how much you want to convert real R$: "))
-                conv = real / euro_value
-                print(f"Their R${real} converted stay EUR${conv:.2f}")
-                conti = input(("Press START for continue..."))
+                convert_real = real / euro_value
+                print(f"Their R${real} converted stay EUR${convert_real:.2f}")
+                input(("Press START for continue..."))
                 break
                  
-            if convert == 'N'.lower():
+            if convert_coin == 'N'.strip():
                 print("Thank You!")
                 break
-            
             
             else:
                 print("Choose a valid option!")
@@ -101,7 +99,7 @@ def euro():
 # Cotação do Bitcoin    
         
 def bitcoin():
-    os.system('cls')
+    clean_window()
     url = 'https://economia.awesomeapi.com.br/all/BTC-BRL'
 
     response = requests.get(url)
@@ -115,7 +113,7 @@ def bitcoin():
             |                          Neo Bank                             |
             \                                                              /
                                                                            
-                    The BItcoin value in Brazilian Real is R${bitcoin_value:.3f}    
+                The BItcoin value in Brazilian Real is R${bitcoin_value:.3f}    
             
             /                                                               \ 
             |
@@ -124,15 +122,15 @@ def bitcoin():
               
               ''')
         while True:
-            convert = input("Do you want to convert your currency to Bitcoin: [Y/N] ").strip().lower()
-            if convert == 'Y'.lower():
+            convert_coin = input("Do you want to convert your currency to Bitcoin: [Y/N] ").strip().lower()
+            if convert_coin == 'Y':
                 real = float(input("Enter how much you want to convert real R$: "))
-                conv = real / bitcoin_value
-                print(f"Their R${real} converted stay BTC$: {conv:.2f}")
-                conti = input(("Press START for continue..."))
+                convert_real = real / bitcoin_value
+                print(f"Their R${real} converted stay BTC$: {convert_real:.2f}")
+                input(("Press START for continue..."))
                 break
                  
-            if convert == 'N'.lower():
+            if convert_coin == 'N':
                 print("Thank You!")
                 break
             
@@ -147,7 +145,7 @@ def bitcoin():
 # Cotação do Franco       
         
 def franco():
-    os.system('cls')
+    clean_window()
     url = 'https://economia.awesomeapi.com.br/all/CHF-BRL'
 
     response = requests.get(url)
@@ -161,7 +159,7 @@ def franco():
             |                          Neo Bank                             |
             \                                                              /
                                                                            
-                    The Franco value in Brazilian Real is R${franco_value:.2f}    
+               The Franco value in Brazilian Real is R${franco_value:.2f}    
             
             /                                                               \ 
             |
@@ -170,19 +168,17 @@ def franco():
               
               ''')
         while True:
-            convert = input("Do you want to convert your currency to Franco: [Y/N] ").strip().lower()
-            if convert == 'Y'.lower():
+            convert_coin = input("Do you want to convert your currency to Franco: [Y/N] ").strip().lower()
+            if convert_coin == 'Y':
                 real = float(input("Enter how much you want to convert real R$: "))
-                conv = real / franco_value
-                print(f"Their R${real} converted stay CHF$: {conv:.2f}")
-                conti = input(("Press START for continue..."))
+                convert_real = real / franco_value
+                print(f"Their R${real} converted stay CHF$: {convert_real:.2f}")
+                input(("Press START for continue..."))
                 break
                  
-            if convert == 'N'.lower():
+            if convert_coin == 'N'.lower():
                 print("Thank You!")
-                break
-            
-            
+                break        
             else:
                 print("Choose your a option!")
         
@@ -194,7 +190,7 @@ def franco():
 # Cotação do Iene 
         
 def iene():
-    os.system('cls')
+    clean_window()
     url = 'https://economia.awesomeapi.com.br/all/JPY-BRL'
 
     response = requests.get(url)
