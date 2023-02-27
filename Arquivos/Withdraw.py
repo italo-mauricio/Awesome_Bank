@@ -122,7 +122,7 @@ def bank_statement():
             print("User not found!")
             break
         else:
-            os.system("cls")
+            clean_window()
             print("User found!")
             print(f'''
                 ========================================================================================= 

@@ -2,28 +2,14 @@ from CostumerBase import *
 import os
 from time import sleep
 from Validations import *
+from Archive import *
 
 
-
-def listemprestimo(): # Gravando em arquivos.dat
-    try:
-        empresti = open("emprestimos.dat", "rb")
-        emprestimobox = pickle.load(empresti)
-        empresti.close()
-    except:
-        empresti = open("emprestimos.dat", "wb")
-        empresti.close()
-    return emprestimobox
-
-def gravemprestimos(emprestimobox):
-    empresti = open("emprestimos.dat", "wb")
-    pickle.dump(emprestimobox, empresti)
-    empresti.close()
 
 
 dicitotal = dici
 
-emprestimobox = {}
+
 
 
 def request():
@@ -100,8 +86,8 @@ def apply_for_costumer_loan():
             |   Pedido realizado com sucesso!                               |
                     
                     ''')
-            emprestimobox[cliente] = [emp]
-            gravemprestimos(emprestimobox)
+            emprestimo_box[cliente] = [emp]
+            gravemprestimos(emprestimo_box)
             input("Aperte ENTER para continuar...")
             break
 
@@ -112,7 +98,7 @@ def validaemp():
     print("Vamos verificar se você está apto")
     cliente = int(input("Digite sua senha: "))
     salario = float(input("Informe o seu salário em R$: "))
-    valor = emprestimobox[cliente][0]
+    valor = emprestimo_box[cliente][0]
     print(f"O seu pedido de empréstimo foi no valor de: R${valor}")
     ano = int(input("Em quantos anos você pretende pagar?: "))
     parcelas = (valor / ano) / 12
@@ -124,7 +110,7 @@ def validaemp():
         else:
             print('Empréstimo concedido!')
             print(f'A parcela do seu empréstimo é de {parcelas:.2f} ao mês!')
-            gravemprestimos(emprestimobox)
+            gravemprestimos(emprestimo_box)
             input("Aperte ENTER para sair!")
             break
     
@@ -135,7 +121,7 @@ def situpedido():
         os.system("clear")
         codigo = input("Digite o seu código de acesso: ")
         if validnum(codigo):
-            if codigo not in emprestimobox:
+            if codigo not in emprestimo_box:
                 print("Empréstimo não encontrado!")
                 break
             else: 
@@ -145,10 +131,10 @@ def situpedido():
             | --------------------------------------------------- |
               Seu Pedido de empréstimo!
               
-              Nome: {emprestimobox[codigo][0]}
-              Valor do pedido: {emprestimobox[codigo][5]}
-              Data da solicitação: {emprestimobox[codigo][4]}
-              Código do pedido: {emprestimobox[codigo][6]}
+              Nome: {emprestimo_box[codigo][0]}
+              Valor do pedido: {emprestimo_box[codigo][5]}
+              Data da solicitação: {emprestimo_box[codigo][4]}
+              Código do pedido: {emprestimo_box[codigo][6]}
               
             ''')
             
@@ -211,8 +197,8 @@ def apply_for_not_costumer_loan():
     while True:
         cpf = input("Digite o seu CPF: ")
         if cadastrocpf(cpf):
-            if id not in emprestimobox:
-                emprestimobox[token] = [nome, email, endereco, cpf, datatotal, valor, rastreio]
+            if id not in emprestimo_box:
+                emprestimo_box[token] = [nome, email, endereco, cpf, datatotal, valor, rastreio]
                 print(f'''
                 | ========================================================== |
                 |                 Enviar Dados para Análise                  |
@@ -233,7 +219,7 @@ def apply_for_not_costumer_loan():
                 
                 
                 | ===================== Since 2022 ======================== |''')
-                gravemprestimos(emprestimobox)
+                gravemprestimos(emprestimo_box)
                 valida = input("Agora vamos vaerificar se você está apto para o empréstimo...")
                 validaemp()
                 break
@@ -294,7 +280,7 @@ def emprest():
         opcao = input("Escolha uma opção: ")
         
         if opcao == '1':
-            solicitar()
+            request()
         elif opcao == '2':
             validaemp()
         elif opcao == '3':

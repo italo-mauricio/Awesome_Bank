@@ -43,3 +43,22 @@ def gravdeposito(diciclientes2):
 
 
 dici2 = listdeposito()
+
+
+
+def listemprestimo(): # Gravando em arquivos.dat
+    try:
+        empresti = open("emprestimos.dat", "rb")
+        emprestimobox = pickle.load(empresti)
+        empresti.close()
+    except:
+        empresti = open("emprestimos.dat", "wb")
+        empresti.close()
+    return emprestimobox
+
+def gravemprestimos(emprestimo_box):
+    empresti = open("emprestimos.dat", "wb")
+    pickle.dump(emprestimo_box, empresti)
+    empresti.close()
+
+emprestimo_box = {}
