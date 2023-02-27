@@ -176,19 +176,19 @@ def vantagens(): # Função extra somente de print
     clean_window()
     while True:
         print(''' 
-        |=======================================================================================|
-        |----------------------- Bem vindos às vantagens do Neo --------------------------------|
-        |---------------------------------------------------------------------------------------|
-        |------- 1 - Nós temos as melhores taxas anuais para para empréstimos ------------------|
-        |------- 2 - Nós temos as melhores facilidades para você financiar a sua casa, ---------|
-        |o seu carro, ou qualquer tipo de imóvel! ----------------------------------------------|
-        |------- 3 - Temos as melhores linhas de crédito para micro e pequeno empreendedor -----|
-        |------- 4 - Somente aqui no Banco do Brasil você consegue ter uma home broker, --------|
-        |totalmente personalizada para você que quer começar os seus investimentos! ------------|
-        |------- 5 - Então o que está esperando? venha logo fazer parte da família BB! ---------|
-        |=======================================================================================|
+        |========================================================================================|
+        |                          Welcome to the Neo advantages!                                |
+        |----------------------------------------------------------------------------------------|
+        |              1 - We have the best annual rates for loans                               |
+        |              2 - We have the best facilities for you to finance your home, your car,   |
+        |                  or any type of property                                               |
+        |              3 - We have the best credit lines for micro and small entrepeuners        |
+        |              4 - Only here at Neo Bank, you can have a home broker completely perso    |
+        |                  nalized for you who want to start your investiments!                  |
+        |              5 - So what are you waiting for? Come join the BB family!                 |
+        |========================================================================================|
         ''')
-        input("Aperte qualquer tecla para sair: ")
+        input("Press ENTER for continue... ")
         break
 
 
@@ -199,8 +199,8 @@ def extrato(): # Função para o extrato
     date_time = date.today()
     clean_window()
     print(''' 
-    | ----------------------------- Bem vindos ao seu extrato! ------------------------------------- |
-    | ------- Se você está cadastrado no nosso sistema, poderá ver o seu extrato bancário! --------- |
+    | ----------------------------- Welcome to your bank statement! -------------------------------- |
+    |           If you are registered in our system, you can view your bank statement!               |
     | ============================================================================================== |
             ''')
     while True:
