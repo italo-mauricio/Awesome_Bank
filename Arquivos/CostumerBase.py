@@ -86,46 +86,49 @@ def edit_account(): # Função para alterar os dados.
             break
         else:
             print("User fount in the system")
-            modify_user = input("Qual dado você quer alterar do seu cadastro: ").upper().strip() # Peço as novas informações
-            if modify_user == "nome".strip().upper() or modify_user == "name".strip().upper():
-                new_name = input("Digite seu novo nome: ").strip()
-                dici[token][0] = new_name 
-                print('Nome alterado com sucesso!')
-                gravclientes(dici)
-                break
-            elif modify_user == "email".strip().upper():
-                new_email = input("Digite seu novo email: ").strip()
-                if validemail(new_email):
-                    dici[token][1] = new_email 
-                    print("Email alterado com sucesso!")
+            modify_user = input("What data do you want to change in your registration: ").strip().lower()
+            if modify_user == "nome".strip() or modify_user == "name".strip():
+                new_name = input("Please, type your new name: ").strip()
+                if validstring(new_name):
+                    dici[token][0] = new_name 
+                    print('Name changed successfully!')
                     gravclientes(dici)
                     break
                 else:
-                    print("Email inválido!")
-            elif modify_user == "endereco".strip().upper() or modify_user == "address".strip().upper():
-                new_address = input("Digite seu novo endereço: ").strip()
+                    print("Invalid Name")
+            elif modify_user == "email".strip():
+                new_email = input("Please, type your new email: ").strip()
+                if validemail(new_email):
+                    dici[token][1] = new_email 
+                    print("Email changed successfully!")
+                    gravclientes(dici)
+                    break
+                else:
+                    print("Invalid Email!")
+            elif modify_user == "endereco".strip() or modify_user == "address".strip():
+                new_address = input("Please, type your new address: ").strip()
                 dici[token][2] = new_address 
-                print("Endereço atualizado com sucesso!")
+                print("New Address changed successfully!")
                 gravclientes(dici)
                 break
-            elif modify_user == "opicional".strip().upper():
-                new_address_optional = input("Digite seu novo endereço opcional: ").strip()
+            elif modify_user == "opicional".strip():
+                new_address_optional = input("Please, type your new (optional) address: ").strip()
                 dici[token][3] = new_address_optional 
-                print("Endereço opcional atualizado com sucesso!")
+                print("New optional address changed successfully!")
                 gravclientes(dici)
                 break
         
-            elif modify_user == "senha".strip().upper() or modify_user == "password".strip().upper():
-                new_password = pwinput.pwinput("Digite sua nova senha: ").strip()
+            elif modify_user == "senha".strip() or modify_user == "password".strip():
+                new_password = pwinput.pwinput("Please, type your new password: ").strip()
                 if validnum(new_password):
                     dici[token][5] = new_password # Adiciono a nova senha ao dicionário posição senha
-                    print('Senha atualizada com sucesso!')
+                    print("New Password changed successfully!")
                     gravclientes(dici)
                     break
                 else:
-                    print("Senha inválida!")
+                    print("Invalid Password")
             else:
-                print("Opção inválida!")
+                print("Invalid Option")
 
     
 
