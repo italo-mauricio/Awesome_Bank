@@ -32,13 +32,13 @@ def dolar():
               ''')
         while True:
             convert = input("Do you want to convert your currency to dollar: [Y/N] ").strip().lower()
-            if convert == 'Y':
+            if convert == 'Y'.lower():
                 real = float(input("Enter how much you want to convert real R$: "))
                 conv = real / dolar_value
                 print(f"Their R${real} converted stay USD$ {conv:.2f}")
                 conti = input(("Press START for continue..."))
                 break
-            elif convert == 'N':
+            elif convert == 'N'.lower():
                 print("Thank you!")
                 break
             
@@ -77,14 +77,14 @@ def euro():
               ''')
         while True:
             convert_coin = input("Do you want to convert your currency to Euro: [Y/N] ").strip().lower()
-            if convert_coin == 'Y'.strip():
+            if convert_coin == 'Y'.strip().lower():
                 real = float(input("Enter how much you want to convert real R$: "))
                 convert_real = real / euro_value
                 print(f"Their R${real} converted stay EUR${convert_real:.2f}")
                 input(("Press START for continue..."))
                 break
                  
-            if convert_coin == 'N'.strip():
+            if convert_coin == 'N'.strip().lower():
                 print("Thank You!")
                 break
             
@@ -123,14 +123,14 @@ def bitcoin():
               ''')
         while True:
             convert_coin = input("Do you want to convert your currency to Bitcoin: [Y/N] ").strip().lower()
-            if convert_coin == 'Y':
+            if convert_coin == 'Y'.lower().strip():
                 real = float(input("Enter how much you want to convert real R$: "))
                 convert_real = real / bitcoin_value
                 print(f"Their R${real} converted stay BTC$: {convert_real:.2f}")
                 input(("Press START for continue..."))
                 break
                  
-            if convert_coin == 'N':
+            if convert_coin == 'N'.lower().strip():
                 print("Thank You!")
                 break
             
@@ -169,14 +169,14 @@ def franco():
               ''')
         while True:
             convert_coin = input("Do you want to convert your currency to Franco: [Y/N] ").strip().lower()
-            if convert_coin == 'Y':
+            if convert_coin == 'Y'.strip().lower():
                 real = float(input("Enter how much you want to convert real R$: "))
                 convert_real = real / franco_value
                 print(f"Their R${real} converted stay CHF$: {convert_real:.2f}")
                 input(("Press START for continue..."))
                 break
                  
-            if convert_coin == 'N'.lower():
+            if convert_coin == 'N'.strip().lower():
                 print("Thank You!")
                 break        
             else:
@@ -214,14 +214,14 @@ def iene():
               ''')
         while True:
             convert = input("Do you want to convert your currency to Iene: [Y/N] ").strip().lower()
-            if convert == 'Y'.lower():
+            if convert == 'Y'.strip().lower():
                 real = float(input("Enter how much you want to convert real R$: "))
                 conv = real / iene_value
                 print(f"Their R${real} converted stay JPY$: {conv:.2f}")
                 conti = input(("Press START for continue..."))
                 break
                  
-            if convert == 'N'.lower():
+            if convert == 'N'.strip().lower():
                 print("Thank You!")
                 break
             
@@ -237,7 +237,7 @@ def iene():
 # Cotação do Dólar Canadense        
         
 def dolarcanadense():
-    os.system('cls')
+    clean_window()
     url = 'https://economia.awesomeapi.com.br/all/CAD-BRL'
 
     response = requests.get(url)
@@ -260,15 +260,15 @@ def dolarcanadense():
               
               ''')
         while True:
-            convert = input("Do you want to convert your currency to Canadian dollar: [Y/N] ").strip().lower()
-            if convert == 'Y'.lower():
+            convert = input("Do you want to convert your currency to Canadian dollar: [Y/N] ").lower().strip()
+            if convert == 'Y'.strip().lower():
                 real = float(input("Enter how much you want to convert real R$: "))
                 conv = real / cad_value
                 print(f"Their R${real} converted stay CAD$: {conv:.2f}")
                 conti = input(("Press START for continue..."))
                 break
                  
-            if convert == 'N'.lower():
+            if convert == 'N'.strip().lower():
                 print("Thank You!")
                 break
             
