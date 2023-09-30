@@ -1,14 +1,14 @@
-from Screens import *
-from Validations import *
+from Arquivos.screens import *
+from Arquivos.validations import *
 import pickle, os, pwinput
 from time import sleep
 from random import randint
-from PasswordCheck import passw
+from Arquivos.password import passw
 from getpass import getpass
 from datetime import datetime
 from datetime import date
-from Archive import *
-from TelaUsoFuturo import *
+from Arquivos.archive import *
+from Arquivos.screen_app import *
 
 
 

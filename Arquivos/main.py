@@ -1,9 +1,9 @@
-from CostumerBase import *
-import Withdraw
-from CurrencyQuotations import menu_cotation
+from Arquivos.costumer_base import *
+import Arquivos.withdraw as withdraw
+from Arquivos.currency_quot import menu_cotation
 from datetime import datetime
 from datetime import date
-from Loans import *
+from Arquivos.loans import *
 
 
 
@@ -37,7 +37,7 @@ def menu():
         if option == "1":
             register_client()
         elif option == "2":
-            Withdraw.menusaque()
+            withdraw.menusaque()
         elif option == "3":
             delete_account()
         elif option == "4":

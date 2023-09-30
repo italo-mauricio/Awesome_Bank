@@ -89,9 +89,6 @@ def validnum(num): # Validação de números, para usar no programa principal
     else:
         return False
 
-
-
-
 def isInt(value):
   try:
     int(value)

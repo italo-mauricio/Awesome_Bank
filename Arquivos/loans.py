@@ -1,8 +1,8 @@
-from CostumerBase import *
+from Arquivos.costumer_base import *
 import os
 from time import sleep
-from Validations import *
-from Archive import *
+from Arquivos.validations import *
+from Arquivos.archive import *
 
 
 
