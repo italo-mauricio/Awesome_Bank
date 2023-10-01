@@ -1,9 +1,9 @@
-from Arquivos.costumer_base import *
-import Arquivos.withdraw as withdraw
-from Arquivos.currency_quot import menu_cotation
+from costumer_base import *
+import withdraw as withdraw
+from currency_quot import menu_cotation
 from datetime import datetime
 from datetime import date
-from Arquivos.loans import *
+from loans import *
 
 
 

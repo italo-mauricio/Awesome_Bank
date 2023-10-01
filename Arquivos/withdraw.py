@@ -1,5 +1,4 @@
-
-from Arquivos.archive import *
+from archive import *
 from getpass import getpass
 from datetime import datetime
 from datetime import date
@@ -7,8 +6,8 @@ import pickle
 import os
 import pwinput
 from time import sleep
-from Arquivos.validations import *
-from Arquivos.screens import *
+from validations import *
+from screens import *
 
 
 

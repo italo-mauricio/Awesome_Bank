@@ -19,9 +19,9 @@ def cadastrocpf(cpf):
 
 def validemail(email): # Validação de Email
     
-    tamanho = len(email) #aqui ele faz a contagem da lista de email
-    caracteres = ['@', '_', '.'] # decidimos levar em consideração apenas esses 3 caracteres de validação
-    cont=0 # contador básico
+    tamanho = len(email)
+    caracteres = ['@', '_', '.'] 
+    cont=0 
     for i in range(0, 3):
         for j in range (0, tamanho -1):
             if caracteres[i] == email[j]:

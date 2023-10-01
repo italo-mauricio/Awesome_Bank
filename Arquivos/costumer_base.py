@@ -1,14 +1,14 @@
-from Arquivos.screens import *
-from Arquivos.validations import *
+from screens import *
+from validations import *
 import pickle, os, pwinput
 from time import sleep
 from random import randint
-from Arquivos.password import passw
+from password import passw
 from getpass import getpass
 from datetime import datetime
 from datetime import date
-from Arquivos.archive import *
-from Arquivos.screen_app import *
+from archive import *
+from screen_app import *
 
 
 
@@ -17,7 +17,6 @@ def register_client():
     clean_window()
     while True:
             screen_costumer_initial()
-            client = ' '
             client = input("Choose your option: ")
             if client == "1":
                 create_account()

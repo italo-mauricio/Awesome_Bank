@@ -1,8 +1,8 @@
-from Arquivos.costumer_base import *
+from costumer_base import *
 import os
 from time import sleep
-from Arquivos.validations import *
-from Arquivos.archive import *
+from validations import *
+from archive import *
 
 
 
@@ -220,7 +220,7 @@ def apply_for_not_costumer_loan():
                 
                 | ===================== Since 2022 ======================== |''')
                 gravemprestimos(emprestimo_box)
-                valida = input("Agora vamos vaerificar se você está apto para o empréstimo...")
+                input("Agora vamos vaerificar se você está apto para o empréstimo...")
                 validaemp()
                 break
             else:

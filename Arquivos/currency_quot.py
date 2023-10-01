@@ -2,7 +2,7 @@ import requests
 import os
 from datetime import datetime
 from datetime import date
-from Arquivos.screens import *
+from screens import *
 
 
 
