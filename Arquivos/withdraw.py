@@ -15,27 +15,28 @@ def menusaque():
 
     while True:
         screen_withdraw_main()
-        usuario = " "
         usuario = input("Choose your option: ")
-        if usuario == "1":
-            deposit_account()
-        elif usuario == "2":
-            withdraw_account()
-        elif usuario == "3":
-            transfer_account()
-        elif usuario == "4":
-            benefits_bank()
-        elif usuario == "5":
-            bank_statement()
-        elif usuario == "0":
-            clean_window()
-            break
-        else:
-            print("Invalid Option!")
+        match usuario:
+            case "1":
+                deposit_account()
+            case "2":
+                withdraw_account()
+            case "3":
+                transfer_account()
+            case "4":
+                benefits_bank()
+            case "5":
+                bank_statement()
+            case "0":
+                clean_window()
+                break
+            case _:
+                print("Invalid Option!")
 
 
 def deposit_account():
     screen_withdraw_deposit()
+
     while True:
         token = int(input("Please, type your password: "))
         if token not in dici:
@@ -43,56 +44,57 @@ def deposit_account():
             sleep(1)
             break
         else:
-            if token == dici:
-                print("Try another password")
+            print("Customer Found")
+            print(dici[token][0])
+            valor = int(
+                input("What amount do you want to deposit into your account?: ")
+            )
+
+            if valor > 0:
+                dici[token][5] += valor
+                print("Amount deposited successfully!")
+                print(f"New balance: R${dici[token][5]:.2f}")
+                print(f"You deposited: R${valor:.2f}")
+                gravdeposito(dici2)
+                gravclientes(dici)
+                input("Press ENTER to continue...")
+                break
             else:
-                print("Customer Found")
-                print(dici[token][0])
-                valor = int(
-                    input("What amount do you want deposit from your account?: ")
-                )
-                if valor > 0:
-                    dici[token][5] += valor
-                    print("Amount redeemed successfully!")
-                    print(f"New value: {dici[token][5]}")
-                    print(f"You deposited: R${valor:.2f}")
-                    gravdeposito(dici2)
-                    gravclientes(dici)
-                    input("Press ENTER for continue...")
-                    break
-                else:
-                    print("You don't have enough balance!")
+                print("Invalid deposit amount. Please enter a positive value.")
 
 
 def withdraw_account():
     screen_withdraw_subtration()
+
     while True:
-        token = int(input("Please, type your password "))
+        token = int(input("Please, type your password: "))
+
         if token not in dici:
             print("User not found!")
             sleep(1)
             break
         else:
-            if token == dici:
-                print("Try another passowrd!")
+            print("User found!")
+            print(dici[token][0])
+
+            valor = int(
+                input("What amount do you want to withdraw from your account: ")
+            )
+
+            if valor <= 0:
+                print("Invalid withdrawal amount. Please enter a positive value.")
+            elif valor > dici[token][5]:
+                print("Insufficient funds. You don't have enough balance.")
             else:
-                print("User found!")
-                print(dici[token][0])
-                valor = int(
-                    input("What amount do you want to withdraw from your account:")
-                )
-                if dici[token][5] > 0 and dici[token][5] > valor:
-                    novo = dici[token][5] - valor
-                    dici[token][5] = novo
-                    print("Value redeemed successfully!")
-                    print(f"New Value: {dici[token][5]}")
-                    print(f"You withdrew: R${valor:.2f}")
-                    gravdeposito(dici2)
-                    gravclientes(dici)
-                    input("Press ENTER for continue... ")
-                    break
-                else:
-                    print("You don't have enough balance or insufficient funds!")
+                novo = dici[token][5] - valor
+                dici[token][5] = novo
+                print("Amount withdrawn successfully!")
+                print(f"New balance: R${dici[token][5]:.2f}")
+                print(f"You withdrew: R${valor:.2f}")
+                gravdeposito(dici2)
+                gravclientes(dici)
+                input("Press ENTER to continue... ")
+                break
 
 
 def benefits_bank():
