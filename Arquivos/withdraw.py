@@ -10,37 +10,31 @@ from validations import *
 from screens import *
 
 
-
-
-
 def menusaque():
     clean_window()
 
     while True:
         screen_withdraw_main()
-        usuario = ' '
-        usuario = input("Choose your option: ") 
-        if usuario == "1": 
+        usuario = " "
+        usuario = input("Choose your option: ")
+        if usuario == "1":
             deposit_account()
         elif usuario == "2":
             withdraw_account()
-        elif usuario == "3": 
+        elif usuario == "3":
             transfer_account()
-        elif usuario == "4": 
+        elif usuario == "4":
             benefits_bank()
-        elif usuario == "5": 
+        elif usuario == "5":
             bank_statement()
         elif usuario == "0":
             clean_window()
             break
-        else: 
-            print('Invalid Option!')
-      
+        else:
+            print("Invalid Option!")
 
 
-
-
-def deposit_account(): 
+def deposit_account():
     screen_withdraw_deposit()
     while True:
         token = int(input("Please, type your password: "))
@@ -52,12 +46,14 @@ def deposit_account():
             if token == dici:
                 print("Try another password")
             else:
-                print("Customer Found") 
+                print("Customer Found")
                 print(dici[token][0])
-                valor = int(input('What amount do you want deposit from your account?: '))
-                if valor > 0 : 
+                valor = int(
+                    input("What amount do you want deposit from your account?: ")
+                )
+                if valor > 0:
                     dici[token][5] += valor
-                    print('Amount redeemed successfully!')
+                    print("Amount redeemed successfully!")
                     print(f"New value: {dici[token][5]}")
                     print(f"You deposited: R${valor:.2f}")
                     gravdeposito(dici2)
@@ -66,12 +62,9 @@ def deposit_account():
                     break
                 else:
                     print("You don't have enough balance!")
-            
-            
 
 
-def withdraw_account(): 
-
+def withdraw_account():
     screen_withdraw_subtration()
     while True:
         token = int(input("Please, type your password "))
@@ -83,13 +76,15 @@ def withdraw_account():
             if token == dici:
                 print("Try another passowrd!")
             else:
-                print("User found!") 
+                print("User found!")
                 print(dici[token][0])
-                valor = int(input('What amount do you want to withdraw from your account:'))
-                if dici[token][5] > 0 and dici[token][5] > valor: 
-                    novo = dici[token][5] - valor 
+                valor = int(
+                    input("What amount do you want to withdraw from your account:")
+                )
+                if dici[token][5] > 0 and dici[token][5] > valor:
+                    novo = dici[token][5] - valor
                     dici[token][5] = novo
-                    print('Value redeemed successfully!')
+                    print("Value redeemed successfully!")
                     print(f"New Value: {dici[token][5]}")
                     print(f"You withdrew: R${valor:.2f}")
                     gravdeposito(dici2)
@@ -98,11 +93,9 @@ def withdraw_account():
                     break
                 else:
                     print("You don't have enough balance or insufficient funds!")
-            
-                        
-      
 
-def benefits_bank(): 
+
+def benefits_bank():
     clean_window()
     while True:
         screen_withdraw_benefits()
@@ -112,7 +105,7 @@ def benefits_bank():
 
 def bank_statement():
     current_time = datetime.now()
-    hour = current_time.strftime('%H:%M')
+    hour = current_time.strftime("%H:%M")
     date_time = date.today()
     screen_withdraw_statement()
     while True:
@@ -123,7 +116,8 @@ def bank_statement():
         else:
             clean_window()
             print("User found!")
-            print(f'''
+            print(
+                f"""
                 ========================================================================================= 
                 ---------------------------------- Bank Statement --------------------------------------- 
                 Verification Date: {date_time}
@@ -139,19 +133,19 @@ def bank_statement():
                 Hello {dici[token][0]}, you have R${dici[token][5]} in your bank account!                     
                 -------> Your account is secure and you can make any type of transaction ----------------- 
                 ========================================================================================= 
-            ''')
+            """
+            )
             input("Press ENTER to continue... ")
             break
 
-            
-            
+
 def transfer_account():
     clean_window()
     while True:
         screen_withdraw_transfer()
-        option = ' '
+        option = " "
         option = input("Choose your option: ")
-        if option == '1':
+        if option == "1":
             screen_withdraw_transfer_option_one()
             while True:
                 transf = int(input("Please, type your password: "))
@@ -160,7 +154,8 @@ def transfer_account():
                     print("User not found!")
                     break
                 else:
-                    print(f'''.
+                    print(
+                        f""".
                             
                             User Found!
                         
@@ -169,8 +164,9 @@ def transfer_account():
                         Balance: {dici[transf][5]}
                         ID: {dici[transf][6]}
                             
-                        ''')
-                
+                        """
+                    )
+
                     quant = int(input("Enter how much you want to transfer: "))
                     dici[transf][5] += quant
                     print("Transfer performed successfully")
@@ -179,7 +175,3 @@ def transfer_account():
                     gravclientes(dici)
                     gravdeposito(dici2)
                     break
-                    
-                            
-                        
-                
