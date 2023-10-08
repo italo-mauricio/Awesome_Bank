@@ -13,11 +13,11 @@ dicitotal = dici
 
 
 def request():
+    clean_window()
     while True:
         time_now = datetime.now()
         hour = time_now.strftime('%H:%M')
         date1 = date.today()
-        os.system("cls")
         print(f'''
         |---------------------------------------------------------------|
         |                      Apply for Loan                           |
@@ -33,7 +33,6 @@ def request():
         |                                                               |
         | ======================= Since 2022 ========================== |       
         ''')
-        option = ' '
         option = input("Escolha uma opção: ")
         
         if option == "1":
@@ -43,7 +42,7 @@ def request():
         elif option == "3":
             pass
         elif option == "0":
-            os.system("cls")
+            clean_window()
             break
         
         else:
@@ -52,7 +51,7 @@ def request():
     
             
 def apply_for_costumer_loan():
-    os.system("cls")
+    clean_window()
     hora_atual = datetime.now()
     hora = hora_atual.strftime('%H:%M')
     data = date.today()
@@ -94,31 +93,40 @@ def apply_for_costumer_loan():
 
         
 def validaemp():
-    os.system("cls")
+    clean_window()
     print("Vamos verificar se você está apto")
-    cliente = int(input("Digite sua senha: "))
-    salario = float(input("Informe o seu salário em R$: "))
-    valor = emprestimo_box[cliente][0]
-    print(f"O seu pedido de empréstimo foi no valor de: R${valor}")
-    ano = int(input("Em quantos anos você pretende pagar?: "))
-    parcelas = (valor / ano) / 12
     while True:
-        if parcelas > salario + (30/100):
-            print("Empréstimo negado!")
-            input("Aperte ENTER para continuar")
-            break
+        cliente = int(input("Digite sua senha: "))
+        if cliente not in dicitotal:
+            print("Cliente não está no sistema")
         else:
-            print('Empréstimo concedido!')
-            print(f'A parcela do seu empréstimo é de {parcelas:.2f} ao mês!')
-            gravemprestimos(emprestimo_box)
-            input("Aperte ENTER para sair!")
+            print(f'Cliente encontrado: {dicitotal[cliente][0]}')
+            salario = float(input("Informe o seu salário em R$: "))
+            print(f"O seu pedido de empréstimo foi no valor de: R${emprestimo_box[cliente][0]}")
+            ano = int(input("Em quantos anos você pretende pagar?: "))
+            parcelas = (emprestimo_box[cliente][0] / ano) / 12
+            while True:
+                if parcelas > salario + (30/100):
+                    print("Empréstimo negado!")
+                    input("Aperte ENTER para continuar")
+                    break
+                else:
+                    print('Empréstimo concedido!')
+                    print(f'A parcela do seu empréstimo é de {parcelas:.2f} ao mês!')
+                    dici[cliente][5] += emprestimo_box[cliente][0]
+                    print(f'O valor {emprestimo_box[cliente][0]} foi adicionado em sua conta!')
+                    print(f'Seu novo saldo é: {dicitotal[cliente][5]}')
+                    gravemprestimos(dicitotal)
+                    gravemprestimos(emprestimo_box)
+                    input("Aperte ENTER para sair!")
+                    break
             break
-    
+            
 
     
 def situpedido():
+    clean_window()
     while True:
-        os.system("clear")
         codigo = input("Digite o seu código de acesso: ")
         if validnum(codigo):
             if codigo not in emprestimo_box:
@@ -141,7 +149,7 @@ def situpedido():
         
     
 def apply_for_not_costumer_loan():
-    os.system("cls")
+    clean_window()
     hora_atual = datetime.now()
     hora = hora_atual.strftime('%H:%M')
     data_atual = date.today()
@@ -254,7 +262,7 @@ class gerabarra():
 
 
 def emprest():
-    os.system("cls")
+    clean_window()
     while True:
         hora_atual = datetime.now()
         hora = hora_atual.strftime('%H:%M')

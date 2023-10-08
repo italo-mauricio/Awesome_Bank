@@ -61,4 +61,4 @@ def gravemprestimos(emprestimo_box):
     pickle.dump(emprestimo_box, empresti)
     empresti.close()
 
-emprestimo_box = {}
+emprestimo_box = listemprestimo()
