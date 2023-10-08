@@ -151,7 +151,7 @@ def situpedido():
                 print("Empréstimo não encontrado!")
         except ValueError:
             print("Senha inválida. Digite apenas números inteiros.")
-
+    clean_window()
 
 
 def apply_for_not_costumer_loan():
