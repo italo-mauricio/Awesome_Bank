@@ -85,10 +85,16 @@ def apply_for_costumer_loan():
                     
                     """
             )
-            emprestimo_box[cliente] = [emp, dicitotal[cliente][0], dicitotal[cliente][6], data]
+            emprestimo_box[cliente] = [
+                emp,
+                dicitotal[cliente][0],
+                dicitotal[cliente][6],
+                data,
+            ]
             gravemprestimos(emprestimo_box)
             input("Aperte ENTER para continuar...")
             break
+    clean_window()
 
 
 def validaemp():
@@ -125,6 +131,7 @@ def validaemp():
                     break
             break
 
+
 def situpedido():
     clean_window()
     while True:
@@ -156,105 +163,20 @@ def situpedido():
 
 def apply_for_not_costumer_loan():
     clean_window()
-    hora_atual = datetime.now()
-    hora = hora_atual.strftime("%H:%M")
-    data_atual = date.today()
-    data_texto = "{}/{}/{}".format(data_atual.day, data_atual.month, data_atual.year)
-    datatotal = [data_texto, hora]
-
-    print(
-        f"""
-    | =========================================================== |
-    |                  Enviar Dados para Análise                  |
-    |                                                             |
-    | ----------------------------------------------------------- |
-    
-                        ~ FICHA EXEMPLO ~ 
-    
-        Nome: seu nome
-        CPF: seu cpf
-        Email: seu melhor email
-        Endereço: seu endereço
-        ID: seu registro gerado automaticamente
-        Valor da solicitação: quanto você deseja
-        Data e Hora do registro: a data que foi realizado o pedido
-    
-    
-    
-                                            
-    
-    | ======================= Since 2022 ======================== |"""
-    )
-
     while True:
-        nome = input("Digite o seu nome: ")
-        if validstring(nome):
-            break
+        token = int(input("Digite seu token: "))
+        if token not in dicitotal:
+            print("OKay, você não se encontra no nosso sistema")
+            print("Você será redirecionado para o cadastro de clientes")
+            print("Carregando...")
+            sleep(1)
+            create_account()
+            return  
         else:
-            print("Digite um nome válido")
-
-    while True:
-        email = input("Digite o seu email: ")
-        if validemail(email):
-            break
-        else:
-            print("Digite um email válido!")
-    endereco = input("Digite seu endereço: ")
-    token = gerandid.gera_id()
-    print(f"Seu Token de acesso é {token}")
-    while True:
-        valor = input("Quanto você deseja solicitar: ")
-        if validnum(valor):
-            break
-        else:
-            print("Digite um número!")
-    rastreio = gerabarra.gera_barra()
-    print(f"Seu código de rastreio é {rastreio}")
-    while True:
-        cpf = input("Digite o seu CPF: ")
-        if cadastrocpf(cpf):
-            if id not in emprestimo_box:
-                emprestimo_box[token] = [
-                    nome,
-                    email,
-                    endereco,
-                    cpf,
-                    datatotal,
-                    valor,
-                    rastreio,
-                ]
-                print(
-                    f"""
-                | ========================================================== |
-                |                 Enviar Dados para Análise                  |
-                |                                                            |
-                | ---------------------------------------------------------- |
-                
-                            Solicitação Realizada com Sucesso!
-                
-                Nome: {nome}
-                CPF: {cpf}
-                Email: {email}
-                Endereço: {endereco}
-                Token: {token}
-                Valor da solicitação: {valor}
-                Data e Hora do registro: {datatotal}
-                Código de Rastreio: {rastreio}
-                
-                
-                
-                | ===================== Since 2022 ======================== |"""
-                )
-                gravemprestimos(emprestimo_box)
-                input("Agora vamos vaerificar se você está apto para o empréstimo...")
-                validaemp()
-                break
-            else:
-                print("Empréstimo já foi solicitado por este usuário!")
-                print("Tente outro cadastro!")
-
-        else:
-            print("Digite um CPF válido")
+            print("Usuário já registrado")
+            sleep(2)
+            apply_for_costumer_loan()  
+            return 
 
 
 class gerandid:  # gera uma ID para o cliente
