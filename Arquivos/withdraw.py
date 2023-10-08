@@ -145,35 +145,41 @@ def transfer_account():
     clean_window()
     while True:
         screen_withdraw_transfer()
-        option = " "
         option = input("Choose your option: ")
         if option == "1":
             screen_withdraw_transfer_option_one()
             while True:
-                transf = int(input("Please, type your password: "))
-
-                if transf not in dici:
+                sender_id = int(input("Please, enter your ID: "))
+                if sender_id not in dici:
                     print("User not found!")
-                    break
                 else:
                     print(
-                        f""".
-                            
-                            User Found!
-                        
-                        Name: {dici[transf][0]}
-                        Email: {dici[transf][1]}
-                        Balance: {dici[transf][5]}
-                        ID: {dici[transf][6]}
-                            
+                        f"""
+                        User Found!
+                        Name: {dici[sender_id][0]}
+                        Email: {dici[sender_id][1]}
+                        Balance: {dici[sender_id][5]}
+                        ID: {dici[sender_id][6]}
                         """
                     )
+                    receiver_id = int(input("Enter the recipient's ID: "))
+                    if receiver_id not in dici:
+                        print("Recipient not found!")
+                    else:
+                        amount = float(input("Enter the amount you want to transfer: "))
+                        if amount <= 0:
+                            print("Invalid amount. Please enter a positive value.")
+                        elif amount > dici[sender_id][5]:
+                            print("Insufficient balance.")
+                        else:
+                            dici[sender_id][5] -= amount
+                            dici[receiver_id][5] += amount
+                            print("Transfer performed successfully")
+                            print(f"New Balance for {dici[sender_id][0]}: {dici[sender_id][5]}")
+                            print(f"New Balance for {dici[receiver_id][0]}: {dici[receiver_id][5]}")
+                            input("Press ENTER to continue... ")
+                            gravclientes(dici)
+                            gravdeposito(dici2)
+                            return  # Sair da função após a transferência bem-sucedida
+                    break  # Sair do loop interno se o usuário não for encontrado
 
-                    quant = int(input("Enter how much you want to transfer: "))
-                    dici[transf][5] += quant
-                    print("Transfer performed successfully")
-                    print("New Value: "(dici[transf][5]))
-                    input("Press ENTER for continue... ")
-                    gravclientes(dici)
-                    gravdeposito(dici2)
-                    break

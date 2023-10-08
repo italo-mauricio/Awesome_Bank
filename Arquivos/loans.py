@@ -209,7 +209,7 @@ def emprest():
         |                                                      |
         |               1 - Apply For Loan                     | 
         |               2 - Check Loan Validity                | 
-        |               3 - Check Our Rates                    | 
+        |               3 - Check your Loan                    | 
         |               4 - Company Policies                   | 
         |               0 - Back To Main Menu                  | 
         |                                                      | 
