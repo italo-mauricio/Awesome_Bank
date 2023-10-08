@@ -5,20 +5,17 @@ from validations import *
 from archive import *
 
 
-
-
 dicitotal = dici
-
-
 
 
 def request():
     clean_window()
     while True:
         time_now = datetime.now()
-        hour = time_now.strftime('%H:%M')
+        hour = time_now.strftime("%H:%M")
         date1 = date.today()
-        print(f'''
+        print(
+            f"""
         |---------------------------------------------------------------|
         |                      Apply for Loan                           |
         |---------------------------------------------------------------|
@@ -32,9 +29,10 @@ def request():
         |                                                               |
         |                                                               |
         | ======================= Since 2022 ========================== |       
-        ''')
+        """
+        )
         option = input("Escolha uma opção: ")
-        
+
         if option == "1":
             apply_for_costumer_loan()
         elif option == "2":
@@ -44,54 +42,55 @@ def request():
         elif option == "0":
             clean_window()
             break
-        
+
         else:
             print("Escolha uma opção válida!")
 
-    
-            
+
 def apply_for_costumer_loan():
     clean_window()
     hora_atual = datetime.now()
-    hora = hora_atual.strftime('%H:%M')
+    hora = hora_atual.strftime("%H:%M")
     data = date.today()
     while True:
-        print("Precisamos confirmar seu CPF!")
         cliente = int(input("Por favor, digite a senha cadastrada: "))
         if cliente not in dicitotal:
             print("Seu registro não foi encontrado!")
             break
         else:
-            print(f'''
+            print(
+                f"""
             ======================= Área do Cliente ====================
         
-                Bem vindo {dici[cliente][0]}
+                Bem vindo {dicitotal[cliente][0]}
                                 
-                Seu atual saldo é de: {dici[cliente][5]}
+                Seu atual saldo é de: {dicitotal[cliente][5]}
                 
-                ''')
-    
+                """
+            )
+
             emp = int(input("Quanto você deseja solicitar: "))
-        
-            print(f'''
+
+            print(
+                f"""
             | ================= Extrato da Solicitação ==================== |
             |                                                               |
-                Cliente {dici[cliente][0]}
-                ID da solicitação {dici[cliente][6]}
+                Cliente {dicitotal[cliente][0]}
+                ID da solicitação {dicitotal[cliente][6]}
                 Valor do pedido {emp}
                 Horário e data do pedido {hora} / {data}
                 
                     
             |   Pedido realizado com sucesso!                               |
                     
-                    ''')
-            emprestimo_box[cliente] = [emp]
+                    """
+            )
+            emprestimo_box[cliente] = [emp, dicitotal[cliente][0], dicitotal[cliente][6], data]
             gravemprestimos(emprestimo_box)
             input("Aperte ENTER para continuar...")
             break
 
 
-        
 def validaemp():
     clean_window()
     print("Vamos verificar se você está apto")
@@ -100,63 +99,69 @@ def validaemp():
         if cliente not in dicitotal:
             print("Cliente não está no sistema")
         else:
-            print(f'Cliente encontrado: {dicitotal[cliente][0]}')
+            print(f"Cliente encontrado: {dicitotal[cliente][0]}")
             salario = float(input("Informe o seu salário em R$: "))
-            print(f"O seu pedido de empréstimo foi no valor de: R${emprestimo_box[cliente][0]}")
+            print(
+                f"O seu pedido de empréstimo foi no valor de: R${emprestimo_box[cliente][0]}"
+            )
             ano = int(input("Em quantos anos você pretende pagar?: "))
             parcelas = (emprestimo_box[cliente][0] / ano) / 12
             while True:
-                if parcelas > salario + (30/100):
+                if parcelas > salario + (30 / 100):
                     print("Empréstimo negado!")
                     input("Aperte ENTER para continuar")
                     break
                 else:
-                    print('Empréstimo concedido!')
-                    print(f'A parcela do seu empréstimo é de {parcelas:.2f} ao mês!')
+                    print("Empréstimo concedido!")
+                    print(f"A parcela do seu empréstimo é de {parcelas:.2f} ao mês!")
                     dici[cliente][5] += emprestimo_box[cliente][0]
-                    print(f'O valor {emprestimo_box[cliente][0]} foi adicionado em sua conta!')
-                    print(f'Seu novo saldo é: {dicitotal[cliente][5]}')
+                    print(
+                        f"O valor {emprestimo_box[cliente][0]} foi adicionado em sua conta!"
+                    )
+                    print(f"Seu novo saldo é: {dicitotal[cliente][5]}")
                     gravemprestimos(dicitotal)
                     gravemprestimos(emprestimo_box)
                     input("Aperte ENTER para sair!")
                     break
             break
-            
 
-    
+
 def situpedido():
     clean_window()
     while True:
-        codigo = input("Digite o seu código de acesso: ")
-        if validnum(codigo):
-            if codigo not in emprestimo_box:
-                print("Empréstimo não encontrado!")
-                break
-            else: 
-                print(f'''
-            | --------------------------------------------------- |
-            | -                  Banco do Neo                   - |
-            | --------------------------------------------------- |
-              Seu Pedido de empréstimo!
-              
-              Nome: {emprestimo_box[codigo][0]}
-              Valor do pedido: {emprestimo_box[codigo][5]}
-              Data da solicitação: {emprestimo_box[codigo][4]}
-              Código do pedido: {emprestimo_box[codigo][6]}
-              
-            ''')
+        codigo = int(input("Digite o seu código de acesso: "))
+        if codigo not in dicitotal:
+            print("Empréstimo não encontrado!")
+            break
+        else:
+            print(
+                f"""
+        | --------------------------------------------------- |
+        | -                  Awesome Bank                   - |
+        | --------------------------------------------------- |
+            Seu Pedido de empréstimo!
             
-        
-    
+            Nome: {dicitotal[codigo][0]}
+            Valor do pedido: {emprestimo_box[codigo][0]}
+            Data da solicitação: {emprestimo_box[codigo][3]}
+            Código do pedido: {emprestimo_box[codigo][2]}
+            
+        """
+            )
+        input("Press ENTER for exit...")
+        break
+    clean_window()
+
 def apply_for_not_costumer_loan():
     clean_window()
     hora_atual = datetime.now()
-    hora = hora_atual.strftime('%H:%M')
+    hora = hora_atual.strftime("%H:%M")
     data_atual = date.today()
-    data_texto = '{}/{}/{}'.format(data_atual.day, data_atual.month, data_atual.year )
+    data_texto = "{}/{}/{}".format(data_atual.day, data_atual.month, data_atual.year)
     datatotal = [data_texto, hora]
-    
-    print(f'''
+
+    print(
+        f"""
     | =========================================================== |
     |                  Enviar Dados para Análise                  |
     |                                                             |
@@ -176,8 +181,9 @@ def apply_for_not_costumer_loan():
     
                                             
     
-    | ======================= Since 2022 ======================== |''')
-    
+    | ======================= Since 2022 ======================== |"""
+    )
+
     while True:
         nome = input("Digite o seu nome: ")
         if validstring(nome):
@@ -192,7 +198,7 @@ def apply_for_not_costumer_loan():
         else:
             print("Digite um email válido!")
     endereco = input("Digite seu endereço: ")
-    token = gerandid.gera_id()                         
+    token = gerandid.gera_id()
     print(f"Seu Token de acesso é {token}")
     while True:
         valor = input("Quanto você deseja solicitar: ")
@@ -206,8 +212,17 @@ def apply_for_not_costumer_loan():
         cpf = input("Digite o seu CPF: ")
         if cadastrocpf(cpf):
             if id not in emprestimo_box:
-                emprestimo_box[token] = [nome, email, endereco, cpf, datatotal, valor, rastreio]
-                print(f'''
+                emprestimo_box[token] = [
+                    nome,
+                    email,
+                    endereco,
+                    cpf,
+                    datatotal,
+                    valor,
+                    rastreio,
+                ]
+                print(
+                    f"""
                 | ========================================================== |
                 |                 Enviar Dados para Análise                  |
                 |                                                            |
@@ -226,7 +241,8 @@ def apply_for_not_costumer_loan():
                 
                 
                 
-                | ===================== Since 2022 ======================== |''')
+                | ===================== Since 2022 ======================== |"""
+                )
                 gravemprestimos(emprestimo_box)
                 input("Agora vamos vaerificar se você está apto para o empréstimo...")
                 validaemp()
@@ -234,40 +250,33 @@ def apply_for_not_costumer_loan():
             else:
                 print("Empréstimo já foi solicitado por este usuário!")
                 print("Tente outro cadastro!")
-                
-                
+
         else:
             print("Digite um CPF válido")
-       
-        
-        
 
-        
 
-    
-        
-class gerandid():  # gera uma ID para o cliente
+class gerandid:  # gera uma ID para o cliente
     @staticmethod
     def gera_id():
         rand = randint(10000, 19999)
         return rand
 
-class gerabarra():
+
+class gerabarra:
     @staticmethod
     def gera_barra():
         codigo = randint(500000, 9000000)
         return codigo
 
 
-
-
 def emprest():
     clean_window()
     while True:
         hora_atual = datetime.now()
-        hora = hora_atual.strftime('%H:%M')
+        hora = hora_atual.strftime("%H:%M")
         data = date.today()
-        print(f'''
+        print(
+            f"""
         |------------------------------------------------------|
         |                     Loan Area                        |
         |------------------------------------------------------|
@@ -283,27 +292,23 @@ def emprest():
         |                                                      |
         |================== Since 2022 ========================|
         
-        ''')
-        opcao = ' '
+        """
+        )
+        opcao = " "
         opcao = input("Escolha uma opção: ")
-        
-        if opcao == '1':
+
+        if opcao == "1":
             request()
-        elif opcao == '2':
+        elif opcao == "2":
             validaemp()
-        elif opcao == '3':
+        elif opcao == "3":
+            situpedido()
+        elif opcao == "4":
             pass
-        elif opcao == '4':
-            pass
-        elif opcao == '0':
+        elif opcao == "0":
             print("Saindo...")
             sleep(1)
-            os.system("cls")
-           
+            clean_window()
             break
-            
         else:
             print("Escolha uma opção válida")
-                
-                
-
