@@ -78,19 +78,24 @@ def validstring(nome): # Validação de strings
         return False
 
 
-def validnum(num): # Validação de números, para usar no programa principal
-    numeros = '0123456789'
-    num = numeros
+def validnum(num):
+    # A string de dígitos válidos
+    numeros_validos = '0123456789'
+    
+    # Variável para contar os dígitos válidos
     count = 0
-    for i in range(len(numeros)):
-        for j in range(len(num)):
-            if num[j] == numeros[i]:
-                count+=1
-            
+    
+    # Itera sobre cada caractere na entrada 'num'
+    for char in num:
+        if char in numeros_validos:
+            count += 1
+    
+    # Verifica se o número de dígitos válidos é igual ao comprimento da entrada
     if count == len(num):
         return True
     else:
         return False
+
 
 def isInt(value):
   try:

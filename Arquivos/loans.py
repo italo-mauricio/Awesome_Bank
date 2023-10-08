@@ -125,32 +125,34 @@ def validaemp():
                     break
             break
 
-
 def situpedido():
     clean_window()
     while True:
-        codigo = int(input("Digite o seu código de acesso: "))
-        if codigo not in dicitotal:
-            print("Empréstimo não encontrado!")
-            break
-        else:
-            print(
-                f"""
-        | --------------------------------------------------- |
-        | -                  Awesome Bank                   - |
-        | --------------------------------------------------- |
-            Seu Pedido de empréstimo!
-            
-            Nome: {dicitotal[codigo][0]}
-            Valor do pedido: {emprestimo_box[codigo][0]}
-            Data da solicitação: {emprestimo_box[codigo][3]}
-            Código do pedido: {emprestimo_box[codigo][2]}
-            
-        """
-            )
-        input("Press ENTER for exit...")
-        break
-    clean_window()
+        try:
+            codigo = int(input("Digite o seu código de acesso: "))
+            if codigo in dicitotal:
+                print(
+                    f"""
+                    | --------------------------------------------------- |
+                    | -                  Awesome Bank                   - |
+                    | --------------------------------------------------- |
+                        Seu Pedido de Empréstimo!
+                        
+                        Nome: {dicitotal[codigo][0]}
+                        Valor do pedido: {emprestimo_box[codigo][0]}
+                        Data da solicitação: {emprestimo_box[codigo][3]}
+                        Código do pedido: {emprestimo_box[codigo][2]}
+                        
+                    """
+                )
+                input("Pressione ENTER para sair...")
+                break
+            else:
+                print("Empréstimo não encontrado!")
+        except ValueError:
+            print("Senha inválida. Digite apenas números inteiros.")
+
+
 
 def apply_for_not_costumer_loan():
     clean_window()
