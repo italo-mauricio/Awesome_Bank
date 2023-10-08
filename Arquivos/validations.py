@@ -1,4 +1,7 @@
 import re #Essa função serve para validar o CPF do cliente.
+
+
+
 def cadastrocpf(cpf):
     #validação do CPF do cliente
     cpf = [int(caracter) for caracter in cpf if caracter.isdigit()]
