@@ -165,6 +165,8 @@ def transfer_account():
                     receiver_id = int(input("Enter the recipient's ID: "))
                     if receiver_id not in dici:
                         print("Recipient not found!")
+                        sleep(1)
+                        return 
                     else:
                         amount = float(input("Enter the amount you want to transfer: "))
                         if amount <= 0:
@@ -180,6 +182,6 @@ def transfer_account():
                             input("Press ENTER to continue... ")
                             gravclientes(dici)
                             gravdeposito(dici2)
-                            return  # Sair da função após a transferência bem-sucedida
-                    break  # Sair do loop interno se o usuário não for encontrado
+                            return  
+                    break 
 
