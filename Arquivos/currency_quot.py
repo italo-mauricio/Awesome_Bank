@@ -1,28 +1,40 @@
 import requests
-import os
 from datetime import datetime
 from datetime import date
 from screens import *
+import requests
+
+import os
 
 
 
-# Cotação do Dólar Americano
+def clean_window():
+    if os.name == 'nt':  
+        _ = os.system('cls')
+    else: 
+        _ = os.system('clear')
 
-def dolar():
-    clean_window()
-    url = 'https://economia.awesomeapi.com.br/all/USD-BRL'  # Url para verificar em tempo real a cotação do Dólar
 
-    response = requests.get(url) # Comando .get para pegar essa URL e adicionar a biblioteca
-
+def get_currency_value(currency_code):
+    url = f'https://economia.awesomeapi.com.br/all/{currency_code}-BRL'
+    response = requests.get(url)
     if response.status_code == 200:
-        dolar_value = float(response.json()['USD']['low']) # Utilizando o float para o cálculo de conversão
+        return float(response.json()[currency_code]['low'])
+    else:
+        return None
+
+def convert_currency(currency_name, currency_code):
+    clean_window()
+    currency_value = get_currency_value(currency_code)
+
+    if currency_value is not None:
         print(f'''
               
             | ============================================================= |
             |                        Awesome Bank                             |
             \                                                              /
                                                                            
-                 The Dóllar value in Brazilian Real is R${dolar_value:.2f}    
+               The {currency_name} value in Brazilian Real is R${currency_value:.2f}    
             
             /                                                               \ 
             |
@@ -31,262 +43,26 @@ def dolar():
               
               ''')
         while True:
-            convert = input("Do you want to convert your currency to dollar: [Y/N] ").strip().lower()
-            if convert == 'Y'.lower():
+            convert = input(f"Do you want to convert your currency to {currency_name}: [Y/N] ").strip().lower()
+            if convert == 'y':
                 real = float(input("Enter how much you want to convert real R$: "))
-                conv = real / dolar_value
-                print(f"Their R${real} converted stay USD$ {conv:.2f}")
+                conv = real / currency_value
+                print(f"Their R${real} converted stay {currency_code}: {conv:.2f}")
                 conti = input(("Press START for continue..."))
                 break
-            elif convert == 'N'.lower():
-                print("Thank you!")
-                break
-            
-            else:
-                print("Choose a valid option!")
-    else:
-        print("Error fetching dollar value") 
-         
-               
-         
-         
-# Cotação do Euro         
-         
-def euro():
-    clean_window()
-    url = 'https://economia.awesomeapi.com.br/all/EUR-BRL'
-
-    response = requests.get(url)
-
-
-    if response.status_code == 200:
-        euro_value = float(response.json()['EUR']['low'])
-        print(f'''
-              
-            | ============================================================= |
-            |                        Awesome Bank                           |
-            \                                                              /
-                                                                           
-                   The Euro value in Brazilian Real is R${euro_value:.2f}    
-            
-            /                                                               \ 
-            |
-            | ------------------------------------------------------------- |
-            | ======================== since 2022 ========================= |
-              
-              ''')
-        while True:
-            convert_coin = input("Do you want to convert your currency to Euro: [Y/N] ").strip().lower()
-            if convert_coin == 'Y'.strip().lower():
-                real = float(input("Enter how much you want to convert real R$: "))
-                convert_real = real / euro_value
-                print(f"Their R${real} converted stay EUR${convert_real:.2f}")
-                input(("Press START for continue..."))
-                break
-                 
-            if convert_coin == 'N'.strip().lower():
+            elif convert == 'n':
                 print("Thank You!")
+                clean_window()
                 break
-            
             else:
-                print("Choose a valid option!")
-                
+                print("Choose your option!")
     else:
-        print("Error fetching euro value!")
-    
-    
-    
-# Cotação do Bitcoin    
-        
-def bitcoin():
-    clean_window()
-    url = 'https://economia.awesomeapi.com.br/all/BTC-BRL'
+        print(f"Error fetching {currency_name} value!")
 
-    response = requests.get(url)
-
-
-    if response.status_code == 200:
-        bitcoin_value = float(response.json()['BTC']['low'])
-        print(f'''
-              
-            | ============================================================= |
-            |                        Awesome Bank                           |
-            \                                                              /
-                                                                           
-                The BItcoin value in Brazilian Real is R${bitcoin_value:.3f}    
-            
-            /                                                               \ 
-            |
-            | ------------------------------------------------------------- |
-            | ======================== since 2022 ========================= |
-              
-              ''')
-        while True:
-            convert_coin = input("Do you want to convert your currency to Bitcoin: [Y/N] ").strip().lower()
-            if convert_coin == 'Y'.lower().strip():
-                real = float(input("Enter how much you want to convert real R$: "))
-                convert_real = real / bitcoin_value
-                print(f"Their R${real} converted stay BTC$: {convert_real:.2f}")
-                input(("Press START for continue..."))
-                break
-                 
-            if convert_coin == 'N'.lower().strip():
-                print("Thank You!")
-                break
-            
-            
-            else:
-                print("Choose your a option!")
-        
-    else:
-        print("Error fetching bitcoin value!")
-        
-       
-# Cotação do Franco       
-        
-def franco():
-    clean_window()
-    url = 'https://economia.awesomeapi.com.br/all/CHF-BRL'
-
-    response = requests.get(url)
-
-
-    if response.status_code == 200:
-        franco_value = float(response.json()['CHF']['low'])
-        print(f'''
-              
-            | ============================================================= |
-            |                        Awesome Bank                           |
-            \                                                              /
-                                                                           
-               The Franco value in Brazilian Real is R${franco_value:.2f}    
-            
-            /                                                               \ 
-            |
-            | ------------------------------------------------------------- |
-            | ======================== since 2022 ========================= |
-              
-              ''')
-        while True:
-            convert_coin = input("Do you want to convert your currency to Franco: [Y/N] ").strip().lower()
-            if convert_coin == 'Y'.strip().lower():
-                real = float(input("Enter how much you want to convert real R$: "))
-                convert_real = real / franco_value
-                print(f"Their R${real} converted stay CHF$: {convert_real:.2f}")
-                input(("Press START for continue..."))
-                break
-                 
-            if convert_coin == 'N'.strip().lower():
-                print("Thank You!")
-                break        
-            else:
-                print("Choose your a option!")
-        
-    else:
-        print("Error fetching bitcoin value!")
-        
-        
-       
-# Cotação do Iene 
-        
-def iene():
-    clean_window()
-    url = 'https://economia.awesomeapi.com.br/all/JPY-BRL'
-
-    response = requests.get(url)
-
-
-    if response.status_code == 200:
-        iene_value = float(response.json()['JPY']['low'])
-        print(f'''
-              
-            | ============================================================= |
-            |                         Awesome Bank                          |
-            \                                                              /
-                                                                           
-                    The Iene value in Brazilian Real is R${iene_value:.2f}    
-            
-            /                                                               \ 
-            |
-            | ------------------------------------------------------------- |
-            | ======================== since 2022 ========================= |
-              
-              ''')
-        while True:
-            convert = input("Do you want to convert your currency to Iene: [Y/N] ").strip().lower()
-            if convert == 'Y'.strip().lower():
-                real = float(input("Enter how much you want to convert real R$: "))
-                conv = real / iene_value
-                print(f"Their R${real} converted stay JPY$: {conv:.2f}")
-                conti = input(("Press START for continue..."))
-                break
-                 
-            if convert == 'N'.strip().lower():
-                print("Thank You!")
-                break
-            
-            
-            else:
-                print("Choose your a option!")
-        
-    else:
-        print("Error fetching Iene value!")
-        
-        
-        
-# Cotação do Dólar Canadense        
-        
-def dolarcanadense():
-    clean_window()
-    url = 'https://economia.awesomeapi.com.br/all/CAD-BRL'
-
-    response = requests.get(url)
-
-
-    if response.status_code == 200:
-        cad_value = float(response.json()['CAD']['low'])
-        print(f'''
-              
-            | ============================================================= |
-            |                        Awesome Bank                           |
-            \                                                              /
-                                                                           
-                    The Franco value in Brazilian Real is R${cad_value:.2f}    
-            
-            /                                                               \ 
-            |
-            | ------------------------------------------------------------- |
-            | ======================== since 2022 ========================= |
-              
-              ''')
-        while True:
-            convert = input("Do you want to convert your currency to Canadian dollar: [Y/N] ").lower().strip()
-            if convert == 'Y'.strip().lower():
-                real = float(input("Enter how much you want to convert real R$: "))
-                conv = real / cad_value
-                print(f"Their R${real} converted stay CAD$: {conv:.2f}")
-                conti = input(("Press START for continue..."))
-                break
-                 
-            if convert == 'N'.strip().lower():
-                print("Thank You!")
-                break
-            
-            
-            else:
-                print("Choose your a option!")
-        
-    else:
-        print("Error fetching Iene value!")
-        
-        
-        
-# Menu principal        
-        
 def menu_cotation():
     while True:
         clean_window()
-        print(f'''
+        print('''
         | ===================== Menu Quotes ==================== |
         | ------------------------------------------------------ |
         | -                 Consult   Dólar    1               - |
@@ -300,30 +76,24 @@ def menu_cotation():
         | ====================================================== |
         ''')
 
-        option = ' '
-        option = input("Choose your option: ")
+        option = input("Choose your option: ").strip()
         if option == '1':
-            dolar()
+            convert_currency("Dólar", "USD")
         elif option == '2':
-            euro()
+            convert_currency("Euro", "EUR")
         elif option == '3':
-            franco()
+            convert_currency("Franco", "CHF")
         elif option == '4':
-            bitcoin()
+            convert_currency("Bitcoin", "BTC")
         elif option == '5':
-            iene()
+            convert_currency("Iene", "JPY")
         elif option == '6':
-            dolarcanadense()
+            convert_currency("CAD", "CAD")
         elif option == '0':
             clean_window()
             break
         else:
             print("Invalid Option")
 
-
-
-
-
-
-def __init__(self):
+if __name__ == "__main__":
     menu_cotation()
